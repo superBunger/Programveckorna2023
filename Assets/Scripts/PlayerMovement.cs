@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Spelarens input uppdelat i x och y axeln
+        //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
     }

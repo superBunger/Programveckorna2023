@@ -25,8 +25,14 @@ public class enemyeyesight : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("player detected"); //om fienden ser en spelare kommer den säga det - max
-            detected = true;
+            detected = true; //om den ser fienden blir detected sann - max
+            StartCoroutine(detectedTimer());
+        }
+
+        IEnumerator detectedTimer()
+        {
+            yield return new WaitForSeconds(3);
+            detected = false;
         }
     }
 }

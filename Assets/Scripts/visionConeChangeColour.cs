@@ -5,6 +5,7 @@ using UnityEngine;
 public class visionConeChangeColour : MonoBehaviour
 {
     Color redVision = new Color(0.8773585f, 0.2267888f, 0.2553718f, 0.972549f);
+    Color yellowVision = new Color(1f, 0.9592047f, 0.2962264f, 1f);
     SpriteRenderer sr;
     enemyeyesight ees;
     GameObject enemy;
@@ -15,16 +16,26 @@ public class visionConeChangeColour : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         enemy = FindObjectOfType<enemyeyesight>().gameObject;
         ees = enemy.GetComponent<enemyeyesight>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ees.detected == true)
+        if (ees.detected == true)
         {
-            print("awesome");
-            sr.color = redVision; //om detected är sann så blir synen röd
+            StartCoroutine(redVisionTimer());
+            sr.color = redVision; //om detected är sann så blir synen röd - max
         }
     }
+
+    IEnumerator redVisionTimer()
+    {
+        print("coroutineStarted");
+        yield return new WaitForSeconds(3);
+        sr.color = yellowVision;
+        
+    }
+
+
 }

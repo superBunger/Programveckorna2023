@@ -6,7 +6,7 @@ public class enemyeyesight : MonoBehaviour
 {
 
     public bool detected = false;
-    
+    public bool colourChangeBack = false;
 
 
     // Start is called before the first frame update
@@ -21,12 +21,27 @@ public class enemyeyesight : MonoBehaviour
         
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && detected == true)
+        {
+            detected = false; // om man slutar bli sedd blir den falsk, och en kod för att ändra tillbaka färgen börjar - max och erik
+            colourChangeBack = true;
+            
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("player detected"); //om fienden ser en spelare kommer den säga det - max
-            detected = true;
+            detected = true; //om man blir sedd blir detected sann - max och erik
         }
+
+       
+    
+
     }
+
+
 }

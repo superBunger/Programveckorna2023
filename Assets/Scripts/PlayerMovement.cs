@@ -20,6 +20,16 @@ public class PlayerMovement : MonoBehaviour
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+
+        //Test för speedboost powerup
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            playerSpeed = 500;
+        }
+        else
+        {
+            playerSpeed = 300;
+        }
     }
 
     void FixedUpdate()

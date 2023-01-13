@@ -24,7 +24,7 @@ public class visionConeChangeColour : MonoBehaviour
         if(ees.detected == true)
         {
             print("awesome");
-            sr.material.SetColor("_color", redVision);
+            sr.color = redVision; //om detected är sann så blir synen röd
         }
     }
 }

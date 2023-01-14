@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class enemyeyesight : MonoBehaviour
 {
-
+ 
     public bool detected = false;
     public bool colourChangeBack = false;
+    public bool isAlarming;
 
 
     // Start is called before the first frame update
@@ -35,7 +36,13 @@ public class enemyeyesight : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            detected = true; //om man blir sedd blir detected sann - max och erik
+            detected = true;//om man blir sedd blir detected sann - max och erik
+            if (isAlarming == false)
+            {
+                isAlarming = true;
+                FindObjectOfType<AudioManager>().Play("DetectionAlarm");
+
+            }
         }
 
        

@@ -9,18 +9,20 @@ public class pathfinding : MonoBehaviour
 {
     public int othersSee = 0;
     [SerializeField]
-    Transform player;
+    Transform playerTransform;
     NavMeshAgent agent;
+    GameObject Player;
     private void Start () {
         agent = GetComponent<NavMeshAgent>();
+        
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
     void Update()
     {
-        if (othersSee == 1)
+        if (othersSee >= 1)
         {
-            agent.SetDestination(player.position);
+            agent.SetDestination(playerTransform.position);
         }
-    }    
+    }
 }

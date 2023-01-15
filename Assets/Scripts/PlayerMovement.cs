@@ -36,4 +36,12 @@ public class PlayerMovement : MonoBehaviour
         //Spelarens hastighet som beror på playerSpeed och movement
         rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Juggernaut")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -4,31 +4,53 @@ using UnityEngine;
 
 public class enemyeyesight : MonoBehaviour
 {
- 
+
     public bool detected = false;
     public bool colourChangeBack = false;
-    public bool isAlarming;
+    
+    public bool isAlarming = false; //Is it playing the alarm?
+    public bool isDetected = false; //Is it playing the "Ambience" ambience?
+    bool isChangingToNormal = false; //Is it trying to change from detected to normal?
+    bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
+    Coroutine changeToNormal;
+    
     void Update()
     {
+        if(detected == false && isDetected == true && isChangingToNormal == false)
+        {
+            changeToNormal = StartCoroutine(ChangeAmbienceNormalCooldown(10.0f));
+            isChangingToNormal = true;
+        }
+
+        if(detected == true && isDetected == true)
+        {
+            StopCoroutine(changeToNormal);
+        }
+    }
+
+    public IEnumerator ChangeAmbienceDetectedCooldown (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        FindObjectOfType<AudioManager>().ChangeAmbienceDetected();
         
     }
 
+    public IEnumerator ChangeAmbienceNormalCooldown (float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        FindObjectOfType<AudioManager>().ChangeAmbienceNormal();
+        isDetected = false;
+        isChangingToDetected = false;
+    }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && detected == true)
         {
-            detected = false; // om man slutar bli sedd blir den falsk, och en kod för att ändra tillbaka färgen börjar - max och erik
+            detected = false; // om man slutar bli sedd blir den falsk, och en kod fï¿½r att ï¿½ndra tillbaka fï¿½rgen bï¿½rjar - max och erik
             colourChangeBack = true;
-            
+            isDetected = true;
         }
     }
 
@@ -37,18 +59,19 @@ public class enemyeyesight : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             detected = true;//om man blir sedd blir detected sann - max och erik
+            isChangingToNormal = false;
+            
+            if(isChangingToDetected == false)
+            {
+            StartCoroutine(ChangeAmbienceDetectedCooldown(5.0f));
+            isChangingToDetected = true;
+            }
+
             if (isAlarming == false)
             {
                 isAlarming = true;
                 FindObjectOfType<AudioManager>().Play("DetectionAlarm");
-
             }
         }
-
-       
-    
-
     }
-
-
 }

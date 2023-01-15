@@ -7,10 +7,15 @@ public class SettingsMenu : MonoBehaviour
 {
     public Animator settingsAnimator;
     public AudioMixer mixer;
-    public AudioSource menuMusic;
     
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape) && !settingsAnimator.GetBool("SettingsLoaded"))
+        {
+            settingsAnimator.SetTrigger("SettingsClose");
+            settingsAnimator.SetBool("SettingsLoaded", false);
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape) && settingsAnimator.GetBool("SettingsLoaded"))
         {
             settingsAnimator.SetTrigger("SettingsClose");
@@ -45,13 +50,13 @@ public class SettingsMenu : MonoBehaviour
     //Mute Menu Music Checkbox
     public void muteMenuMusic(bool isPlaying)
     {
-        if (isPlaying)
+        if(!isPlaying)
         {
-            menuMusic.Stop();
+            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
         }
-        else
+        if(isPlaying)
         {
-            menuMusic.Play();
+            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
         }
     }
 

@@ -1,20 +1,17 @@
-using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
 	public static AudioManager instance;
-
 	public AudioMixerGroup mixerGroup;
-
 	public Sound[] sounds;
 
 	void Start()
 	{
-		Play("Ambience");
-        Play("AmbienceDetected");
+
     }
 
 	void Awake()
@@ -55,16 +52,46 @@ public class AudioManager : MonoBehaviour
 
 	public void ChangeVolume(string sound, float volume)
 	{
-        Sound s = Array.Find(sounds, item => item.name == sound);
-        s.source.volume = s.volume = volume;
-    }
-	void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.R))
-		{
-			ChangeVolume("Ambience", 0f);
-            ChangeVolume("AmbienceDetected", 1f);
-        }
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		s.source.volume = volume;
 	}
 
+    public IEnumerator FadeOut(string sound, float FadeTime)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		float startVolume = s.source.volume;
+        while (s.source.volume > 0)
+        {
+            s.source.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        startVolume = s.source.volume;
+	}
+
+	public IEnumerator FadeIn(string sound, float FadeTime)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		float startVolume = 0.2f;
+		s.source.volume = 0;
+        while (s.source.volume < 1.0f)
+        {
+            s.source.volume += startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        startVolume = s.source.volume;
+	}
+
+	public void StopMenuMusic(){FindObjectOfType<AudioManager>().StartCoroutine(FadeOut("MenuTheme", 1.0f));}
+
+	public void ChangeAmbienceDetected()
+	{
+		StartCoroutine(FadeOut("Ambience", 1f));
+		StartCoroutine(FadeIn("AmbienceDetected", 0.2f));
+	}
+
+	public void ChangeAmbienceNormal()
+	{
+		StartCoroutine(FadeOut("AmbienceDetected", 1f));
+		StartCoroutine(FadeIn("Ambience", 0.2f));
+	}
 }

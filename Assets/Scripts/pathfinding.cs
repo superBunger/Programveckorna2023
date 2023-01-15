@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class pathfinding : MonoBehaviour
 {
+    public bool activated = false;
     public int othersSee = 0;
     [SerializeField]
     Transform playerTransform;
@@ -22,6 +23,7 @@ public class pathfinding : MonoBehaviour
     {
         if (othersSee >= 1)
         {
+            activated = true;
             agent.SetDestination(playerTransform.position);
         }
     }

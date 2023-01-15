@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class rotatingVision : MonoBehaviour
 {
+    [SerializeField]
+    public pathfinding juggernaut;
     float rotation;
-    bool peepin = false;
+    public bool peepin = false;
     Transform target;
 
         private void Start()
         {
+        FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         target = GameObject.FindWithTag("Player").transform; //States what the player character is
         }
     // Update is called once per frame
@@ -22,7 +25,7 @@ public class rotatingVision : MonoBehaviour
 
         else
         {
-            transform.right = target.position - transform.position; //If it does it locks onto the player
+            transform.up = target.position - transform.position; //If it does it locks onto the player
         }
         
         }
@@ -33,7 +36,8 @@ public class rotatingVision : MonoBehaviour
         {
             print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
             peepin = true;
-            //Sends a message to the console and sets the bool to have the enemy lock on to the player
+            juggernaut.othersSee += 1;
+            //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
         }
     }
 }

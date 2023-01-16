@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float playerSpeed = 200f;
-    public float boostspeed = 100f;
-    public float coolDown = 1f;
-    public float duration = 1f;
-    float timer = 0f;
-    float durationTimer = 0f;
+    float playerSpeed = 350f;
+    float boostspeed = 350f;
+    float speedDuration = 2.5f;
+    bool speedBoostActive = false;
+   
     Vector2 movement;
 
     public energiSystem es;
@@ -38,18 +37,22 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
-        timer += Time.deltaTime;
-        if (timer > coolDown && Input.GetKeyDown(KeyCode.Alpha1))
+       
+        if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
             playerSpeed += boostspeed;
-            timer = 0;
+            StartCoroutine(speedBoostPower());
+            speedBoostActive = true;
+            es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max
+
         }
 
-        durationTimer += Time.deltaTime;
-        if (durationTimer > duration && playerSpeed > playerSpeed + 50)
+        IEnumerator speedBoostPower()
         {
+            yield return new WaitForSeconds(speedDuration);
             playerSpeed -= boostspeed;
-            timer = 0;
+            yield return new WaitForSeconds(1);
+            speedBoostActive = false; //den här timern väntar 2.5s för att ta bort farten och sen en till sekund innan man kan använda speed boost igen. - max
         }
     }
     

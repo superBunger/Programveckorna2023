@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
-            es.energyBar = -2;
+            es.energyBar -= 2;
             sBombSmoker = Instantiate(smokeBomb, transform.position, transform.rotation);
             StartCoroutine(smokeBombTimer());
             smoking = true;

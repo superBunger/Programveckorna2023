@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
 	{
-		Play("PlayerFootsteps");
+		
     }
 
 	void Awake()
@@ -81,7 +81,10 @@ public class AudioManager : MonoBehaviour
         startVolume = s.source.volume;
 	}
 
-	public void StopMenuMusic(){FindObjectOfType<AudioManager>().StartCoroutine(FadeOut("MenuTheme", 1.0f));}
+	public void StopMenuMusic()
+	{
+		FindObjectOfType<AudioManager>().StartCoroutine(FadeOut("MenuTheme", 0.5f));
+	}
 
 	public void ChangeAmbienceDetected()
 	{

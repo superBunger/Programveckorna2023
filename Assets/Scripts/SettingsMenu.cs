@@ -7,9 +7,13 @@ public class SettingsMenu : MonoBehaviour
 {
     public Animator settingsAnimator;
     public AudioMixer mixer;
-    
+
+    public SaveData savingScript;
+    public bool mutedAudio = false;
+
     void Update()
     {
+        
         if(Input.GetKeyDown(KeyCode.Escape) && !settingsAnimator.GetBool("SettingsLoaded"))
         {
             settingsAnimator.SetTrigger("SettingsClose");
@@ -20,6 +24,7 @@ public class SettingsMenu : MonoBehaviour
         {
             settingsAnimator.SetTrigger("SettingsClose");
             settingsAnimator.SetBool("SettingsLoaded", false);
+            savingScript.writeFile();
         }
     }
 
@@ -43,20 +48,22 @@ public class SettingsMenu : MonoBehaviour
     //Toggle Fullscreen Checkbox
     public void setFullscreen (bool isFullscreen)
     {
-        
         Screen.fullScreen = isFullscreen;
     }
     
     //Mute Menu Music Checkbox
     public void muteMenuMusic(bool isPlaying)
     {
-        if(!isPlaying)
+        if(isPlaying == false)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
+            savingScript.gameDataClass.hasMenuThemeMuted = false;
+
         }
-        if(isPlaying)
+        if(isPlaying == true)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
+            savingScript.gameDataClass.hasMenuThemeMuted = true;
         }
     }
 

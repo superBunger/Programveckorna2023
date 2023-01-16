@@ -9,9 +9,9 @@ public class MainMenu : MonoBehaviour
     public Animator settingsAnimator;
     public LevelLoader levelLoaderScript;
 
-    public void Awake()
+    public void Start()
     {
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+        
     }
 
     //"New Game" Button
@@ -19,8 +19,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         FindObjectOfType<AudioManager>().StopMenuMusic();
-        FindObjectOfType<AudioManager>().Play("Ambience");
-        FindObjectOfType<AudioManager>().Play("AmbienceDetected");
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();
     }

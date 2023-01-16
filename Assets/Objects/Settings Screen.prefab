@@ -893,6 +893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsAnimator: {fileID: 8481534681757020633}
   mixer: {fileID: 24100000, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+  savingScript: {fileID: 0}
+  mutedAudio: 0
 --- !u!1 &8481534681761751672
 GameObject:
   m_ObjectHideFlags: 0

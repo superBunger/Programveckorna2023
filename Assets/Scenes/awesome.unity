@@ -433,41 +433,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6f93aaed8b3546abb9a2ffdb17809, type: 3}
---- !u!1 &1499155402 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7274845357375514201, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
-  m_PrefabInstance: {fileID: 1900499160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1499155403 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7274845357375514194, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
   m_PrefabInstance: {fileID: 1900499160}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499155402}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce6519393b4cab2469c6b072b1fe5c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1499155408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499155402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6fb68671e3c7d445b8f4e0d908233be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyBar: 0
-  barOne: {fileID: 0}
-  barTwo: {fileID: 0}
-  barThree: {fileID: 0}
-  barFour: {fileID: 0}
-  speedIcon: {fileID: 0}
-  pm: {fileID: 0}
 --- !u!1001 &1819087107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,6 +578,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7274845357375514197, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274845357375514198, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7274845357375514201, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}

@@ -69,7 +69,7 @@ public class energiSystem : MonoBehaviour
         }
         else
         {
-            speedIcon.SetActive(true);
+            speedIcon.SetActive(true); //ändrar färg på speedboost ikonen när man inte kan använda den - max (det)
         }
     }
 }

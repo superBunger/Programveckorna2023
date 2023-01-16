@@ -25,10 +25,12 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 1)
         {
             barOne.SetActive(true);
+            speedIcon.SetActive(true);
         }
         else
         {
             barOne.SetActive(false);
+            speedIcon.SetActive(false);
         }
 
         if (energyBar >= 2)
@@ -63,14 +65,7 @@ public class energiSystem : MonoBehaviour
             energyBar = 4;  //ser till att energi inte kan åka över 4 - max
         }
 
-        if (pm.speedBoostActive == true)
-        {
-            speedIcon.SetActive(false);
-        }
-        else
-        {
-            speedIcon.SetActive(true); //ändrar färg på speedboost ikonen när man inte kan använda den - max (det)
-        }
+       
     }
 }
 

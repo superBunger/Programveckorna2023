@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float coolDown = 1f;
     public float duration = 1f;
     float timer = 0f;
+    float durationTimer = 0f;
     Vector2 movement;
 
     public energiSystem es;
@@ -42,11 +43,13 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSpeed += boostspeed;
             timer = 0;
-            if (timer > duration)
-            {
-                playerSpeed -= boostspeed;
-                timer = 0;
-            }
+        }
+
+        durationTimer += Time.deltaTime;
+        if (durationTimer > duration && playerSpeed > playerSpeed + 50)
+        {
+            playerSpeed -= boostspeed;
+            timer = 0;
         }
     }
     

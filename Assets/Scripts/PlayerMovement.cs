@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "battery")
         {
+            FindObjectOfType<AudioManager>().Play("BatteryCharge");
             es.energyBar += 1;
             Destroy(collision.gameObject); //lägger till en energi och förstår batteriet när man rör det - max 
         }

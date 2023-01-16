@@ -7,12 +7,23 @@ public class MainMenu : MonoBehaviour
 {
     public Animator creditsAnimator;
     public Animator settingsAnimator;
+    public LevelLoader levelLoaderScript;
+
+    public void Awake()
+    {
+        FindObjectOfType<AudioManager>().Play("MenuTheme");
+    }
 
     //"New Game" Button
     //Loads the scene with the next build index (Seen in File -> Build Settings)
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FindObjectOfType<AudioManager>().StopMenuMusic();
+        FindObjectOfType<AudioManager>().Play("Ambience");
+        FindObjectOfType<AudioManager>().Play("AmbienceDetected");
+		FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
+        levelLoaderScript.transition.SetTrigger("ClickNewGame");
+        levelLoaderScript.LoadNextLevel();
     }
 
     //"Settings" button

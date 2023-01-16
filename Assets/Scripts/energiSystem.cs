@@ -25,7 +25,7 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 1)
         {
             barOne.SetActive(true);
-            speedIcon.SetActive(true);
+            speedIcon.SetActive(true); //om man har nog med energi för att använda den blir den ifärgad
         }
         else
         {

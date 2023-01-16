@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     float playerSpeed = 350f;
     float boostspeed = 350f;
     float speedDuration = 2.5f;
-    bool speedBoostActive = false;
+    public bool speedBoostActive = false;
    
     Vector2 movement;
 

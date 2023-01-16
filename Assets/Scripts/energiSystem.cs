@@ -9,7 +9,9 @@ public class energiSystem : MonoBehaviour
     public GameObject barTwo;
     public GameObject barThree;
     public GameObject barFour;
+    public GameObject speedIcon;
 
+    public PlayerMovement pm;
 
     // Start is called before the first frame update
     void Start()
@@ -60,5 +62,15 @@ public class energiSystem : MonoBehaviour
         {
             energyBar = 4;  //ser till att energi inte kan åka över 4 - max
         }
+
+        if (pm.speedBoostActive == true)
+        {
+            speedIcon.SetActive(false);
+        }
+        else
+        {
+            speedIcon.SetActive(true);
+        }
     }
 }
+

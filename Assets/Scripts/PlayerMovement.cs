@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float playerSpeed = 1f;
+    public float playerSpeed =300f;
     Vector2 movement;
 
     // Start is called before the first frame update
@@ -20,16 +20,7 @@ public class PlayerMovement : MonoBehaviour
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
-
-        //Test för speedboost powerup
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            playerSpeed = 500;
-        }
-        else
-        {
-            playerSpeed = 300;
-        }
+        
     }
 
     void FixedUpdate()

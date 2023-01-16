@@ -21,7 +21,6 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().StopMenuMusic();
         FindObjectOfType<AudioManager>().Play("Ambience");
         FindObjectOfType<AudioManager>().Play("AmbienceDetected");
-		FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();
     }

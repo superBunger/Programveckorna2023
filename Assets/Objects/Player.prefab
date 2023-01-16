@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 7274845357375514198}
   - component: {fileID: 4246786927011732908}
   - component: {fileID: 7274845357375514194}
-  - component: {fileID: 8870211909908327537}
   - component: {fileID: 5931923092286874362}
   m_Layer: 0
   m_Name: Player
@@ -261,21 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 325
---- !u!114 &8870211909908327537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7274845357375514201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2b0eba1c4787d4da577ac9035d7fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoostMult: 1
-  Cooldown: 1
-  timer: 0
+  es: {fileID: 0}
 --- !u!61 &5931923092286874362
 BoxCollider2D:
   m_ObjectHideFlags: 0

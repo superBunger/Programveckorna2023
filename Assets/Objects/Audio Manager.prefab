@@ -91,3 +91,30 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
     source: {fileID: 0}
+  - name: BatteryCharge
+    clip: {fileID: 8300000, guid: aadeddc9e7979cd44887e9e4bae778d5, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.33
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: BatteryDischarge
+    clip: {fileID: 8300000, guid: 832097e4a40db2746b570b63c95d0b1d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.33
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: JuggernautSummon
+    clip: {fileID: 8300000, guid: aa94011e348a4c84eaba768a35d5850b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}

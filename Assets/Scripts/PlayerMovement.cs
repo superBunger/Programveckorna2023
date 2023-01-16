@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
             playerSpeed += boostspeed;
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             StartCoroutine(speedBoostPower());
             speedBoostActive = true;
             es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max

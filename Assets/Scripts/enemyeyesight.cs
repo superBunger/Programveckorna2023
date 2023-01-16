@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyeyesight : MonoBehaviour
 {
+    public pathfinding juggernaut;
 
     public bool detected = false;
     
@@ -14,7 +15,6 @@ public class enemyeyesight : MonoBehaviour
     bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
     Coroutine changeToNormal;
-    
     void Update()
     {
         if(detected == false && isDetected == true && isChangingToNormal == false)
@@ -50,6 +50,7 @@ public class enemyeyesight : MonoBehaviour
         {
             detected = false; // om man slutar bli sedd blir den falsk, och en kod f�r att �ndra tillbaka f�rgen b�rjar - max och erik
             isDetected = true;
+            juggernaut.othersSee -= 1;
         }
     }
 
@@ -59,6 +60,7 @@ public class enemyeyesight : MonoBehaviour
         {
             detected = true;//om man blir sedd blir detected sann - max och erik
             isChangingToNormal = false;
+            juggernaut.othersSee += 1;
             
             if(isChangingToDetected == false)
             {

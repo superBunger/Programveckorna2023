@@ -40,4 +40,13 @@ public class rotatingVision : MonoBehaviour
             //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            peepin = false;
+            juggernaut.othersSee -= 1;
+        }
+    }
 }

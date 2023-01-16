@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 1470130856005101204}
   - component: {fileID: 1470130856005101206}
   - component: {fileID: 1470130856005101201}
-  - component: {fileID: 5594708642979311744}
   - component: {fileID: 1659192289}
   m_Layer: 0
   m_Name: enemy
@@ -284,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  juggernaut: {fileID: 0}
   detected: 0
   isAlarming: 0
   isDetected: 0
@@ -319,32 +319,6 @@ PolygonCollider2D:
       - {x: -0.14828277, y: 0.5175593}
       - {x: 0.18055248, y: 0.4927733}
       - {x: 2.0624478, y: 5.225309}
---- !u!61 &5594708642979311744
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470130856005101210}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!61 &1659192289
 BoxCollider2D:
   m_ObjectHideFlags: 0

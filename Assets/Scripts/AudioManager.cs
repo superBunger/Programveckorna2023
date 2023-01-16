@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 
 	void Start()
 	{
-
+		Play("PlayerFootsteps");
     }
 
 	void Awake()

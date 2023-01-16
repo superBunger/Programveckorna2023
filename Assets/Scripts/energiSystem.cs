@@ -10,6 +10,7 @@ public class energiSystem : MonoBehaviour
     public GameObject barThree;
     public GameObject barFour;
     public GameObject speedIcon;
+    public GameObject smokeIcon;
 
     public PlayerMovement pm;
 
@@ -25,7 +26,7 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 1)
         {
             barOne.SetActive(true);
-            speedIcon.SetActive(true); //om man har nog med energi för att använda den blir den ifärgad
+            speedIcon.SetActive(true); //om man har nog med energi för att använda den blir den ifärgad - max
         }
         else
         {
@@ -36,10 +37,12 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 2)
         {
             barTwo.SetActive(true);
+            smokeIcon.SetActive(true);
         }
         else
         {
             barTwo.SetActive(false);
+            smokeIcon.SetActive(false); //om man har nog med energi, ifärgad - max
         }
 
         if (energyBar >= 3)

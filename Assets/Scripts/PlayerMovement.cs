@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     public energiSystem es;
+
+    public GameObject smokeBomb;
+    public bool smoking;
+    GameObject sBombSmoker;
     
 
     // Start is called before the first frame update
@@ -53,6 +57,22 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed -= boostspeed;
             yield return new WaitForSeconds(1);
             speedBoostActive = false; //den här timern väntar 2.5s för att ta bort farten och sen en till sekund innan man kan använda speed boost igen. - max
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
+        {
+            es.energyBar = -2;
+            sBombSmoker = Instantiate(smokeBomb, transform.position, transform.rotation);
+            StartCoroutine(smokeBombTimer());
+            smoking = true;
+            
+        }
+
+        IEnumerator smokeBombTimer()
+        {
+            yield return new WaitForSeconds(10);
+            smoking = false;
+            Destroy(sBombSmoker);
         }
     }
     

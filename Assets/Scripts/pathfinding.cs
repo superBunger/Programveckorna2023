@@ -13,7 +13,11 @@ public class pathfinding : MonoBehaviour
     Transform playerTransform;
     NavMeshAgent agent;
     GameObject Player;
-    private void Start () {
+
+    bool isScreaming = false;
+
+    private void Start () 
+    {
         agent = GetComponent<NavMeshAgent>();
         
         agent.updateRotation = false;
@@ -23,8 +27,17 @@ public class pathfinding : MonoBehaviour
     {
         if (othersSee >= 1)
         {
+            if(isScreaming == false)
+            {
+                FindObjectOfType<AudioManager>().Play("JuggernautSummon");
+                isScreaming = true;
+            }
             activated = true;
             agent.SetDestination(playerTransform.position);
+        }
+        else
+        {
+            isScreaming = false;
         }
     }
 }

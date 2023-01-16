@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedc9a180fb18e04881dcde7b4be4fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  juggernaut: {fileID: 0}
+  juggernaut: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
   peepin: 0
 --- !u!60 &1876179007
 PolygonCollider2D:

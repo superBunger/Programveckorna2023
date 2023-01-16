@@ -6,7 +6,7 @@ public class enemyeyesight : MonoBehaviour
 {
 
     public bool detected = false;
-    public bool colourChangeBack = false;
+    
     
     public bool isAlarming = false; //Is it playing the alarm?
     public bool isDetected = false; //Is it playing the "Ambience" ambience?
@@ -49,7 +49,6 @@ public class enemyeyesight : MonoBehaviour
         if (collision.gameObject.tag == "Player" && detected == true)
         {
             detected = false; // om man slutar bli sedd blir den falsk, och en kod f�r att �ndra tillbaka f�rgen b�rjar - max och erik
-            colourChangeBack = true;
             isDetected = true;
         }
     }

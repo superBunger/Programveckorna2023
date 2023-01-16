@@ -25,7 +25,7 @@ public class visionConeChangeColour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ees.colourChangeBack == true && ees.detected == false)
+        if (ees.detected == false)
         {
             if (routineStarted == false) //routine started används för att se till att bara en routine är active åt gången - max och erik
             {

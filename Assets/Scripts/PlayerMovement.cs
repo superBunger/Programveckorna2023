@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 200f;
     Vector2 movement;
 
+    energiSystem es;
+    GameObject uiForReference;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
+        uiForReference = FindObjectOfType<energiSystem>().gameObject;
+        es = uiForReference.GetComponent<energiSystem>();
     }
 
     // Update is called once per frame
@@ -42,6 +47,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Juggernaut")
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "battery")
+        {
+            es.energyBar += 1;
+            Destroy(collision.gameObject); //lägger till en energi och förstår batteriet när man rör det - max 
         }
     }
 }

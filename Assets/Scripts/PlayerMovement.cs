@@ -78,5 +78,10 @@ public class PlayerMovement : MonoBehaviour
             es.energyBar += 1;
             Destroy(collision.gameObject); //lägger till en energi och förstår batteriet när man rör det - max 
         }
+
+        else if (collision.gameObject.tag == "Juggernaut")
+        {
+            Destroy(gameObject);
+        }
     }
 }

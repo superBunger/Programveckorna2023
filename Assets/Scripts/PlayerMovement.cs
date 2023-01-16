@@ -8,15 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 200f;
     Vector2 movement;
 
-    energiSystem es;
-    GameObject uiForReference;
+    public energiSystem es;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
-        uiForReference = FindObjectOfType<energiSystem>().gameObject;
-        es = uiForReference.GetComponent<energiSystem>();
     }
 
     // Update is called once per frame

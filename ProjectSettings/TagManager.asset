@@ -8,6 +8,7 @@ TagManager:
   - Breakable wall
   - Juggernaut
   - battery
+  - barOne
   layers:
   - Default
   - TransparentFX

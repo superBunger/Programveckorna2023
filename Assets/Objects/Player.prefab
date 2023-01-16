@@ -60,7 +60,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7274845357375514199}
   - component: {fileID: 7274845357375514198}
   - component: {fileID: 7274845357375514194}
+  - component: {fileID: 8870211909908327537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.03267311, g: 0.33962262, b: 0, a: 1}
   m_FlipX: 0
@@ -185,10 +186,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 50
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 56bd75f863b2dd045ac57915cf5bbba0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -232,3 +233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 325
+--- !u!114 &8870211909908327537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274845357375514201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2b0eba1c4787d4da577ac9035d7fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedBoostMult: 1
+  Cooldown: 1
+  timer: 0

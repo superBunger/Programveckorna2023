@@ -70,8 +70,7 @@ public class enemyeyesight : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            if (pss.insideSmoke == false)
-            {
+            
                 detected = true;  //om man blir sedd blir detected sann - max och erik
                 isChangingToNormal = false;
                 juggernaut.othersSee += 1;
@@ -87,7 +86,7 @@ public class enemyeyesight : MonoBehaviour
                     isAlarming = true;
                     FindObjectOfType<AudioManager>().Play("DetectionAlarm");
                 }
-            }            
+                     
         }
     }
 }

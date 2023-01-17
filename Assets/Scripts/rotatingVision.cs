@@ -12,7 +12,7 @@ public class rotatingVision : MonoBehaviour
     
 
 
-    particlesystemscript pss;
+    public particlesystemscript pss;
 
     private void Start()
     {
@@ -35,12 +35,17 @@ public class rotatingVision : MonoBehaviour
             transform.up = target.position - transform.position; //If it does it locks onto the player
         }
 
+        if(pss.insideSmoke == true)
+        {
+            peepin = false;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false)
         {
 
             print("FUCKING THING IN SIGHT SHOOT IT DOWN!");

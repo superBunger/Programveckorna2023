@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414625971}
   - component: {fileID: 1414625972}
+  - component: {fileID: 1088718290346013500}
   - component: {fileID: 535513505178734810}
   m_Layer: 0
   m_Name: Visioncone
@@ -85,6 +86,86 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1088718290346013500
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414625970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 5.72}
+    newSize: {x: 4, y: 5.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.84, y: -1.24}
+      - {x: 0.89, y: -1.12}
+      - {x: 1.43, y: 0.22999999}
+      - {x: 1.48, y: 0.35}
+      - {x: 1.88, y: 1.35}
+      - {x: 1.88, y: 1.37}
+      - {x: 1.93, y: 1.4399999}
+      - {x: 1.99, y: 1.5799999}
+      - {x: 2, y: 1.5999999}
+      - {x: 2, y: 1.92}
+      - {x: 1.99, y: 1.9599999}
+      - {x: 1.9699999, y: 2.01}
+      - {x: 1.93, y: 2.1}
+      - {x: 1.89, y: 2.1599998}
+      - {x: 1.73, y: 2.32}
+      - {x: 1.64, y: 2.3899999}
+      - {x: 1.55, y: 2.45}
+      - {x: 1.51, y: 2.48}
+      - {x: 1.3199999, y: 2.57}
+      - {x: 1.25, y: 2.6}
+      - {x: 1.15, y: 2.6399999}
+      - {x: 0.94, y: 2.71}
+      - {x: 0.83, y: 2.74}
+      - {x: 0.63, y: 2.79}
+      - {x: 0.42999998, y: 2.83}
+      - {x: 0.25, y: 2.86}
+      - {x: -0.25, y: 2.86}
+      - {x: -0.37, y: 2.84}
+      - {x: -0.48, y: 2.82}
+      - {x: -0.63, y: 2.79}
+      - {x: -0.95, y: 2.71}
+      - {x: -1.01, y: 2.69}
+      - {x: -1.06, y: 2.6699998}
+      - {x: -1.15, y: 2.6399999}
+      - {x: -1.1999999, y: 2.62}
+      - {x: -1.3199999, y: 2.57}
+      - {x: -1.56, y: 2.45}
+      - {x: -1.65, y: 2.3899999}
+      - {x: -1.73, y: 2.32}
+      - {x: -1.8499999, y: 2.2}
+      - {x: -1.93, y: 2.1}
+      - {x: -1.99, y: 1.9599999}
+      - {x: -2, y: 1.9399999}
+      - {x: -2, y: 1.62}
+      - {x: -1.99, y: 1.5799999}
+      - {x: -1.9699999, y: 1.53}
+      - {x: -1.88, y: 1.37}
+      - {x: -1.88, y: 1.35}
+      - {x: -1.4599999, y: 0.29999998}
+      - {x: -0.87, y: -1.17}
+      - {x: -0.26, y: -2.69}
+      - {x: -0.19, y: -2.86}
+      - {x: 0.19, y: -2.86}
+      - {x: 0.22999999, y: -2.76}
+      - {x: 0.26, y: -2.69}
 --- !u!114 &535513505178734810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +192,6 @@ GameObject:
   - component: {fileID: 5415615454451351186}
   - component: {fileID: 5415615454451351185}
   - component: {fileID: 150122485095876891}
-  - component: {fileID: 303133551870261206}
   m_Layer: 0
   m_Name: Uggla
   m_TagString: Untagged
@@ -225,9 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedc9a180fb18e04881dcde7b4be4fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: 0
+  juggernaut: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
   peepin: 0
-  particlesystemS: {fileID: 0}
 --- !u!114 &150122485095876891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,83 +324,3 @@ MonoBehaviour:
   isAlarming: 0
   isDetected: 0
   particlesystemS: {fileID: -9128850581995519935, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
---- !u!60 &303133551870261206
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5415615454451351214}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.35}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.84, y: -1.24}
-      - {x: 0.89, y: -1.12}
-      - {x: 1.43, y: 0.22999999}
-      - {x: 1.48, y: 0.35}
-      - {x: 1.88, y: 1.35}
-      - {x: 1.88, y: 1.37}
-      - {x: 1.93, y: 1.4399999}
-      - {x: 1.99, y: 1.5799999}
-      - {x: 2, y: 1.5999999}
-      - {x: 2, y: 1.92}
-      - {x: 1.99, y: 1.9599999}
-      - {x: 1.9699999, y: 2.01}
-      - {x: 1.93, y: 2.1}
-      - {x: 1.89, y: 2.1599998}
-      - {x: 1.73, y: 2.32}
-      - {x: 1.64, y: 2.3899999}
-      - {x: 1.55, y: 2.45}
-      - {x: 1.51, y: 2.48}
-      - {x: 1.3199999, y: 2.57}
-      - {x: 1.25, y: 2.6}
-      - {x: 1.15, y: 2.6399999}
-      - {x: 0.94, y: 2.71}
-      - {x: 0.83, y: 2.74}
-      - {x: 0.63, y: 2.79}
-      - {x: 0.42999998, y: 2.83}
-      - {x: 0.25, y: 2.86}
-      - {x: -0.25, y: 2.86}
-      - {x: -0.37, y: 2.84}
-      - {x: -0.48, y: 2.82}
-      - {x: -0.63, y: 2.79}
-      - {x: -0.95, y: 2.71}
-      - {x: -1.01, y: 2.69}
-      - {x: -1.06, y: 2.6699998}
-      - {x: -1.15, y: 2.6399999}
-      - {x: -1.1999999, y: 2.62}
-      - {x: -1.3199999, y: 2.57}
-      - {x: -1.56, y: 2.45}
-      - {x: -1.65, y: 2.3899999}
-      - {x: -1.73, y: 2.32}
-      - {x: -1.8499999, y: 2.2}
-      - {x: -1.93, y: 2.1}
-      - {x: -1.99, y: 1.9599999}
-      - {x: -2, y: 1.9399999}
-      - {x: -2, y: 1.62}
-      - {x: -1.99, y: 1.5799999}
-      - {x: -1.9699999, y: 1.53}
-      - {x: -1.88, y: 1.37}
-      - {x: -1.88, y: 1.35}
-      - {x: -1.4599999, y: 0.29999998}
-      - {x: -0.87, y: -1.17}
-      - {x: -0.26, y: -2.69}
-      - {x: -0.19, y: -2.86}
-      - {x: 0.19, y: -2.86}
-      - {x: 0.22999999, y: -2.76}
-      - {x: 0.26, y: -2.69}

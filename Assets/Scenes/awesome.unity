@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: es
       value: 
       objectReference: {fileID: 1959416687}
-    - target: {fileID: 7274845357375514194, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
-      propertyPath: pss
-      value: 
-      objectReference: {fileID: 544055753}
     - target: {fileID: 7274845357375514197, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -310,74 +306,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6f93aaed8b3546abb9a2ffdb17809, type: 3}
---- !u!1001 &544055752
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1156997142127341559, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_Name
-      value: smoker 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -25.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1156997142127341563, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
---- !u!114 &544055753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -9128850581995519935, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
-  m_PrefabInstance: {fileID: 544055752}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bde388f5301a1364d86086fc7ff85325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1245195832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,10 +357,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5415615454451351185, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-      propertyPath: pss
-      value: 
-      objectReference: {fileID: 544055753}
     - target: {fileID: 5415615454451351214, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: m_Name
       value: Uggla
@@ -460,6 +384,7 @@ MonoBehaviour:
   detected: 0
   isAlarming: 0
   isDetected: 0
+  pss: {fileID: 0}
 --- !u!1001 &1354152686
 PrefabInstance:
   m_ObjectHideFlags: 0

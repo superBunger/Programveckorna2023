@@ -5,23 +5,23 @@ using UnityEngine;
 public class rotatingVision : MonoBehaviour
 {
     [SerializeField]
-
+    
     float rotation;
     public bool peepin = false;
     Transform target;
+    bool routineStarted = false;
+
     
+    particlesystemscript pss;
 
-
-    public particlesystemscript pss;
-
-    private void Start()
-    {
+        private void Start()
+        {
 
         FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         target = GameObject.FindWithTag("Player").transform; //States what the player character is
 
-
-    }
+        
+        }
     // Update is called once per frame
     void Update()
     {
@@ -34,25 +34,24 @@ public class rotatingVision : MonoBehaviour
         {
             transform.up = target.position - transform.position; //If it does it locks onto the player
         }
-
-        if(pss.insideSmoke == true)
-        {
-            peepin = false;
+        
         }
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false)
+        if (collision.gameObject.tag == "Player")
         {
 
-            print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
-            peepin = true;
 
-            //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
+           
+          
+            
+                print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
+                peepin = true;
 
+                //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
+            
         }
     }
 
@@ -60,11 +59,29 @@ public class rotatingVision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-
-            peepin = false;
+            if (routineStarted == false)
+            {
+                StartCoroutine(peepinFalse());
+                routineStarted = true;
+            }
+            
+            if (routineStarted == true)
+            {
+                StopAllCoroutines();
+                routineStarted = false;
+            }
+            
         }
 
-
+       
     }
 
+    IEnumerator peepinFalse()
+    {
+        print("routineStarted");
+        yield return new WaitForSeconds(3);
+        peepin = false;
+        routineStarted = false;
+        print("awesome?? i want to kms");
+    }
 }

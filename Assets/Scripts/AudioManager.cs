@@ -8,10 +8,18 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 	public AudioMixerGroup mixerGroup;
 	public Sound[] sounds;
+	public PlayerMovement movement;
 
-	void Start()
+	void Update()
 	{
-		
+        if(movement.rb.velocity.magnitude > 0)
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
+        }
     }
 
 	void Awake()

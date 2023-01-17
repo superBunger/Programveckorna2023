@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject UI;
-    public energiSystem UIManager;
     public AudioManager audioManager;
     public SaveData DataManager;
     public LevelLoader LevelManager;

@@ -12,39 +12,25 @@ public class PlayerMovement : MonoBehaviour
    
     Vector2 movement;
 
-    energiSystem es;
-    GameObject uiForReference;
+    public energiSystem es;
 
     public GameObject smokeBomb; //prefab för smokebomb - m
     public bool smoking; //kollar om den röker - m
-    GameObject sBombSmoker; //används för att interagera med smokebomben - max
-    
-    
+    GameObject sBombSmoker; //används för att interagera med smokebomben - max    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
-        uiForReference = FindObjectOfType<energiSystem>().gameObject;
-        es = uiForReference.GetComponent<energiSystem>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(rb.velocity.magnitude > 0)
-        {
-            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
-        }
-
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
-
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {

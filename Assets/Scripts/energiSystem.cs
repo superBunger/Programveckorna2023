@@ -12,8 +12,6 @@ public class energiSystem : MonoBehaviour
     public GameObject speedIcon;
     public GameObject smokeIcon;
 
-    public PlayerMovement pm;
-
     // Start is called before the first frame update
     void Start()
     {

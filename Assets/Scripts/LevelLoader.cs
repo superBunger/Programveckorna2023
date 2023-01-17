@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
-    public GameObject UI;
 
     void Awake()
 	{
@@ -27,13 +26,11 @@ public class LevelLoader : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
-            UI.SetActive(false);
             FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
         
         else if(SceneManager.GetActiveScene().buildIndex >= 1)
         {
-            UI.SetActive(true);
             FindObjectOfType<AudioManager>().Play("Ambience");
             FindObjectOfType<AudioManager>().Play("AmbienceDetected");
             FindObjectOfType<AudioManager>().Play("PlayerFootsteps");

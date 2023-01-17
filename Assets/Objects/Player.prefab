@@ -291,6 +291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBoostActive: 0
-  es: {fileID: 0}
+  es: {fileID: 1871726056, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
   smokeBomb: {fileID: 1156997142127341559, guid: 598885eb4d99c554d8637d9e29cda799, type: 3}
   smoking: 0

@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7c450928c57c046abb38b7b8d75e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ees: {fileID: 150122485095876891}
 --- !u!1 &5415615454451351214
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +192,7 @@ GameObject:
   - component: {fileID: 5415615454451351186}
   - component: {fileID: 5415615454451351185}
   - component: {fileID: 1876179007}
+  - component: {fileID: 150122485095876891}
   m_Layer: 0
   m_Name: Uggla
   m_TagString: Untagged
@@ -339,3 +341,19 @@ PolygonCollider2D:
       - {x: -0.055212975, y: 0.52643204}
       - {x: 0.15785551, y: 0.59486103}
       - {x: 2.0396485, y: 5.187373}
+--- !u!114 &150122485095876891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415615454451351214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  juggernaut: {fileID: 0}
+  detected: 0
+  isAlarming: 0
+  isDetected: 0

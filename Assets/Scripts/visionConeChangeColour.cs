@@ -8,8 +8,8 @@ public class visionConeChangeColour : MonoBehaviour
     Color redVision = new Color(0.8773585f, 0.2267888f, 0.2553718f, 0.3f);
     Color yellowVision = new Color(1f, 0.9592047f, 0.2962264f, 0.3f);
     SpriteRenderer sr;
-    enemyeyesight ees;
-    GameObject enemy; 
+    public enemyeyesight ees;
+    
 
     bool routineStarted = false;
 
@@ -17,8 +17,7 @@ public class visionConeChangeColour : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        enemy = FindObjectOfType<enemyeyesight>().gameObject;
-        ees = enemy.GetComponent<enemyeyesight>();
+       
 
     }
 

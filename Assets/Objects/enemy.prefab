@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7c450928c57c046abb38b7b8d75e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ees: {fileID: 1470130856005101206}
 --- !u!60 &3296580040713026377
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  juggernaut: {fileID: 0}
+  juggernaut: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
   detected: 0
   isAlarming: 0
   isDetected: 0

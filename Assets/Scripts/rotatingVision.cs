@@ -36,7 +36,7 @@ public class rotatingVision : MonoBehaviour
         {
             print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
             peepin = true;
-            juggernaut.othersSee += 1;
+            
             //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
         }
     }
@@ -46,7 +46,7 @@ public class rotatingVision : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             peepin = false;
-            juggernaut.othersSee -= 1;
+            
         }
     }
 }

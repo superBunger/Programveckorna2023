@@ -14,9 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     public energiSystem es;
 
-    public GameObject smokeBomb;
-    public bool smoking;
-    GameObject sBombSmoker;
+    public GameObject smokeBomb; //prefab för smokebomb - m
+    public bool smoking; //kollar om den röker - m
+    GameObject sBombSmoker; //används för att interagera med smokebomben - max
+    
     
 
     // Start is called before the first frame update
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
             es.energyBar -= 2;
-            sBombSmoker = Instantiate(smokeBomb, transform.position, transform.rotation);
+            sBombSmoker = Instantiate(smokeBomb, transform.position, transform.rotation); //spawnar en rökbomb där man står om man har nog med energi - max
             StartCoroutine(smokeBombTimer());
             smoking = true;
             
@@ -72,9 +73,13 @@ public class PlayerMovement : MonoBehaviour
         IEnumerator smokeBombTimer()
         {
             yield return new WaitForSeconds(10);
-            smoking = false;
-            Destroy(sBombSmoker);
+            ParticleSystem smokerParticleSystem = sBombSmoker.GetComponent<ParticleSystem>(); 
+            smokerParticleSystem.Stop(); //stänger av systemet efter 10 sekunder - max
+            yield return new WaitForSeconds(5);
+            Destroy(sBombSmoker); //väntar innan all rök har försvunnit för att ta bort texturen - max
+            smoking = false; //gör så att man kan lägga en ny smokebomb
         }
+
     }
     
     void FixedUpdate()
@@ -104,5 +109,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+       
     }
+
+
 }

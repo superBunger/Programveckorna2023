@@ -288,6 +288,7 @@ MonoBehaviour:
   detected: 0
   isAlarming: 0
   isDetected: 0
+  particlesystemS: {fileID: -9128850581995519935, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
 --- !u!60 &1470130856005101201
 PolygonCollider2D:
   m_ObjectHideFlags: 0

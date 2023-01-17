@@ -5,10 +5,11 @@ using UnityEngine;
 public class rotatingVision : MonoBehaviour
 {
     [SerializeField]
-    public pathfinding juggernaut;
+    
     float rotation;
     public bool peepin = false;
     Transform target;
+    public particlesystemscript particlesystemS;
 
         private void Start()
         {
@@ -32,12 +33,19 @@ public class rotatingVision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
-            print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
-            peepin = true;
-            
-            //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
+
+
+           
+            if (particlesystemS.insideSmoke == false)
+            {
+                print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
+                peepin = true;
+
+                //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
+            }
         }
     }
 

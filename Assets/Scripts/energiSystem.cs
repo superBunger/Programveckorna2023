@@ -11,6 +11,7 @@ public class energiSystem : MonoBehaviour
     public GameObject barFour;
     public GameObject speedIcon;
     public GameObject smokeIcon;
+    public GameObject empIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +47,12 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 3)
         {
             barThree.SetActive(true);
+            empIcon.SetActive(true);
         }
         else
         {
             barThree.SetActive(false);
+            empIcon.SetActive(false);  //om man har nog med energi, ifärgad - max
         }
 
         if (energyBar == 4)

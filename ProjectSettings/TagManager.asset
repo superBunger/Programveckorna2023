@@ -9,6 +9,7 @@ TagManager:
   - Juggernaut
   - battery
   - barOne
+  - emp
   layers:
   - Default
   - TransparentFX

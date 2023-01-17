@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public energiSystem es;
     public particlesystemscript pss;
 
+    ParticleSystem empSystem;
+    CircleCollider2D cc2D;
    
     public bool smoking; //kollar om den röker - m
     Vector2 homePos = new Vector2(5000, 5000);
@@ -25,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
         ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
         smokerSystem.Stop();
+        empSystem = GetComponentInChildren<ParticleSystem>();
+        cc2D = GetComponentInChildren<CircleCollider2D>();
+        cc2D.enabled = false;
     }
 
     // Update is called once per frame
@@ -59,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
             smokerSystem.Play();
             StartCoroutine(smokeBombTimer());
-            smoking = true;
+            smoking = true; //gör en rök bomb om man trycker 2 (flyttar den till dig och sen tillbaka bort) - max
             
         }
 
@@ -71,6 +76,42 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(8);
             pss.gameObject.transform.position = homePos;
             smoking = false; //gör så att man kan lägga en ny smokebomb
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3)
+        {
+            es.energyBar -= 3;
+            empSystem.Play();
+            cc2D.enabled = true;
+            StartCoroutine(empHitBox()); //skickar en emp om man trycker på 3
+        }
+
+        IEnumerator empHitBox()
+        {
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.1f);
+            cc2D.radius += 0.3f;
+            yield return new WaitForSeconds(0.5f);
+            cc2D.radius = 0.5f;
+            cc2D.enabled = false; //dålig kod jag vet men hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
     }

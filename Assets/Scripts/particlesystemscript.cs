@@ -10,7 +10,7 @@ public class particlesystemscript : MonoBehaviour
        if(other.tag == "Player")
        {
            
-            insideSmoke = true;
+            insideSmoke = true; //används för att gömma spelaren - max
        }
        
   

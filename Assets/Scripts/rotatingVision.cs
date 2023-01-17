@@ -17,7 +17,7 @@ public class rotatingVision : MonoBehaviour
     private void Start()
         {
 
-        FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
+        
         target = GameObject.FindWithTag("Player").transform; //States what the player character is
 
         
@@ -37,7 +37,7 @@ public class rotatingVision : MonoBehaviour
 
         if (pss.insideSmoke == true)
         {
-            peepin = false;
+            peepin = false; //slutar följa dig om du gömmer dig - max
         }
     }
 
@@ -46,7 +46,7 @@ public class rotatingVision : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && pss.insideSmoke == false)
         {
-            peepin = true;
+            peepin = true; //om man inte är gömd och fienden ser dig kommer den följa dig med blicken //max och henry
         }
 
     }
@@ -56,7 +56,7 @@ public class rotatingVision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            peepin = false;
+            peepin = false; //stops following you if you leave vision
             
         }
 

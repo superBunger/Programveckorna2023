@@ -7,7 +7,7 @@ public class enemyeyesight : MonoBehaviour
     public pathfinding juggernaut;
 
     public bool detected = false;
-
+    public bool disabled = false;
 
     public bool isAlarming = false; //Is it playing the alarm?
     public bool isDetected = false; //Is it playing the "Ambience" ambience?
@@ -15,6 +15,7 @@ public class enemyeyesight : MonoBehaviour
     bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
     public particlesystemscript pss;
+    public GameObject VisionCone;
 
     Coroutine changeToNormal;
     void Update()
@@ -30,16 +31,24 @@ public class enemyeyesight : MonoBehaviour
             StopCoroutine(changeToNormal);
         }
 
-        if (pss.insideSmoke == true)
+        if (pss.insideSmoke == true || disabled == true)
         {
-            detected = false;
+            detected = false; //om man stänger av fienden eller gömmer sig i rök, slutar man vara detected - max
         }
 
+        if (disabled == true)
+        {
+            VisionCone.SetActive(false);
+        }
+        else
+        {
+            VisionCone.SetActive(true); //ändrar visionen av och på beroende på om fienden är stunned - max
+        }
     }
 
     private void Start()
     {
-       
+        VisionCone.SetActive(true);
     }
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
@@ -57,7 +66,12 @@ public class enemyeyesight : MonoBehaviour
         isChangingToDetected = false;
     }
 
-
+    IEnumerator disabledTimer()
+    {
+        yield return new WaitForSeconds(5); //sätter på vision efter 5 sekunder - max
+        disabled = false;
+    }
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -68,6 +82,7 @@ public class enemyeyesight : MonoBehaviour
             isDetected = true;
             juggernaut.othersSee -= 1;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,7 +104,14 @@ public class enemyeyesight : MonoBehaviour
                     isAlarming = true;
                     FindObjectOfType<AudioManager>().Play("DetectionAlarm");
                 }
-                  
+         
         }
+
+        if(collision.gameObject.tag == "emp")
+        {
+            disabled = true;
+            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned
+        }
+
     }
 }

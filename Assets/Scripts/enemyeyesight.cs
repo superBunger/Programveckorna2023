@@ -14,7 +14,7 @@ public class enemyeyesight : MonoBehaviour
     bool isChangingToNormal = false; //Is it trying to change from detected to normal?
     bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
-    public particlesystemscript particlesystemS; //particlesystemscript
+    public particlesystemscript pss;
 
     Coroutine changeToNormal;
     void Update()
@@ -30,6 +30,11 @@ public class enemyeyesight : MonoBehaviour
             StopCoroutine(changeToNormal);
         }
 
+    }
+
+    private void Start()
+    {
+       
     }
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
@@ -65,9 +70,9 @@ public class enemyeyesight : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            if (particlesystemS.insideSmoke == false)
+            if (pss.insideSmoke == false)
             {
-                detected = true;//om man blir sedd blir detected sann - max och erik
+                detected = true;  //om man blir sedd blir detected sann - max och erik
                 isChangingToNormal = false;
                 juggernaut.othersSee += 1;
 

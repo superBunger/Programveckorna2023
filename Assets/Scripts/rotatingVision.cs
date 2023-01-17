@@ -9,12 +9,18 @@ public class rotatingVision : MonoBehaviour
     float rotation;
     public bool peepin = false;
     Transform target;
-    public particlesystemscript particlesystemS;
+    bool routineStarted = false;
+
+    
+    particlesystemscript pss;
 
         private void Start()
         {
+
         FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         target = GameObject.FindWithTag("Player").transform; //States what the player character is
+
+        
         }
     // Update is called once per frame
     void Update()
@@ -39,13 +45,13 @@ public class rotatingVision : MonoBehaviour
 
 
            
-            if (particlesystemS.insideSmoke == false)
-            {
+          
+            
                 print("FUCKING THING IN SIGHT SHOOT IT DOWN!");
                 peepin = true;
 
                 //Sends a message to the juggernaut about the players position and sets the bool to have the enemy lock on to the player
-            }
+            
         }
     }
 
@@ -53,8 +59,29 @@ public class rotatingVision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            peepin = false;
+            if (routineStarted == false)
+            {
+                StartCoroutine(peepinFalse());
+                routineStarted = true;
+            }
+            
+            if (routineStarted == true)
+            {
+                StopAllCoroutines();
+                routineStarted = false;
+            }
             
         }
+
+       
+    }
+
+    IEnumerator peepinFalse()
+    {
+        print("routineStarted");
+        yield return new WaitForSeconds(3);
+        peepin = false;
+        routineStarted = false;
+        print("awesome?? i want to kms");
     }
 }

@@ -18,7 +18,7 @@ public class particlesystemscript : MonoBehaviour
 
     private void LateUpdate()
     {
-        
+        insideSmoke = false;
     }
 
     // Start is called before the first frame update

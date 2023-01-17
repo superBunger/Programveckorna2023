@@ -11,8 +11,7 @@ public class SaveData : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        
+       
     }
 
     [System.Serializable]

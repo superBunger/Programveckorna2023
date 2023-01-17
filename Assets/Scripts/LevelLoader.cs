@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
+    public GameObject UI;
 
     void Awake()
 	{
-        ChangeSceneAudio();
-        DontDestroyOnLoad(gameObject);
+        ChangeSceneActions();
 	}
 
     public void OnEnable()
@@ -23,18 +23,20 @@ public class LevelLoader : MonoBehaviour
         print("print on scene loaded " + SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void ChangeSceneAudio()
+    public void ChangeSceneActions()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+            UI.SetActive(false);
+            FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
         
         else if(SceneManager.GetActiveScene().buildIndex >= 1)
         {
-        FindObjectOfType<AudioManager>().Play("Ambience");
-        FindObjectOfType<AudioManager>().Play("AmbienceDetected");
-        FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
+            UI.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("Ambience");
+            FindObjectOfType<AudioManager>().Play("AmbienceDetected");
+            FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         }
     }
 
@@ -48,8 +50,8 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(1);
         transition.SetTrigger("TransitionStart");
         SceneManager.LoadScene(levelIndex);
-        yield return new WaitForSeconds(1);
-        ChangeSceneAudio();
+        yield return new WaitForSeconds(0.5f);
+        ChangeSceneActions();
     }
 
 }

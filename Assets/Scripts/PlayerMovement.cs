@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     float playerSpeed = 350f;
     float boostspeed = 350f;
     float speedDuration = 2.5f;
@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
    
     Vector2 movement;
 
-    public energiSystem es;
+    energiSystem es;
+    GameObject uiForReference;
 
     public GameObject smokeBomb; //prefab för smokebomb - m
     public bool smoking; //kollar om den röker - m
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
+        uiForReference = FindObjectOfType<energiSystem>().gameObject;
+        es = uiForReference.GetComponent<energiSystem>();
     }
 
     // Update is called once per frame

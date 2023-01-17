@@ -14,7 +14,8 @@ public class enemyeyesight : MonoBehaviour
     bool isChangingToNormal = false; //Is it trying to change from detected to normal?
     bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
-    public particlesystemscript pss;
+    particlesystemscript pss;
+    GameObject smoker;
 
     Coroutine changeToNormal;
     void Update()
@@ -30,11 +31,17 @@ public class enemyeyesight : MonoBehaviour
             StopCoroutine(changeToNormal);
         }
 
+        if(pss.insideSmoke == true)
+        {
+            detected = false;
+
+        }
     }
 
     private void Start()
     {
-       
+        smoker = FindObjectOfType<particlesystemscript>().gameObject;
+        pss = smoker.GetComponent<particlesystemscript>();
     }
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
@@ -69,7 +76,6 @@ public class enemyeyesight : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-
             if (pss.insideSmoke == false)
             {
                 detected = true;  //om man blir sedd blir detected sann - max och erik

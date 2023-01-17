@@ -18,6 +18,7 @@ public class pathfinding : MonoBehaviour
 
     private void Start () 
     {
+        othersSee = 0;
         agent = GetComponent<NavMeshAgent>();
         
         agent.updateRotation = false;

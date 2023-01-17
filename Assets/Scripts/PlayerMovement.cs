@@ -13,16 +13,18 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     public energiSystem es;
+    public particlesystemscript pss;
 
-    public GameObject smokeBomb; //prefab för smokebomb - m
+   
     public bool smoking; //kollar om den röker - m
-    GameObject sBombSmoker; //används för att interagera med smokebomben - max    
+    Vector2 homePos = new Vector2(5000, 5000);
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
-
+        ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
+        smokerSystem.Stop();
     }
 
     // Update is called once per frame
@@ -53,7 +55,9 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
             es.energyBar -= 2;
-            sBombSmoker = Instantiate(smokeBomb, transform.position, transform.rotation); //spawnar en rökbomb där man står om man har nog med energi - max
+            pss.gameObject.transform.position = transform.position;
+            ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
+            smokerSystem.Play();
             StartCoroutine(smokeBombTimer());
             smoking = true;
             
@@ -62,10 +66,10 @@ public class PlayerMovement : MonoBehaviour
         IEnumerator smokeBombTimer()
         {
             yield return new WaitForSeconds(10);
-            ParticleSystem smokerParticleSystem = sBombSmoker.GetComponent<ParticleSystem>(); 
-            smokerParticleSystem.Stop(); //stänger av systemet efter 10 sekunder - max
-            yield return new WaitForSeconds(5);
-            Destroy(sBombSmoker); //väntar innan all rök har försvunnit för att ta bort texturen - max
+            ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
+            smokerSystem.Stop();
+            yield return new WaitForSeconds(8);
+            pss.gameObject.transform.position = homePos;
             smoking = false; //gör så att man kan lägga en ny smokebomb
         }
 

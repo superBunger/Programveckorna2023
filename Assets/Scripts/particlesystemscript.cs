@@ -9,7 +9,7 @@ public class particlesystemscript : MonoBehaviour
     {
        if(other.tag == "Player")
        {
-            print("i see enemy awesome");
+           
             insideSmoke = true;
        }
        

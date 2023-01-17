@@ -43,8 +43,6 @@ public class SaveData : MonoBehaviour
         PlayerPrefs.SetFloat("gameMasterVolume", gameDataClass.masterVolume);
         PlayerPrefs.SetFloat("gameMusicVolume", gameDataClass.musicVolume);
         PlayerPrefs.SetFloat("gameEffectsVolume", gameDataClass.effectsVolume);
-        PlayerPrefs.SetInt("gameIsFullscreen", gameDataClass.isGameFullscreen ? 1 : 0);
-        PlayerPrefs.SetInt("gameMenuThemeMuted", gameDataClass.hasMenuThemeMuted ? 1 : 0);
         PlayerPrefs.Save();
     }
 

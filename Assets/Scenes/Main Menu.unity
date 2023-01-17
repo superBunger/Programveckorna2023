@@ -4464,6 +4464,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8481534682369153711, guid: 6e3ee59c4514fab4d8c45e9579c5c573, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setFullscreen
+      objectReference: {fileID: 0}
     - target: {fileID: 8481534682533631892, guid: 6e3ee59c4514fab4d8c45e9579c5c573, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

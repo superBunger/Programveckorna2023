@@ -49,7 +49,16 @@ public class SettingsMenu : MonoBehaviour
     public void setFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-        savingScript.gameDataClass.isGameFullscreen = isFullscreen;
+        if(isFullscreen == true)
+        {
+            PlayerPrefs.SetInt("gameIsFullscreen", 1);
+            
+        }
+
+        if(isFullscreen == false)
+        {
+            PlayerPrefs.SetInt("gameIsFullscreen", 0);
+        }
     }
     
     //Mute Menu Music Checkbox
@@ -58,13 +67,15 @@ public class SettingsMenu : MonoBehaviour
         if(isPlaying == false)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
-            savingScript.gameDataClass.hasMenuThemeMuted = false;
+            PlayerPrefs.SetInt("gameMenuThemeMuted", 0);
+            PlayerPrefs.Save();
 
         }
         if(isPlaying == true)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
-            savingScript.gameDataClass.hasMenuThemeMuted = true;
+            PlayerPrefs.SetInt("gameMenuThemeMuted", 1);
+            PlayerPrefs.Save();
         }
     }
 

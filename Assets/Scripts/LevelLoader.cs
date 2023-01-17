@@ -9,13 +9,12 @@ public class LevelLoader : MonoBehaviour
 
     void Awake()
 	{
-        print("print awake " + SceneManager.GetActiveScene().buildIndex);
+        ChangeSceneAudio();
         DontDestroyOnLoad(gameObject);
 	}
 
     public void OnEnable()
     {
-        print("print on enable " + SceneManager.GetActiveScene().buildIndex);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -31,7 +30,7 @@ public class LevelLoader : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
         
-        else if(SceneManager.GetActiveScene().buildIndex == 1)
+        else if(SceneManager.GetActiveScene().buildIndex >= 1)
         {
         FindObjectOfType<AudioManager>().Play("Ambience");
         FindObjectOfType<AudioManager>().Play("AmbienceDetected");

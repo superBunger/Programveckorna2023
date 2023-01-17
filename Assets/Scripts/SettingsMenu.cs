@@ -24,7 +24,7 @@ public class SettingsMenu : MonoBehaviour
         {
             settingsAnimator.SetTrigger("SettingsClose");
             settingsAnimator.SetBool("SettingsLoaded", false);
-            savingScript.writeFile();
+            savingScript.UpdateSettings();
         }
     }
 
@@ -49,6 +49,7 @@ public class SettingsMenu : MonoBehaviour
     public void setFullscreen (bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        savingScript.gameDataClass.isGameFullscreen = isFullscreen;
     }
     
     //Mute Menu Music Checkbox

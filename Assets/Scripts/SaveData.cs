@@ -8,14 +8,13 @@ using UnityEngine.SceneManagement;
 public class SaveData : MonoBehaviour
 {
     public SettingsMenu settingsScript;
-    string saveFilePath;
 
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        saveFilePath = Application.dataPath + "/gamedata.json";
+        
     }
-    
+
     [System.Serializable]
     public class GameData
     {
@@ -23,24 +22,17 @@ public class SaveData : MonoBehaviour
         public float musicVolume;
         public float effectsVolume;
         public bool hasMenuThemeMuted;
-        
+        public bool isGameFullscreen;
     }
     public GameData gameDataClass = new GameData();
-    
-    public void writeFile()
+
+    public void LoadSettings()
     {
-        // Serialize the object into JSON and save string.
-        string jsonString = JsonUtility.ToJson(gameDataClass);
-
-        // Write JSON to file.
-        File.WriteAllText(saveFilePath, jsonString);
-    }
-
-    public void readFile()
-    {
-        string jsonString = File.ReadAllText(saveFilePath);
-        JsonUtility.FromJson<GameData>(jsonString);
-
+        settingsScript.setMasterVolume(PlayerPrefs.GetFloat("gameMasterVolume"));
+        settingsScript.setMusicVolume(PlayerPrefs.GetFloat("gameMasterVolume"));
+        settingsScript.setEffectsVolume(PlayerPrefs.GetFloat("gameMasterVolume"));
+        settingsScript.setFullscreen(PlayerPrefs.GetInt("gameIsFullscreen") == 1 ? true : false);
+        settingsScript.setFullscreen(PlayerPrefs.GetInt("gameMenuThemeMuted") == 1 ? true : false);
     }
 
     public void UpdateSettings()
@@ -48,11 +40,17 @@ public class SaveData : MonoBehaviour
         settingsScript.mixer.GetFloat("MasterVolume", out gameDataClass.masterVolume);
         settingsScript.mixer.GetFloat("MusicVolume", out gameDataClass.musicVolume);
         settingsScript.mixer.GetFloat("EffectsVolume", out gameDataClass.effectsVolume);
+
+        PlayerPrefs.SetFloat("gameMasterVolume", gameDataClass.masterVolume);
+        PlayerPrefs.SetFloat("gameMusicVolume", gameDataClass.musicVolume);
+        PlayerPrefs.SetFloat("gameEffectsVolume", gameDataClass.effectsVolume);
+        PlayerPrefs.SetInt("gameIsFullscreen", gameDataClass.isGameFullscreen ? 1 : 0);
+        PlayerPrefs.SetInt("gameMenuThemeMuted", gameDataClass.hasMenuThemeMuted ? 1 : 0);
+        PlayerPrefs.Save();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        UpdateSettings();
+
     }
 }

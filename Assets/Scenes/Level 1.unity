@@ -2281,6 +2281,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2135872842, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2135872842, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_PointLightInnerRadius
       value: 0.26346678
       objectReference: {fileID: 0}
@@ -2368,6 +2372,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1470130855413915457, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1470130856005101204, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2383,6 +2391,10 @@ PrefabInstance:
     - target: {fileID: 1470130856005101210, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_Name
       value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: waypoint.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}

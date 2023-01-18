@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.h8man.2d.navmeshplus": "file:C:/Users/Max/Downloads/NavMeshPlus-master/NavMeshPlus-master",
+    "com.h8man.2d.navmeshplus": "file:C:/Users/cards/Downloads/NavMeshPlus-master",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",

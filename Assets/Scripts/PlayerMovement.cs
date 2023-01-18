@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public energiSystem es;
     public particlesystemscript pss;
 
-    public GameObject bomb;
-    GameObject bombThing; //för att interagera med den;
+    public GameObject bomb; //för bomb;
+    public bool insideWall = false;
+    GameObject bombPrefab;
 
-    ParticleSystem empSystem;
+    ParticleSystem empSystem; //för EMP
     CircleCollider2D cc2D;
    
     public bool smoking; //kollar om den röker - m
@@ -33,16 +34,22 @@ public class PlayerMovement : MonoBehaviour
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
         cc2D.enabled = false;
+        
+        bomb.GetComponentInChildren<PolygonCollider2D>().enabled = false;
+    }
+
+    void FixedUpdate()
+    {
+        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
 
-        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
@@ -116,7 +123,28 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             cc2D.radius = 0.5f;
             cc2D.enabled = false; //dålig kod jag vet men hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
+
+            
+
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
+        {
+            bombPrefab = Instantiate(bomb, transform.position, transform.rotation);
+            bombPrefab.GetComponent<PolygonCollider2D>().enabled = false;
+            bombPrefab.GetComponent<Animator>().SetTrigger("bombTime");
+            es.energyBar -= 4;
+            StartCoroutine(bombTimer());
+        }
+        IEnumerator bombTimer()
+        {
+            yield return new WaitForSeconds(1);
+            bombPrefab.GetComponent<PolygonCollider2D>().enabled = true;
+            yield return new WaitForSeconds(1);
+            bombPrefab.GetComponent<PolygonCollider2D>().enabled = false;
+            Destroy(bombPrefab);
+        }
+
 
     }
     
@@ -138,26 +166,22 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject); //lägger till en energi och förstår batteriet när man rör det - max 
         }
 
-        else if (collision.gameObject.tag == "Juggernaut")
+        if (collision.gameObject.tag == "Juggernaut")
         {
             Destroy(gameObject);
         }
 
-        else if (collision.gameObject.tag == "Breakable wall" && es.energyBar == 4 && Input.GetKeyDown(KeyCode.Alpha4))
+        if (collision.gameObject.tag == "breakableWall")
         {
-            
-            bombThing.GetComponent<BoxCollider2D>().enabled = false;
-            StartCoroutine(bombTimer());
-            es.energyBar -= 4;
-
+            insideWall = true;
         }
     }
 
-    IEnumerator bombTimer()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(1);
-        bombThing.GetComponent<BoxCollider2D>().enabled = true;
-        bombThing.GetComponent<BoxCollider2D>().enabled = false;
+        if(collision.gameObject.tag == "breakableWall")
+        {
+            insideWall = false;
+        }
     }
-
 }

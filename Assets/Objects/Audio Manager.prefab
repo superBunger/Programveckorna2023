@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6374195683748964130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6374195683748964128}
+  - component: {fileID: 6374195683748964129}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6374195683748964128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374195683748964130}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6374195683748964129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374195683748964130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38114a9d4fa6e1046ac93c84f5c0da4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 0741de172f9b7654988e03c889e610a9, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -6554784626518240006, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: Ambience
+    clip: {fileID: 8300000, guid: 85e6776da89d0ce43bce856a648140e1, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -6554784626518240006, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: AmbienceDetected
+    clip: {fileID: 8300000, guid: 5474ce4152618b24ab631145dde753c3, type: 3}
+    volume: 0
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -6554784626518240006, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: DetectionAlarm
+    clip: {fileID: 8300000, guid: 039f142a423e422469bb423a2b64d5d0, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: PlayerFootsteps
+    clip: {fileID: 8300000, guid: f4b72d716db3ebd48ba7dbc266fee103, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.33
+    loop: 1
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: BatteryCharge
+    clip: {fileID: 8300000, guid: aadeddc9e7979cd44887e9e4bae778d5, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: BatteryDischarge
+    clip: {fileID: 8300000, guid: 832097e4a40db2746b570b63c95d0b1d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  - name: JuggernautSummon
+    clip: {fileID: 8300000, guid: aa94011e348a4c84eaba768a35d5850b, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
+  movement: {fileID: 7253793995429355010, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}

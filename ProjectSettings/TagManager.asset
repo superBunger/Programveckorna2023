@@ -11,6 +11,7 @@ TagManager:
   - barOne
   - emp
   - bomb
+  - breakableWall
   layers:
   - Default
   - TransparentFX

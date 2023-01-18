@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public energiSystem es;
     public particlesystemscript pss;
 
+    public GameObject bomb;
+    GameObject bombThing; //för att interagera med den;
+
     ParticleSystem empSystem;
     CircleCollider2D cc2D;
    
@@ -73,8 +76,7 @@ public class PlayerMovement : MonoBehaviour
         IEnumerator smokeBombTimer()
         {
             yield return new WaitForSeconds(10);
-            ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
-            smokerSystem.Stop();
+            pss.gameObject.GetComponent<ParticleSystem>().Stop();
             yield return new WaitForSeconds(8);
             pss.gameObject.transform.position = homePos;
             smoking = false; //gör så att man kan lägga en ny smokebomb
@@ -141,8 +143,21 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);
         }
 
-       
+        else if (collision.gameObject.tag == "Breakable wall" && es.energyBar == 4 && Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            
+            bombThing.GetComponent<BoxCollider2D>().enabled = false;
+            StartCoroutine(bombTimer());
+            es.energyBar -= 4;
+
+        }
     }
 
+    IEnumerator bombTimer()
+    {
+        yield return new WaitForSeconds(1);
+        bombThing.GetComponent<BoxCollider2D>().enabled = true;
+        bombThing.GetComponent<BoxCollider2D>().enabled = false;
+    }
 
 }

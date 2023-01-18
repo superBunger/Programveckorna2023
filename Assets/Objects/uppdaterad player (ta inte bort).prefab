@@ -5347,4 +5347,5 @@ MonoBehaviour:
   speedBoostActive: 0
   es: {fileID: 0}
   pss: {fileID: 0}
+  bomb: {fileID: 7581680934670531489, guid: 1595a55fe8f90cc4a8fac4aee5ee79b7, type: 3}
   smoking: 0

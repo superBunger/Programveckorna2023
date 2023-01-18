@@ -6,7 +6,7 @@ public class BreakWall : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Juggernaut")
+        if (collision.gameObject.tag == "Juggernaut" || collision.gameObject.tag == "bomb")
         {
             Destroy(gameObject);
         }

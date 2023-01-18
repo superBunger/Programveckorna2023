@@ -6,23 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Animator creditsAnimator;
-
-    //public Animator settingsAnimator;
+    public Animator settingsAnimator;
     public LevelLoader levelLoaderScript;
     public SaveData saveManager;
-
-    GameObject manager;
-    GameManager gm;
-    Animator settingsAnimator;
-
-
     public GameObject continueButton;
 
     void Start()
     {
-        manager = FindObjectOfType<GameManager>().gameObject;
-        settingsAnimator = manager.GetComponentsInChildren<Animator>();
-
         if(levelLoaderScript.furthestSceneReached > 1)
         {
             continueButton.SetActive(true);

@@ -10,15 +10,31 @@ public class GameManager : MonoBehaviour
     public LevelLoader levelManager;
     public SettingsMenu settings;
 
-    void Awake()
-    {
+    private static GameManager _instance;
+
+    public static GameManager Instance 
+    { 
+        get 
+        { 
+            return _instance; 
+        } 
     }
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         levelManager.LoadSceneActions();
         if(PlayerPrefs.HasKey("gameHasSaved"))
         {

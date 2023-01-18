@@ -600,6 +600,10 @@ PrefabInstance:
       propertyPath: gameDataClass.hasMenuThemeMuted
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3372234557141567563, guid: 36847c8ccff1b3644b2ca45e6dcd2783, type: 3}
+      propertyPath: gameDataClass.furthestSceneReached
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5151091807760011561, guid: 36847c8ccff1b3644b2ca45e6dcd2783, type: 3}
       propertyPath: m_RootOrder
       value: 3

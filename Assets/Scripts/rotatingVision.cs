@@ -5,8 +5,7 @@ using UnityEngine;
 public class rotatingVision : MonoBehaviour
 {
     [SerializeField]
-    
-    float rotation;
+    public float rotation;
     public bool peepin = false;
     Transform target;
 

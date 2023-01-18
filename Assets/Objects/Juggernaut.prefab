@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activated: 0
   othersSee: 0
-  playerTransform: {fileID: 7274845357375514197, guid: fabacea8fe6fbe941b0b87b3430a15f0, type: 3}
+  playerTransform: {fileID: 0}
 --- !u!195 &3378714463373130982
 NavMeshAgent:
   m_ObjectHideFlags: 0

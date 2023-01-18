@@ -8,7 +8,7 @@ public class BreakWall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Juggernaut")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -17,7 +17,7 @@ public class BreakWall : MonoBehaviour
         if (collision.gameObject.tag == "bomb")
         {
             print("awesome");
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 

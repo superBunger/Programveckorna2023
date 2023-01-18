@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3560678956697962842}
   - component: {fileID: 864152874}
   - component: {fileID: 864152873}
-  - component: {fileID: 1006212513992582184}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: bomb
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7581680934670531489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,17 +111,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.3039919, y: 0.72707254}
+    - - {x: -0.68427, y: 0.67684716}
       - {x: -0.684204, y: 0.059401423}
       - {x: -0.66863704, y: -0.47612265}
+      - {x: -0.65863365, y: -0.78425795}
       - {x: -0.57557, y: -0.7857381}
-      - {x: -0.073478654, y: -1.0130521}
-      - {x: 0.8045891, y: -0.9194151}
-      - {x: 1.4322314, y: -0.4269216}
-      - {x: 1.1846795, y: -0.049689}
-      - {x: 1.0704806, y: 0.14927559}
-      - {x: 0.74682534, y: 0.7879527}
-      - {x: 0.06497136, y: 0.7330911}
+      - {x: -0.23850507, y: -0.7978003}
+      - {x: -0.023253158, y: -0.7978003}
+      - {x: 0.013371855, y: -0.80394256}
+      - {x: 0.675438, y: -0.74003863}
+      - {x: 0.6784753, y: -0.75884944}
+      - {x: 0.6860251, y: -0.57759786}
+      - {x: 0.6824434, y: -0.41529998}
+      - {x: 0.6758286, y: -0.18617776}
+      - {x: 0.66090006, y: -0.09991442}
+      - {x: 0.673643, y: 0.031814978}
+      - {x: 0.6669249, y: 0.19451767}
+      - {x: 0.65432703, y: 0.48650342}
+      - {x: 0.6391994, y: 0.7090271}
+      - {x: 0.5100484, y: 0.701852}
+      - {x: 0.05062124, y: 0.68286574}
 --- !u!95 &864152873
 Animator:
   serializedVersion: 4
@@ -143,15 +151,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1006212513992582184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7581680934670531489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec343a23c38a30b44a46a5ffba2e4908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

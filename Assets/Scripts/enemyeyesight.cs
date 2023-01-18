@@ -85,9 +85,9 @@ public class enemyeyesight : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false)
+        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false && disabled == false)
         {
                 detected = true;  //om man blir sedd blir detected sann - max och erik
                 isChangingToNormal = false;

@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
-   
     Vector2 movement;
 
     public energiSystem es;
     public particlesystemscript pss;
 
-    public GameObject bomb; //för bomb;
+    GameObject bomb; //för bomb, interagera med bomb
     public bool insideWall = false;
-    GameObject bombPrefab;
+    public GameObject bombPrefab; //prefab för att spawna bomb
 
     ParticleSystem empSystem; //för EMP
     CircleCollider2D cc2D;
+    int loopTimer;
    
-    public bool smoking; //kollar om den röker - m
+    public bool smoking; //för rökbomb
     Vector2 homePos = new Vector2(5000, 5000);
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
-        ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
-        smokerSystem.Stop();
+        pss.gameObject.GetComponent<ParticleSystem>().Stop();
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
         cc2D.enabled = false;
         
-        bomb.GetComponentInChildren<PolygonCollider2D>().enabled = false;
+       
     }
 
     void FixedUpdate()
@@ -94,57 +93,40 @@ public class PlayerMovement : MonoBehaviour
             es.energyBar -= 3;
             empSystem.Play();
             cc2D.enabled = true;
+            loopTimer = 10;
             StartCoroutine(empHitBox()); //skickar en emp om man trycker på 3
         }
 
         IEnumerator empHitBox()
         {
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
-            cc2D.radius += 0.3f;
-            yield return new WaitForSeconds(0.1f);
+            while(loopTimer >= 0)
+            {
+                cc2D.radius += 0.2f;
+                yield return new WaitForSeconds(0.1f);
+                loopTimer -= 1;
+            }
             cc2D.radius += 0.3f;
             yield return new WaitForSeconds(0.5f);
             cc2D.radius = 0.5f;
-            cc2D.enabled = false; //dålig kod jag vet men hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
-
-            
-
+            cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
-            bombPrefab = Instantiate(bomb, transform.position, transform.rotation);
-            bombPrefab.GetComponent<PolygonCollider2D>().enabled = false;
-            bombPrefab.GetComponent<Animator>().SetTrigger("bombTime");
+            bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+            bomb.GetComponent<PolygonCollider2D>().enabled = false;
             es.energyBar -= 4;
+            bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
         }
+        
         IEnumerator bombTimer()
         {
             yield return new WaitForSeconds(1);
-            bombPrefab.GetComponent<PolygonCollider2D>().enabled = true;
+            bomb.GetComponent<PolygonCollider2D>().enabled = true;
             yield return new WaitForSeconds(1);
-            bombPrefab.GetComponent<PolygonCollider2D>().enabled = false;
-            Destroy(bombPrefab);
+            Destroy(bomb);
         }
-
 
     }
     

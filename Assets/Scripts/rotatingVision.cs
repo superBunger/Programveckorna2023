@@ -26,7 +26,7 @@ public class rotatingVision : MonoBehaviour
     {
         if (peepin == false) //If statement for if the enemy has the player in its vision cone
         {
-            transform.Rotate(0, 0, rotation + 100 * Time.deltaTime); //If it doesn't it rotates infinitely
+            transform.Rotate(0, 0, rotation * Time.deltaTime); //If it doesn't it rotates infinitely
         }
 
         else

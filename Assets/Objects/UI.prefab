@@ -1232,6 +1232,7 @@ MonoBehaviour:
   barFour: {fileID: 159511576806738239}
   speedIcon: {fileID: 159511577057713926}
   smokeIcon: {fileID: 159511576439142727}
+  empIcon: {fileID: 159511576990031122}
 --- !u!1 &7981612188244574294
 GameObject:
   m_ObjectHideFlags: 0

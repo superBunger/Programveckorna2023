@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using UnityEngine.Audio;
 
 public class SettingsMenu : MonoBehaviour
@@ -9,11 +11,18 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer mixer;
 
     public SaveData savingScript;
-    public bool mutedAudio = false;
 
     void Update()
     {
-        
+        if(savingScript.gameDataClass.hasMenuThemeMuted == 1)
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
+        }
+
         if(Input.GetKeyDown(KeyCode.Escape) && !settingsAnimator.GetBool("SettingsLoaded"))
         {
             settingsAnimator.SetTrigger("SettingsClose");
@@ -24,25 +33,34 @@ public class SettingsMenu : MonoBehaviour
         {
             settingsAnimator.SetTrigger("SettingsClose");
             settingsAnimator.SetBool("SettingsLoaded", false);
-            savingScript.UpdateSettings();
+            savingScript.SaveSettings();
         }
     }
 
+    public void closeSettingsButton()
+    {
+        settingsAnimator.SetTrigger("SettingsClose");
+        settingsAnimator.SetBool("SettingsLoaded", false);
+        savingScript.SaveSettings();
+    }
     //Master Volume Slider
     public void setMasterVolume (float masterVolume)
     {
         mixer.SetFloat("MasterVolume", Mathf.Log10(masterVolume) * 20);
+        mixer.GetFloat("MasterVolume", out savingScript.gameDataClass.masterVolume);
     }
     //Music Volume Slider
     public void setMusicVolume(float musicVolume)
     {
         mixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
+        mixer.GetFloat("MusicVolume", out savingScript.gameDataClass.musicVolume);
     }
 
     //Effects Volume Slider
     public void setEffectsVolume(float effectsVolume)
     {
         mixer.SetFloat("EffectsVolume", Mathf.Log10(effectsVolume) * 20);
+        mixer.GetFloat("EffectsVolume", out savingScript.gameDataClass.effectsVolume);
     }
 
     //Toggle Fullscreen Checkbox
@@ -51,32 +69,31 @@ public class SettingsMenu : MonoBehaviour
         Screen.fullScreen = isFullscreen;
         if(isFullscreen == true)
         {
-            PlayerPrefs.SetInt("gameIsFullscreen", 1);
-            
+            savingScript.gameDataClass.isGameFullscreen = 1;
+            PlayerPrefs.SetInt("gameIsFullscreen", savingScript.gameDataClass.isGameFullscreen);
         }
 
         if(isFullscreen == false)
         {
-            PlayerPrefs.SetInt("gameIsFullscreen", 0);
+            savingScript.gameDataClass.isGameFullscreen = 0;
+            PlayerPrefs.SetInt("gameIsFullscreen", savingScript.gameDataClass.isGameFullscreen);
         }
     }
     
     //Mute Menu Music Checkbox
     public void muteMenuMusic(bool isPlaying)
     {
-        if(isPlaying == false)
-        {
-            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
-            PlayerPrefs.SetInt("gameMenuThemeMuted", 0);
-            PlayerPrefs.Save();
-
-        }
         if(isPlaying == true)
         {
-            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
-            PlayerPrefs.SetInt("gameMenuThemeMuted", 1);
-            PlayerPrefs.Save();
+            savingScript.gameDataClass.hasMenuThemeMuted = 0;
+            PlayerPrefs.SetInt("gameMenuThemeMuted", savingScript.gameDataClass.hasMenuThemeMuted);
+        }
+        if(isPlaying == false)
+        {
+            savingScript.gameDataClass.hasMenuThemeMuted = 1;
+            PlayerPrefs.SetInt("gameMenuThemeMuted", savingScript.gameDataClass.hasMenuThemeMuted);
         }
     }
+
 
 }

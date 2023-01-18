@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
+    public SaveData saveManager;
 
-    void Awake()
+    void Start()
 	{
         ChangeSceneActions();
 	}
@@ -20,6 +21,11 @@ public class LevelLoader : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         print("print on scene loaded " + SceneManager.GetActiveScene().buildIndex);
+        if(SceneManager.GetActiveScene().buildIndex > saveManager.gameDataClass.furthestSceneReached)
+        {
+            saveManager.gameDataClass.furthestSceneReached = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.Save();
+        }
     }
 
     public void ChangeSceneActions()
@@ -28,8 +34,7 @@ public class LevelLoader : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
-        
-        else if(SceneManager.GetActiveScene().buildIndex >= 1)
+        if(SceneManager.GetActiveScene().buildIndex >= 1)
         {
             FindObjectOfType<AudioManager>().Play("Ambience");
             FindObjectOfType<AudioManager>().Play("AmbienceDetected");
@@ -40,6 +45,11 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public void LoadFurthestLevel()
+    {
+        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + saveManager.gameDataClass.furthestSceneReached));
     }
 
     public IEnumerator LoadNextScene(int levelIndex)

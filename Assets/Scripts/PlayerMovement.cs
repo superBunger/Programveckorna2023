@@ -33,11 +33,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
+
+        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
@@ -116,11 +118,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
     
-    void FixedUpdate()
-    {
-        //Spelarens hastighet som beror på playerSpeed och movement
-        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -8,9 +8,23 @@ public class MainMenu : MonoBehaviour
     public Animator creditsAnimator;
     public Animator settingsAnimator;
     public LevelLoader levelLoaderScript;
+    public SaveData saveManager;
 
-    public void Start()
+    public GameObject continueButton;
+
+    void Start()
     {
+        if(saveManager.gameDataClass.furthestSceneReached > 1)
+        {
+            continueButton.SetActive(true);
+        }
+    }
+
+    public void ContinueGame()
+    {
+        FindObjectOfType<AudioManager>().StopMenuMusic();
+        levelLoaderScript.transition.SetTrigger("ClickNewGame");
+        levelLoaderScript.LoadNextLevel();
         
     }
 
@@ -57,6 +71,7 @@ public class MainMenu : MonoBehaviour
     {
         print("Exited out of the game");
         Application.Quit();
+        saveManager.SaveSettings();
     }
 
 }

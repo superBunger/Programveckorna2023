@@ -5,15 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public AudioManager audioManager;
-    public SaveData DataManager;
-    public LevelLoader LevelManager;
-    public SettingsMenu Settings;
+    public SaveData saveManager;
+    public LevelLoader levelManager;
+    public SettingsMenu settings;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         DontDestroyOnLoad(gameObject);
-        DataManager.LoadSettings();
+        saveManager.ApplySettings();
+        //saveManager.SaveSettings();
     }
 
 }

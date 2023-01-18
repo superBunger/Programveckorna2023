@@ -6,15 +6,24 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Animator creditsAnimator;
-    public Animator settingsAnimator;
+
+    //public Animator settingsAnimator;
     public LevelLoader levelLoaderScript;
     public SaveData saveManager;
+
+    GameObject manager;
+    GameManager gm;
+    Animator settingsAnimator;
+
 
     public GameObject continueButton;
 
     void Start()
     {
-        if(saveManager.gameDataClass.furthestSceneReached > 1)
+        manager = FindObjectOfType<GameManager>().gameObject;
+        settingsAnimator = manager.GetComponentsInChildren<Animator>();
+
+        if(levelLoaderScript.furthestSceneReached > 1)
         {
             continueButton.SetActive(true);
         }
@@ -22,9 +31,9 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        FindObjectOfType<AudioManager>().StopMenuMusic();
+        FindObjectOfType<AudioManager>().StopMusic();
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
-        levelLoaderScript.LoadNextLevel();
+        levelLoaderScript.LoadFurthestLevel();
         
     }
 
@@ -32,7 +41,7 @@ public class MainMenu : MonoBehaviour
     //Loads the scene with the next build index (Seen in File -> Build Settings)
     public void PlayGame()
     {
-        FindObjectOfType<AudioManager>().StopMenuMusic();
+        FindObjectOfType<AudioManager>().StopMusic();
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();
     }

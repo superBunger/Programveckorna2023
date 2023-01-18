@@ -16,78 +16,37 @@ public class SaveData : MonoBehaviour
     public Toggle fullscreenToggle;
     public Toggle muteThemeToggle;
 
-    [System.Serializable]
-    public class GameData
-    {
-        public float masterVolume;
-        public float masterVolumeSliderValue;
-        public float musicVolume;
-        public float musicVolumeSliderValue;
-        public float effectsVolume;
-        public float effectsVolumeSliderValue;
-        public int hasMenuThemeMuted;
-        public int isGameFullscreen;
-        public int furthestSceneReached;
-    } 
-    public GameData gameDataClass = new GameData();
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            ApplySettings();
-        }
-    }
-
     public void ApplySettings()
     {
-        masterSlider.value = PlayerPrefs.GetFloat("gameMasterVolumeSliderValue");
-        musicSlider.value = PlayerPrefs.GetFloat("gameMusicVolumeSliderValue");
-        effectsSlider.value = PlayerPrefs.GetFloat("gameEffectsVolumeSliderValue");
-
-        settingsScript.mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("gameMasterVolume"));
-        settingsScript.mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("gameMusicVolume"));
-        settingsScript.mixer.SetFloat("EffectsVolume", PlayerPrefs.GetFloat("gameEffectsVolume"));
-
-        if(PlayerPrefs.GetInt("gameIsFullscreen") == 1)
-        {
-            Screen.fullScreen = true;
-            fullscreenToggle.isOn = true;
-        }
-        else
-        {
-            Screen.fullScreen = false;
-            fullscreenToggle.isOn = false;
-        }
-        
-        if(PlayerPrefs.GetInt("gameMenuThemeMuted") == 1)
-        {
-            muteThemeToggle.isOn = true;
-            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 0.0f);
-            
-        }
-        else
+        //Slider Values
+        masterSlider.value = PlayerPrefs.GetFloat("MasterVolumeSliderValue");
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolumeSliderValue");
+        effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolumeSliderValue");
+        //Volume Values
+        settingsScript.mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
+        settingsScript.mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+        settingsScript.mixer.SetFloat("EffectsVolume", PlayerPrefs.GetFloat("EffectsVolume"));
+        //Menu Mute
+        if(PlayerPrefs.GetInt("MenuThemeMuted") == 1)
         {
             muteThemeToggle.isOn = false;
-            FindObjectOfType<AudioManager>().ChangeVolume("MenuTheme", 1.0f);
+            settingsScript.isThemePlaying = false;
         }
-
+        else
+        {
+            muteThemeToggle.isOn = true;
+            settingsScript.isThemePlaying = true;
+        }
     }
 
     public void SaveSettings()
     {
-        PlayerPrefs.SetFloat("gameMasterVolumeSliderValue", masterSlider.value);
-        PlayerPrefs.SetFloat("gameMusicVolumeSliderValue", musicSlider.value);
-        PlayerPrefs.SetFloat("gameEffectsVolumeSliderValue", effectsSlider.value);
-
-        PlayerPrefs.SetFloat("gameMasterVolume", gameDataClass.masterVolume);
-        PlayerPrefs.SetFloat("gameMusicVolume", gameDataClass.musicVolume);
-        PlayerPrefs.SetFloat("gameEffectsVolume", gameDataClass.effectsVolume);
-
-        //PlayerPrefs.SetInt("gameIsFullscreen", gameDataClass.isGameFullscreen);
-        //PlayerPrefs.SetInt("gameMenuThemeMuted", gameDataClass.hasMenuThemeMuted);
-
-        PlayerPrefs.SetInt("gameFurthestSceneReached", gameDataClass.furthestSceneReached);
+        //Slider Values
+        PlayerPrefs.SetFloat("MasterVolumeSliderValue", masterSlider.value);
+        PlayerPrefs.SetFloat("MusicVolumeSliderValue", musicSlider.value);
+        PlayerPrefs.SetFloat("EffectsVolumeSliderValue", effectsSlider.value);
+        
+        PlayerPrefs.SetInt("gameHasSaved", 1);
         PlayerPrefs.Save();   
     }
 

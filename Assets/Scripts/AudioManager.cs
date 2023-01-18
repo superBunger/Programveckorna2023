@@ -79,10 +79,12 @@ public class AudioManager : MonoBehaviour
         startVolume = s.source.volume;
 	}
 
-	public void StopMenuMusic()
+	public void StopMusic()
 	{
-		FindObjectOfType<AudioManager>().StartCoroutine(FadeOut("MenuTheme", 0.5f));
-	}
+		StartCoroutine(FadeOut("MenuTheme", 0.5f));
+        StartCoroutine(FadeOut("Ambience", 0.5f));
+        StartCoroutine(FadeOut("AmbienceDetected", 0.5f));
+    }
 
 	public void ChangeAmbienceDetected()
 	{

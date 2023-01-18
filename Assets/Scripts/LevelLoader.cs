@@ -7,10 +7,11 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
     public SaveData saveManager;
+    public int furthestSceneReached;
 
     void Start()
 	{
-        ChangeSceneActions();
+        LoadSceneActions();
 	}
 
     public void OnEnable()
@@ -20,15 +21,16 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print("print on scene loaded " + SceneManager.GetActiveScene().buildIndex);
-        if(SceneManager.GetActiveScene().buildIndex > saveManager.gameDataClass.furthestSceneReached)
+        print("Print: on scene loaded " + SceneManager.GetActiveScene().buildIndex);
+        if(SceneManager.GetActiveScene().buildIndex > furthestSceneReached)
         {
-            saveManager.gameDataClass.furthestSceneReached = SceneManager.GetActiveScene().buildIndex;
+            furthestSceneReached = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("FurthestSceneReached", furthestSceneReached);
             PlayerPrefs.Save();
         }
     }
 
-    public void ChangeSceneActions()
+    public void LoadSceneActions()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -42,6 +44,11 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    public void LoadMenuLevel()
+    {
+        StartCoroutine(LoadNextScene(0));
+    }
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
@@ -49,7 +56,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadFurthestLevel()
     {
-        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + saveManager.gameDataClass.furthestSceneReached));
+        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + furthestSceneReached));
     }
 
     public IEnumerator LoadNextScene(int levelIndex)
@@ -58,7 +65,7 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("TransitionStart");
         SceneManager.LoadScene(levelIndex);
         yield return new WaitForSeconds(0.5f);
-        ChangeSceneActions();
+        LoadSceneActions();
     }
 
 }

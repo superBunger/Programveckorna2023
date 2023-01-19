@@ -47,9 +47,29 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Spelarens input uppdelat i en horisontell och vertikal axel
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
+        if (movement.x == 0 && movement.y == 0) //Står stilla
+        {
+            print("står stilla");
+        }
+        else if (movement.x > 0) //Höger
+        {
+            print("Höger");
+        }
+        else if (movement.x < 0) //Vänster
+        {
+            print("Vänster");
+        }
+        else if (movement.y > 0) //Upp
+        {
+            print("Upp");
+        }
+        else if (movement.y < 0) //Ner
+        {
+            print("Ner");
+        }
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {

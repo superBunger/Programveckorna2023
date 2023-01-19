@@ -174,13 +174,13 @@ public class PlayerMovement : MonoBehaviour
         {
             while(loopTimer >= 0)
             {
-                cc2D.radius += 0.1f;
+                cc2D.radius += 0.2f;
                 yield return new WaitForSeconds(0.1f);
                 loopTimer -= 1;
             }
-            cc2D.radius += 0.15f;
+            cc2D.radius += 0.3f;
             yield return new WaitForSeconds(0.5f);
-            cc2D.radius = 0.25f;
+            cc2D.radius = 0.125f;
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 

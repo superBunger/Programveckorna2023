@@ -956,6 +956,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+--- !u!1001 &639037587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413335645677281614, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206102421231859349, guid: 97d48b151af8685428471940196a1ba9, type: 3}
+      propertyPath: m_Name
+      value: Exit light
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97d48b151af8685428471940196a1ba9, type: 3}
 --- !u!1 &694610275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1399,7 @@ Transform:
   - {fileID: 239505848}
   - {fileID: 694610276}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1155436707
 PrefabInstance:
@@ -9750,6 +9807,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 44, y: 26, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 12
+      m_TileSpriteIndex: 12
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 53, y: 26, z: 0}
     second:
       serializedVersion: 2
@@ -9926,8 +9993,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: e2206916548348e46aba41d6d29239c4, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: cb9e5713a9485bb41bedfe6d27ecb6c2, type: 2}
   - m_RefCount: 2
@@ -9961,8 +10028,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: c7b180d84d6651c4eacb7a48c8015628, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e41d96c9507d08c429045609d2bc2ded, type: 3}
   - m_RefCount: 2
@@ -9972,7 +10039,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: e07713f55404fce499940c9277cdd213, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 819
+  - m_RefCount: 820
     m_Data:
       e00: 1
       e01: 0
@@ -9991,7 +10058,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 819
+  - m_RefCount: 820
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 6.5533e-41, g: 6.5533e-41, b: 6.5533e-41, a: 6.5533e-41}
@@ -10348,7 +10415,7 @@ Transform:
   - {fileID: 2124820286}
   - {fileID: 1421332290}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1696087915
 PrefabInstance:
@@ -10547,7 +10614,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124820285
 GameObject:

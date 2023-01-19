@@ -11,14 +11,6 @@ public class AudioManager : MonoBehaviour
 
 	void Awake()
 	{
-        //if (rb.velocity.magnitude > 0)
-        //{
-        //    FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
-        //}
-        //else
-        //{
-        //    FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
-        //}
 
         foreach (Sound s in sounds)
 		{

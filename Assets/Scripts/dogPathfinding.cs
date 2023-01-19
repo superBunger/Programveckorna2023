@@ -16,6 +16,9 @@ public class dogPathfinding : MonoBehaviour
     bool detected;
     public float waitTime;
     bool dogWalked;
+    Animator animator;
+    public enemyeyesight ees;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class dogPathfinding : MonoBehaviour
         agent.updateUpAxis = false;
 
         StartCoroutine("DogWalk1");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,42 @@ public class dogPathfinding : MonoBehaviour
             dogWalked = false;
             StartCoroutine("DogWalk2");
         }
+
+        if(agent.velocity.x > 0)
+        {
+            animator.SetBool("dogRight", true);
+        }
+        else
+        {
+            animator.SetBool("dogRight", false);
+        }
+
+        if (agent.velocity.x < 0)
+        {
+            animator.SetBool("dogLeft", true);
+        }
+        else
+        {
+            animator.SetBool("dogLeft", false);
+        }
+
+        if (agent.velocity.y > 0)
+        {
+            animator.SetBool("dogButt", true);
+        }
+        else
+        {
+            animator.SetBool("dogButt", false);
+        }
+
+        if (agent.velocity.y < 0)
+        {
+            animator.SetBool("dogForward", true);
+        }
+        else
+        {
+            animator.SetBool("dogForward", false); //spelar animationer baserat på vilket håll hunden rör sig - max
+        }
     }
 
     IEnumerator DogWalk1()
@@ -41,7 +81,7 @@ public class dogPathfinding : MonoBehaviour
         for (int i = 0; i < waypoint.Length; i++)
         {
             print("Start");
-            transform.up = waypoint[i].position - transform.position;
+            
             agent.SetDestination(waypoint[i].position);
             yield return new WaitForSecondsRealtime(waitTime);
         }    
@@ -53,7 +93,7 @@ public class dogPathfinding : MonoBehaviour
         for (int i = waypoint.Length - 2; i >= 0; i--)
         {
             print("Start");
-            transform.up = waypoint[i].position - transform.position;
+            ees.gameObject.transform.up = waypoint[i].position - transform.position;
             agent.SetDestination(waypoint[i].position);
             yield return new WaitForSecondsRealtime(waitTime);
         }
@@ -61,7 +101,7 @@ public class dogPathfinding : MonoBehaviour
         for (int i = 1; i < waypoint.Length; i++)
         {
             print("Start");
-            transform.up = waypoint[i].position - transform.position;
+            ees.gameObject.transform.up = waypoint[i].position - transform.position;
             agent.SetDestination(waypoint[i].position);
             yield return new WaitForSecondsRealtime(waitTime);
         }
@@ -86,4 +126,7 @@ public class dogPathfinding : MonoBehaviour
         StartCoroutine("DogWalk1");
        
     }
+
+    
+ 
 }

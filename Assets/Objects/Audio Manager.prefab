@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6374195683748964130}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -91,6 +91,15 @@ MonoBehaviour:
     loop: 1
     mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
     source: {fileID: 0}
+  - name: EnemyFootsteps
+    clip: {fileID: 8300000, guid: d9ae1f927027f2944aef1663402c4db5, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
+    source: {fileID: 0}
   - name: BatteryCharge
     clip: {fileID: 8300000, guid: aadeddc9e7979cd44887e9e4bae778d5, type: 3}
     volume: 1
@@ -118,4 +127,3 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 6738229970532362397, guid: 9c812c43e3d6ae044bb8629229a3209f, type: 2}
     source: {fileID: 0}
-  movement: {fileID: 7253793995429355010, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}

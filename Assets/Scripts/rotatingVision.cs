@@ -8,7 +8,10 @@ public class rotatingVision : MonoBehaviour
     public float rotation;
     public bool peepin = false;
     Transform target;
-
+    public bool setRotation;
+    public Quaternion minAngles;
+    public Quaternion maxAngles;
+    public bool whipIt;
 
 
     public particlesystemscript pss;
@@ -24,9 +27,27 @@ public class rotatingVision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (peepin == false) //If statement for if the enemy has the player in its vision cone
+        if (peepin == false && setRotation == false) //If statement for if the enemy has the player in its vision cone
         {
             transform.Rotate(0, 0, rotation * Time.deltaTime); //If it doesn't it rotates infinitely
+        }
+
+        else if (peepin == false && setRotation == true && whipIt == false)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, minAngles, Time.deltaTime * rotation);
+            if (transform.rotation == minAngles)
+            {
+                whipIt = true;
+            }
+        }
+
+        else if (peepin == false && setRotation == true && whipIt == true)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, maxAngles, Time.deltaTime * rotation);
+            if (transform.rotation == maxAngles)
+            {
+                whipIt = false;
+            }
         }
 
         else
@@ -58,9 +79,5 @@ public class rotatingVision : MonoBehaviour
             peepin = false; //stops following you if you leave vision
             
         }
-
-       
     }
-
-   
 }

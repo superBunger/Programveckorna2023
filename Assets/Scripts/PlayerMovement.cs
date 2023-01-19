@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    bool hasKey = false;
     public GameObject keycard;
     public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
@@ -13,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
     Vector2 movement;
+    Animator animator;
+    bool routineStartedRight;
+    bool routineStartedLeft;
+    bool routineStartedUp;
+    bool routineStartedDown;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -37,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
         cc2D.enabled = false;
-        
-       
+
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -49,35 +53,78 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity.magnitude > 0)
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
+        }
+
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (movement.x == 0 && movement.y == 0) //Står stilla
+        //Spelarens input uppdelat i en horisontell och vertikal axel
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+
+        if (movement.x > 0 && routineStartedRight == false) //Höger
         {
-            print("står stilla");
+            animator.SetBool("playerRight", true);
+
         }
-        else if (movement.x > 0) //Höger
+        else
         {
-            print("Höger");
+            animator.SetBool("playerRight", false);
+            
         }
-        else if (movement.x < 0) //Vänster
-        {
-            print("Vänster");
-        }
-        else if (movement.y > 0) //Upp
-        {
-            print("Upp");
-        }
-        else if (movement.y < 0) //Ner
-        {
-            print("Ner");
-        }
+
        
+
+        if (movement.x < 0 && routineStartedLeft == false) //Vänster
+        {
+            animator.SetBool("playerLeft", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerLeft", false);
+            
+        }
+
+
+        if (movement.y > 0 && routineStartedUp == false) //Upp
+        {
+            animator.SetBool("playerButt", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerButt", false);
+         
+        }
+
+      
+
+        if (movement.y < 0 && routineStartedDown == false) //Ner
+        {
+            animator.SetBool("playerForward", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerForward", false);
+          
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
-            playerSpeed += boostspeed;
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
+            playerSpeed += boostspeed;
             StartCoroutine(speedBoostPower());
             speedBoostActive = true;
             es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max
@@ -94,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 2;
             pss.gameObject.transform.position = transform.position;
             ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
@@ -114,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 3;
             empSystem.Play();
             cc2D.enabled = true;
@@ -131,12 +180,13 @@ public class PlayerMovement : MonoBehaviour
             }
             cc2D.radius += 0.3f;
             yield return new WaitForSeconds(0.5f);
-            cc2D.radius = 0.5f;
+            cc2D.radius = 0.125f;
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
             es.energyBar -= 4;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
@@ -151,8 +201,8 @@ public class PlayerMovement : MonoBehaviour
             Destroy(wallDestroy);
         }
 
-        
-            
+
+       
            
     }
     
@@ -191,13 +241,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Keycard")
         {
-            hasKey = true;
+            es.hasKey = true;
             Destroy(keycard);
         }
 
-        if (collision.gameObject.tag == "Door" && hasKey == true)
+        if (collision.gameObject.tag == "Door" && es.hasKey == true)
         {
-            levelLoader.LoadNextLevel();
+            print("go to next level");
+            es.hasKey = false;
+            //levelLoader.LoadNextLevel();
         }
     }
 

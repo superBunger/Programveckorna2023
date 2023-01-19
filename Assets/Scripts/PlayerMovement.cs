@@ -54,6 +54,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity.magnitude > 0)
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
+        }
+
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");

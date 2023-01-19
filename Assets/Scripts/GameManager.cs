@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public SaveData saveManager;
     public LevelLoader levelManager;
     public SettingsMenu settings;
-    public GameObject gManager;
 
     private static GameManager _instance;
 

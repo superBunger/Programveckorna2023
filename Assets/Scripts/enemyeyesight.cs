@@ -70,7 +70,7 @@ public class enemyeyesight : MonoBehaviour
 
     IEnumerator disabledTimer()
     {
-        yield return new WaitForSeconds(5); //sätter på vision efter 5 sekunder - max
+        yield return new WaitForSeconds(3); //sätter på vision efter 3 sekunder - max
         disabled = false;
     }
     

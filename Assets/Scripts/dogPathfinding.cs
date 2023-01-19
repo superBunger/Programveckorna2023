@@ -67,4 +67,23 @@ public class dogPathfinding : MonoBehaviour
         }
         dogWalked=true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "emp")
+        {
+            StopAllCoroutines();
+            agent.isStopped = true;
+            StartCoroutine(disabledTimer());
+        }
+    }
+
+
+    IEnumerator disabledTimer()
+    {
+        yield return new WaitForSeconds(3);
+        agent.isStopped = false;
+        StartCoroutine("DogWalk1");
+       
+    }
 }

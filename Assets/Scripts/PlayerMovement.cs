@@ -137,6 +137,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "enemy")
+        {
+            es.energyBar -= 1; //om man rör hunden förlorar man energi - max
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135872840}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.264
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9915778, b: 0.28930813, a: 1}
   m_Intensity: 2.5
   m_LightVolumeIntensity: 0.03
   m_LightVolumeIntensityEnabled: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 46.45
   m_PointLightOuterAngle: 46.45
-  m_PointLightInnerRadius: 0
+  m_PointLightInnerRadius: 0.26346678
   m_PointLightOuterRadius: 5.8442025
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 1659192289}
   - component: {fileID: 35847979}
   - component: {fileID: 3325868602170103163}
+  - component: {fileID: 1082277913}
   m_Layer: 0
   m_Name: enemy
   m_TagString: enemy
@@ -272,7 +273,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,9 +398,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Transform: {fileID: 786386606170707648}
-  waypoint:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoint: []
   waitTime: 0
+--- !u!114 &1082277913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470130856005101210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  juggernaut: {fileID: 0}
+  detected: 0
+  disabled: 0
+  isAlarming: 0
+  isDetected: 0
+  pss: {fileID: 0}
+  VisionCone: {fileID: 1470130855413915457}

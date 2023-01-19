@@ -7,17 +7,17 @@ public class visionConeChangeColour : MonoBehaviour
 
     Color redVision = new Color(0.8773585f, 0.2267888f, 0.2553718f, 0.3f);
     Color yellowVision = new Color(1f, 0.9592047f, 0.2962264f, 0.3f);
-  
+    SpriteRenderer sr;
     public enemyeyesight ees;
-    public UnityEngine.Rendering.Universal.Light2D lightCone;
+    
 
     bool routineStarted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        lightCone = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        sr = GetComponent<SpriteRenderer>();
+       
 
     }
 
@@ -26,28 +26,28 @@ public class visionConeChangeColour : MonoBehaviour
     {
         if (ees.detected == false)
         {
-            if (routineStarted == false) //routine started anvï¿½nds fï¿½r att se till att bara en routine ï¿½r active ï¿½t gï¿½ngen - max och erik
+            if (routineStarted == false) //routine started används för att se till att bara en routine är active åt gången - max och erik
             {
-                StartCoroutine(redVisionTimer()); //startar timern fï¿½r att ï¿½ndra tillbaka fï¿½rgen om man inte stï¿½r i synen - m, e
+                StartCoroutine(redVisionTimer()); //startar timern för att ändra tillbaka färgen om man inte står i synen - m, e
             }
             
         }
         
         if (ees.detected == true)
         {
-            StopAllCoroutines();  //stoppar timern om man gï¿½r in i grejen igen - m, e
-            routineStarted = false; //ï¿½ndra routinestarted sï¿½ att en ny routine fï¿½r bï¿½rja - m, e
-            lightCone.color = redVision; //ï¿½ndrar fï¿½rg till rï¿½d - m, e
+            StopAllCoroutines();  //stoppar timern om man går in i grejen igen - m, e
+            routineStarted = false; //ändra routinestarted så att en ny routine får börja - m, e
+            sr.color = redVision; //ändrar färg till röd - m, e
         }
     }
 
-    IEnumerator redVisionTimer() //timer fï¿½r att ï¿½ndra fï¿½rg tillbaka till gul - m, e
+    IEnumerator redVisionTimer() //timer för att ändra färg tillbaka till gul - m, e
     {
         routineStarted = true; 
         //print("coroutine started");
         yield return new WaitForSeconds(3);
         ees.isAlarming = false;
-        lightCone.color = yellowVision;
+        sr.color = yellowVision;
         routineStarted = false;
        
     }

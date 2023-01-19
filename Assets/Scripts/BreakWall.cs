@@ -10,14 +10,15 @@ public class BreakWall : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "bomb")
         {
             print("awesome");
             Destroy(this.gameObject);
         }
     }
-
-   
 
 }

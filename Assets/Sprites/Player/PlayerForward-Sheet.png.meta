@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36db58e0e1919194c9a0a73434a67889
+guid: 499e56734c889b5438117fd9b0896b16
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,17 +101,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoboDog-SheetFlipped_0
+      name: PlayerForward-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 34
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +131,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed686a21ed1bfd9469cd9f267e7728f3
-      internalID: 1472331441
+      spriteID: 1be1fe6f88038644ab2e77a7fc5ace01
+      internalID: -615725952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoboDog-SheetFlipped_1
+      name: PlayerForward-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e1b148d85fde7a4398ef86b2270b6f2
+      internalID: -1580242107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerForward-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 64
-        height: 34
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +173,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e4c6415e840ab4eb6cd69a234d9b2e
-      internalID: 679612852
+      spriteID: e351093445b4f554b8ae0085b0a69928
+      internalID: 519300806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoboDog-SheetFlipped_2
+      name: PlayerForward-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8954518b0213be9498cfe238f37dcb32
+      internalID: -763882302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerForward-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
-        height: 34
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +215,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7254b43cd45e6b24d8e123e21ae8e2f2
-      internalID: 1613213366
+      spriteID: 707b0d3f6f827f841a551653c9f4250b
+      internalID: -128041004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoboDog-SheetFlipped_3
+      name: PlayerForward-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac13d4503cbacb47be7b69845e87105
+      internalID: 1799031697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerForward-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 34
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a20e3ac4824290b4ca981fbcb20ebd7f
-      internalID: -1095291779
+      spriteID: 8592b32d3ff9e8f41b30e247be52c6d2
+      internalID: -1318449203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoboDog-SheetFlipped_4
+      name: PlayerForward-Sheet_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 0
-        width: 64
-        height: 34
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 311b1c95a62e4bb4a8c626e6899414bc
-      internalID: -87231537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RoboDog-SheetFlipped_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f363fc7302951624e98a9c137bcf139a
-      internalID: 939187042
+      spriteID: a601499fce31960459a30a6099d65997
+      internalID: 133441630
       vertices: []
       indices: 
       edges: []
@@ -241,12 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RoboDog-SheetFlipped_0: 1472331441
-      RoboDog-SheetFlipped_5: 939187042
-      RoboDog-SheetFlipped_1: 679612852
-      RoboDog-SheetFlipped_4: -87231537
-      RoboDog-SheetFlipped_2: 1613213366
-      RoboDog-SheetFlipped_3: -1095291779
+      PlayerForward-Sheet_0: -615725952
+      PlayerForward-Sheet_1: -1580242107
+      PlayerForward-Sheet_7: 133441630
+      PlayerForward-Sheet_5: 1799031697
+      PlayerForward-Sheet_3: -763882302
+      PlayerForward-Sheet_2: 519300806
+      PlayerForward-Sheet_6: -1318449203
+      PlayerForward-Sheet_4: -128041004
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

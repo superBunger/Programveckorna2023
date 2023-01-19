@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
     float boostspeed = 350f;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject bomb; //för bomb, interagera med bomb
     public bool insideWall = false;
     public GameObject bombPrefab; //prefab för att spawna bomb
+    GameObject wallDestroy;
 
     ParticleSystem empSystem; //för EMP
     CircleCollider2D cc2D;
@@ -46,9 +48,29 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Spelarens input uppdelat i en horisontell och vertikal axel
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
+        if (movement.x == 0 && movement.y == 0) //Står stilla
+        {
+            print("står stilla");
+        }
+        else if (movement.x > 0) //Höger
+        {
+            print("Höger");
+        }
+        else if (movement.x < 0) //Vänster
+        {
+            print("Vänster");
+        }
+        else if (movement.y > 0) //Upp
+        {
+            print("Upp");
+        }
+        else if (movement.y < 0) //Ner
+        {
+            print("Ner");
+        }
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
@@ -114,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-            bomb.GetComponent<PolygonCollider2D>().enabled = false;
             es.energyBar -= 4;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
@@ -122,12 +143,15 @@ public class PlayerMovement : MonoBehaviour
         
         IEnumerator bombTimer()
         {
-            yield return new WaitForSeconds(1);
-            bomb.GetComponent<PolygonCollider2D>().enabled = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.85f);
             Destroy(bomb);
+            wallDestroy = FindObjectOfType<BreakWall>().gameObject;
+            Destroy(wallDestroy);
         }
 
+        
+            
+           
     }
     
 
@@ -136,6 +160,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Juggernaut")
         {
             Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            es.energyBar -= 1; //om man rör hunden förlorar man energi - max
+        }
+
+        if (collision.gameObject.tag == "Door" && hasKey == true)
+        {
+            levelLoader.LoadNextLevel();
         }
     }
 
@@ -156,6 +189,12 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = true;
+        }
+
+        if (collision.gameObject.tag == "Keycard")
+        {
+            Destroy(keycard);
+            hasKey = true;
         }
     }
 

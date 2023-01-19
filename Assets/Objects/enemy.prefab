@@ -284,17 +284,11 @@ MonoBehaviour:
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-<<<<<<< Updated upstream
-  waitTime: 2.5
---- !u!114 &348431268
-MonoBehaviour:
-=======
   waitTime: 5
   ees: {fileID: 1579613939}
 --- !u!95 &1865511560
 Animator:
   serializedVersion: 4
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

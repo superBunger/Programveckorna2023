@@ -317,7 +317,7 @@ MonoBehaviour:
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-  waitTime: 0
+  waitTime: 2.5
 --- !u!114 &348431268
 MonoBehaviour:
   m_ObjectHideFlags: 0

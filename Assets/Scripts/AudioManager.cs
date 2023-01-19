@@ -8,11 +8,10 @@ public class AudioManager : MonoBehaviour
 	public static AudioManager instance;
 	public AudioMixerGroup mixerGroup;
 	public Sound[] sounds;
-	public PlayerMovement movement;
 
-	void Update()
+	void Awake()
 	{
-        if(movement.rb.velocity.magnitude > 0)
+        if (rb.velocity.magnitude > 0)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
         }
@@ -20,11 +19,8 @@ public class AudioManager : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
         }
-    }
 
-	void Awake()
-	{
-		foreach (Sound s in sounds)
+        foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
@@ -48,7 +44,18 @@ public class AudioManager : MonoBehaviour
 		s.source.Play();
 	}
 
-	public void ChangeVolume(string sound, float volume)
+    public void Stop(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            return;
+        }
+
+        s.source.Stop();
+    }
+
+    public void ChangeVolume(string sound, float volume)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		s.source.volume = volume;
@@ -79,14 +86,8 @@ public class AudioManager : MonoBehaviour
         startVolume = s.source.volume;
 	}
 
-	public void StopMusic()
-	{
-		StartCoroutine(FadeOut("MenuTheme", 0.5f));
-        StartCoroutine(FadeOut("Ambience", 0.5f));
-        StartCoroutine(FadeOut("AmbienceDetected", 0.5f));
-    }
 
-	public void ChangeAmbienceDetected()
+    public void ChangeAmbienceDetected()
 	{
 		StartCoroutine(FadeOut("Ambience", 1f));
 		StartCoroutine(FadeIn("AmbienceDetected", 0.2f));

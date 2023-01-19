@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
     public SaveData saveManager;
     public LevelLoader levelManager;
     public SettingsMenu settings;
+    public GameObject gManager;
 
     private static GameManager _instance;
 
     public static GameManager Instance 
     { 
-        get 
+        get
         { 
             return _instance; 
         } 
@@ -22,9 +23,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
+        if(_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(Instance.gameObject);
+            _instance = this;
         }
         else
         {

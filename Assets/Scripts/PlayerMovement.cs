@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
-    Vector2 movement;
+    Vector2 movementLR = new Vector2(10, 0);
+    Vector2 movementUD = new Vector2(0, 10);
+    bool playerUpward;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -39,15 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Spelarens input uppdelat i en horisontell och vertikal axel
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        
 
        
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
@@ -128,6 +128,19 @@ public class PlayerMovement : MonoBehaviour
             Destroy(bomb);
         }
 
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.AddForce(movementUD * Time.deltaTime);
+            playerUpward = true;
+        }
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            rb.AddForce(-movementUD);
+            playerUpward = false;
+        }
+
+            
+           
     }
     
 

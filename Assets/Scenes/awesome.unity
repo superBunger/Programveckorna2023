@@ -256,11 +256,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6f93aaed8b3546abb9a2ffdb17809, type: 3}
---- !u!1 &508065264 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1414625970, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-  m_PrefabInstance: {fileID: 1245195832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &664419589
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,11 +521,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6f93aaed8b3546abb9a2ffdb17809, type: 3}
---- !u!1 &876937217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1470130855413915457, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
-  m_PrefabInstance: {fileID: 1470130854990231389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1214618135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,7 +604,7 @@ PrefabInstance:
     - target: {fileID: 150122485095876891, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: VisionCone
       value: 
-      objectReference: {fileID: 508065264}
+      objectReference: {fileID: 0}
     - target: {fileID: 5415615454451351184, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -734,6 +724,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e6f93aaed8b3546abb9a2ffdb17809, type: 3}
+--- !u!1 &1462947139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6384432356518920394, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+  m_PrefabInstance: {fileID: 1245195832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1462947142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462947139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c450928c57c046abb38b7b8d75e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightCone: {fileID: 0}
+  ees: {fileID: 0}
 --- !u!1001 &1526938910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -914,6 +923,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 159511576990031122, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
   m_PrefabInstance: {fileID: 1733673493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1905231381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2135872840, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+  m_PrefabInstance: {fileID: 1470130854990231389}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1905231384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905231381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c450928c57c046abb38b7b8d75e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightCone: {fileID: 0}
+  ees: {fileID: 0}
 --- !u!114 &1959416687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1851982685958647677, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
@@ -989,6 +1017,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -176272189553542746, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8ac83a8c3cd2ead4c8ff77d58d6d10db, type: 2}
     - target: {fileID: 26975950249518232, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}
       propertyPath: CollisionModule.enabled
       value: 0
@@ -1074,6 +1106,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2135872842, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 786386606170707648, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1177,7 +1213,7 @@ PrefabInstance:
     - target: {fileID: 1470130856005101206, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: VisionCone
       value: 
-      objectReference: {fileID: 876937217}
+      objectReference: {fileID: 0}
     - target: {fileID: 1470130856005101210, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_Name
       value: enemy

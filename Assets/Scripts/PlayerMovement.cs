@@ -219,10 +219,6 @@ public class PlayerMovement : MonoBehaviour
             es.energyBar -= 1; //om man rör hunden förlorar man energi - max
         }
 
-        if (collision.gameObject.tag == "Door" && hasKey == true)
-        {
-            levelLoader.LoadNextLevel();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -246,8 +242,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Keycard")
         {
-            Destroy(keycard);
             hasKey = true;
+            Destroy(keycard);
+        }
+
+        if (collision.gameObject.tag == "Door" && hasKey == true)
+        {
+            levelLoader.LoadNextLevel();
         }
     }
 

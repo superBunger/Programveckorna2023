@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
     Vector2 movement;
+    Animator animator;
+    bool routineStartedRight;
+    bool routineStartedLeft;
+    bool routineStartedUp;
+    bool routineStartedDown;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -37,8 +42,8 @@ public class PlayerMovement : MonoBehaviour
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
         cc2D.enabled = false;
-        
-       
+
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -53,27 +58,73 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (movement.x == 0 && movement.y == 0) //Står stilla
+        //Spelarens input uppdelat i en horisontell och vertikal axel
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+
+        if (movement.x > 0 && routineStartedRight == false) //Höger
         {
-            print("står stilla");
+            StartCoroutine(animTimerRight());
+            
         }
-        else if (movement.x > 0) //Höger
+        else
         {
-            print("Höger");
+            animator.SetBool("playerRight", false);
+            
         }
-        else if (movement.x < 0) //Vänster
+
+        IEnumerator animTimerRight()
         {
-            print("Vänster");
+            routineStartedRight = true;
+            animator.SetBool("playerRight", true);
+            yield return new WaitForSeconds(1.35f);
+            routineStartedRight = false;
+
         }
-        else if (movement.y > 0) //Upp
+
+        if (movement.x < 0 && routineStartedLeft == false) //Vänster
         {
-            print("Upp");
+            StartCoroutine(animTimerLeft());
+            
         }
-        else if (movement.y < 0) //Ner
+        else
         {
-            print("Ner");
+            animator.SetBool("playerLeft", false);
+            
         }
-       
+
+        IEnumerator animTimerLeft()
+        {
+            routineStartedLeft = true;
+            animator.SetBool("playerLeft", true);
+            yield return new WaitForSeconds(1.35f);
+            routineStartedLeft = false;
+
+        }
+
+        if (movement.y > 0) //Upp
+        {
+            animator.SetBool("playerButt", true);
+         
+        }
+        else
+        {
+            animator.SetBool("playerButt", false);
+         
+        }
+
+        if (movement.y < 0) //Ner
+        {
+            animator.SetBool("playerForward", true);
+            
+        }
+        else
+        {
+            animator.SetBool("playerForward", false);
+          
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
             playerSpeed += boostspeed;
@@ -125,13 +176,13 @@ public class PlayerMovement : MonoBehaviour
         {
             while(loopTimer >= 0)
             {
-                cc2D.radius += 0.2f;
+                cc2D.radius += 0.1f;
                 yield return new WaitForSeconds(0.1f);
                 loopTimer -= 1;
             }
-            cc2D.radius += 0.3f;
+            cc2D.radius += 0.15f;
             yield return new WaitForSeconds(0.5f);
-            cc2D.radius = 0.5f;
+            cc2D.radius = 0.25f;
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
@@ -151,8 +202,8 @@ public class PlayerMovement : MonoBehaviour
             Destroy(wallDestroy);
         }
 
-        
-            
+
+       
            
     }
     

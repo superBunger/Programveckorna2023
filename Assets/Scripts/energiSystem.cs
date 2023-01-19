@@ -12,6 +12,7 @@ public class energiSystem : MonoBehaviour
     public GameObject speedIcon;
     public GameObject smokeIcon;
     public GameObject empIcon;
+    public GameObject bombIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -58,10 +59,12 @@ public class energiSystem : MonoBehaviour
         if (energyBar == 4)
         {
             barFour.SetActive(true);
+            bombIcon.SetActive(true);
         }
         else
         {
             barFour.SetActive(false); //allt dehär ändrar mätaren baserat på hur mycket energi man har - max
+            bombIcon.SetActive(false);
         }
 
         if(energyBar > 4)

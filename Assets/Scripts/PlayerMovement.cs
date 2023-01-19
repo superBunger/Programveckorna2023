@@ -112,9 +112,9 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (movement.y > 0) //Upp
+        if (movement.y > 0 && routineStartedUp == false) //Upp
         {
-            animator.SetBool("playerButt", true);
+            StartCoroutine(animTimerUp());
          
         }
         else
@@ -123,15 +123,33 @@ public class PlayerMovement : MonoBehaviour
          
         }
 
-        if (movement.y < 0) //Ner
+        IEnumerator animTimerUp()
         {
-            animator.SetBool("playerForward", true);
+            routineStartedUp = true;
+            animator.SetBool("playerButt", true);
+            yield return new WaitForSeconds(1.35f);
+            routineStartedUp = false;
+
+        }
+
+        if (movement.y < 0 && routineStartedDown == false) //Ner
+        {
+            StartCoroutine(animTimerDown());
             
         }
         else
         {
             animator.SetBool("playerForward", false);
           
+        }
+
+        IEnumerator animTimerDown()
+        {
+            routineStartedDown = true;
+            animator.SetBool("playerForward", true);
+            yield return new WaitForSeconds(1.35f);
+            routineStartedDown = false;
+
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)

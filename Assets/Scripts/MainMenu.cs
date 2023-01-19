@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        FindObjectOfType<AudioManager>().StopMusic();
+        
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadFurthestLevel();
         
@@ -31,7 +31,6 @@ public class MainMenu : MonoBehaviour
     //Loads the scene with the next build index (Seen in File -> Build Settings)
     public void PlayGame()
     {
-        FindObjectOfType<AudioManager>().StopMusic();
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();
     }

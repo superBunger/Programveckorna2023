@@ -3835,12 +3835,12 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 1
     colliderForce: 0
-    multiplyColliderForceByParticleSize: 0
+    multiplyColliderForceByParticleSize: 1
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
     m_Planes: []
@@ -4012,7 +4012,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -5240,6 +5240,7 @@ GameObject:
   - component: {fileID: 7253793995429355015}
   - component: {fileID: 7253793995429355014}
   - component: {fileID: 7253793995429355010}
+  - component: {fileID: -176272189553542746}
   m_Layer: 0
   m_Name: uppdaterad player (ta inte bort)
   m_TagString: Player
@@ -5382,5 +5383,25 @@ MonoBehaviour:
   es: {fileID: 0}
   pss: {fileID: 0}
   insideWall: 0
-  bombPrefab: {fileID: 0}
+  bombPrefab: {fileID: 7581680934670531489, guid: 1595a55fe8f90cc4a8fac4aee5ee79b7, type: 3}
   smoking: 0
+--- !u!95 &-176272189553542746
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253793995429355017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ac83a8c3cd2ead4c8ff77d58d6d10db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

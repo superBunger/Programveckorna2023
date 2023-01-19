@@ -7,7 +7,7 @@ public class visionConeChangeColour : MonoBehaviour
 
     Color redVision = new Color(0.8773585f, 0.2267888f, 0.2553718f, 0.3f);
     Color yellowVision = new Color(1f, 0.9592047f, 0.2962264f, 0.3f);
-    SpriteRenderer sr;
+    public UnityEngine.Rendering.Universal.Light2D lightCone;
     public enemyeyesight ees;
     
 
@@ -16,7 +16,7 @@ public class visionConeChangeColour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        lightCone = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
        
 
     }
@@ -37,7 +37,7 @@ public class visionConeChangeColour : MonoBehaviour
         {
             StopAllCoroutines();  //stoppar timern om man går in i grejen igen - m, e
             routineStarted = false; //ändra routinestarted så att en ny routine får börja - m, e
-            sr.color = redVision; //ändrar färg till röd - m, e
+            lightCone.color = redVision; //ändrar färg till röd - m, e
         }
     }
 
@@ -47,7 +47,7 @@ public class visionConeChangeColour : MonoBehaviour
         //print("coroutine started");
         yield return new WaitForSeconds(3);
         ees.isAlarming = false;
-        sr.color = yellowVision;
+        lightCone.color = yellowVision;
         routineStarted = false;
        
     }

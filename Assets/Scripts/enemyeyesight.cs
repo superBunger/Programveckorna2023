@@ -15,7 +15,8 @@ public class enemyeyesight : MonoBehaviour
     bool isChangingToDetected = false; //Is it trying to change from normal to detected?
 
     public particlesystemscript pss;
-    public GameObject VisionCone;
+    public UnityEngine.Rendering.Universal.Light2D lightCone;
+
 
 
 
@@ -40,17 +41,18 @@ public class enemyeyesight : MonoBehaviour
 
         if (disabled == true)
         {
-            VisionCone.SetActive(false);
+            lightCone.enabled = false;
         }
         else
         {
-            VisionCone.SetActive(true); //ändrar visionen av och på beroende på om fienden är stunned - max
+            lightCone.enabled = true;  //ändrar visionen av och på beroende på om fienden är stunned - max
         }
     }
 
     private void Start()
     {
-        VisionCone.SetActive(true);
+        lightCone = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+        lightCone.enabled = true;
     }
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
@@ -87,7 +89,7 @@ public class enemyeyesight : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && pss.insideSmoke == false && disabled == false)
         {

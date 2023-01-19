@@ -74,8 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement.x > 0 && routineStartedRight == false) //Höger
         {
-            StartCoroutine(animTimerRight());
-            
+            animator.SetBool("playerRight", true);
+
         }
         else
         {
@@ -83,19 +83,12 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        IEnumerator animTimerRight()
-        {
-            routineStartedRight = true;
-            animator.SetBool("playerRight", true);
-            yield return new WaitForSeconds(1.35f);
-            routineStartedRight = false;
-
-        }
+       
 
         if (movement.x < 0 && routineStartedLeft == false) //Vänster
         {
-            StartCoroutine(animTimerLeft());
-            
+            animator.SetBool("playerLeft", true);
+
         }
         else
         {
@@ -103,19 +96,11 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        IEnumerator animTimerLeft()
-        {
-            routineStartedLeft = true;
-            animator.SetBool("playerLeft", true);
-            yield return new WaitForSeconds(1.35f);
-            routineStartedLeft = false;
-
-        }
 
         if (movement.y > 0 && routineStartedUp == false) //Upp
         {
-            StartCoroutine(animTimerUp());
-         
+            animator.SetBool("playerButt", true);
+
         }
         else
         {
@@ -123,19 +108,12 @@ public class PlayerMovement : MonoBehaviour
          
         }
 
-        IEnumerator animTimerUp()
-        {
-            routineStartedUp = true;
-            animator.SetBool("playerButt", true);
-            yield return new WaitForSeconds(1.35f);
-            routineStartedUp = false;
-
-        }
+      
 
         if (movement.y < 0 && routineStartedDown == false) //Ner
         {
-            StartCoroutine(animTimerDown());
-            
+            animator.SetBool("playerForward", true);
+
         }
         else
         {
@@ -143,14 +121,6 @@ public class PlayerMovement : MonoBehaviour
           
         }
 
-        IEnumerator animTimerDown()
-        {
-            routineStartedDown = true;
-            animator.SetBool("playerForward", true);
-            yield return new WaitForSeconds(1.35f);
-            routineStartedDown = false;
-
-        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {

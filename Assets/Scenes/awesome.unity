@@ -936,14 +936,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1851982685958647677, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
-      propertyPath: empIcon
-      value: 
-      objectReference: {fileID: 1733673494}
-    - target: {fileID: 1851982685958647677, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
-      propertyPath: bombIcon
-      value: 
-      objectReference: {fileID: 2005641268}
     - target: {fileID: 3165303504818172599, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -994,11 +986,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
---- !u!1 &1733673494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 159511576990031122, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
-  m_PrefabInstance: {fileID: 1733673493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1959416687 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1851982685958647677, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
@@ -1010,11 +997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6fb68671e3c7d445b8f4e0d908233be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2005641268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8256042526907687989, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
-  m_PrefabInstance: {fileID: 1733673493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2009689086
 PrefabInstance:
   m_ObjectHideFlags: 0

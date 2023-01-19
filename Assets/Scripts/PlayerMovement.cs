@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    bool hasKey = false;
+    public GameObject keycard;
     public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;

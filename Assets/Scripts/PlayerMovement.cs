@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    bool hasKey = false;
     public GameObject keycard;
     public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
@@ -124,8 +123,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
-            playerSpeed += boostspeed;
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
+            playerSpeed += boostspeed;
             StartCoroutine(speedBoostPower());
             speedBoostActive = true;
             es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max
@@ -142,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 2;
             pss.gameObject.transform.position = transform.position;
             ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
@@ -162,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 3;
             empSystem.Play();
             cc2D.enabled = true;
@@ -185,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
             es.energyBar -= 4;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
@@ -239,13 +241,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Keycard")
         {
-            hasKey = true;
+            es.hasKey = true;
             Destroy(keycard);
         }
 
-        if (collision.gameObject.tag == "Door" && hasKey == true)
+        if (collision.gameObject.tag == "Door" && es.hasKey == true)
         {
-            levelLoader.LoadNextLevel();
+            print("go to next level");
+            es.hasKey = false;
+            //levelLoader.LoadNextLevel();
         }
     }
 

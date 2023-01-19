@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class energiSystem : MonoBehaviour
 {
+    public bool hasKey = false;
     public int energyBar = 0;
+
     public GameObject barOne;
     public GameObject barTwo;
     public GameObject barThree;
     public GameObject barFour;
+    
     public GameObject speedIcon;
     public GameObject smokeIcon;
     public GameObject empIcon;
     public GameObject bombIcon;
+
+    public GameObject keycardIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +31,7 @@ public class energiSystem : MonoBehaviour
         if (energyBar >= 1)
         {
             barOne.SetActive(true);
-            speedIcon.SetActive(true); //om man har nog med energi för att använda den blir den ifärgad - max
+            speedIcon.SetActive(true); //om man har nog med energi fï¿½r att anvï¿½nda den blir den ifï¿½rgad - max
         }
         else
         {
@@ -42,7 +47,7 @@ public class energiSystem : MonoBehaviour
         else
         {
             barTwo.SetActive(false);
-            smokeIcon.SetActive(false); //om man har nog med energi, ifärgad - max
+            smokeIcon.SetActive(false); //om man har nog med energi, ifï¿½rgad - max
         }
 
         if (energyBar >= 3)
@@ -53,7 +58,7 @@ public class energiSystem : MonoBehaviour
         else
         {
             barThree.SetActive(false);
-            empIcon.SetActive(false);  //om man har nog med energi, ifärgad - max
+            empIcon.SetActive(false);  //om man har nog med energi, ifï¿½rgad - max
         }
 
         if (energyBar == 4)
@@ -63,13 +68,22 @@ public class energiSystem : MonoBehaviour
         }
         else
         {
-            barFour.SetActive(false); //allt dehär ändrar mätaren baserat på hur mycket energi man har - max
+            barFour.SetActive(false); //allt dehï¿½r ï¿½ndrar mï¿½taren baserat pï¿½ hur mycket energi man har - max
             bombIcon.SetActive(false);
+        }
+
+        if(hasKey == true)
+        {
+            keycardIcon.SetActive(true);
+        }
+        else
+        {
+            keycardIcon.SetActive(false);
         }
 
         if(energyBar > 4)
         {
-            energyBar = 4;  //ser till att energi inte kan åka över 4 - max
+            energyBar = 4;  //ser till att energi inte kan ï¿½ka ï¿½ver 4 - max
         }
 
        

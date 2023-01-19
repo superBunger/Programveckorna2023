@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eedc9a180fb18e04881dcde7b4be4fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: 0
+  rotation: 10
   peepin: 0
   pss: {fileID: 0}
 --- !u!114 &150122485095876891
@@ -148,7 +148,7 @@ MonoBehaviour:
   isAlarming: 0
   isDetected: 0
   pss: {fileID: 0}
-  VisionCone: {fileID: 0}
+  lightCone: {fileID: 3049252466043100966}
 --- !u!60 &1245195834
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -239,6 +239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8795360853264749800}
   - component: {fileID: 3049252466043100966}
+  - component: {fileID: 1074840944}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -254,7 +255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6384432356518920394}
   m_LocalRotation: {x: -0, y: -0, z: 0.001862948, w: 0.9999983}
-  m_LocalPosition: {x: 5.6232543, y: 7.159212, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -340,3 +341,17 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1074840944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384432356518920394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7c450928c57c046abb38b7b8d75e5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ees: {fileID: 150122485095876891}
+  lightCone: {fileID: 3049252466043100966}

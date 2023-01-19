@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
     Vector2 movement;
+    bool hasKey = false;
+    public GameObject keycard;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -141,6 +144,11 @@ public class PlayerMovement : MonoBehaviour
         {
             es.energyBar -= 1; //om man rör hunden förlorar man energi - max
         }
+
+        if (collision.gameObject.tag == "Door" && hasKey == true)
+        {
+            levelLoader.LoadNextLevel();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -160,6 +168,12 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = true;
+        }
+
+        if (collision.gameObject.tag == "Keycard")
+        {
+            Destroy(keycard);
+            hasKey = true;
         }
     }
 

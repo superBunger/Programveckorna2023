@@ -12,6 +12,8 @@ TagManager:
   - emp
   - bomb
   - breakableWall
+  - Keycard
+  - Door
   layers:
   - Default
   - TransparentFX

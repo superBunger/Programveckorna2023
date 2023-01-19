@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject bomb; //för bomb, interagera med bomb
     public bool insideWall = false;
     public GameObject bombPrefab; //prefab för att spawna bomb
+    GameObject wallDestroy;
 
     ParticleSystem empSystem; //för EMP
     CircleCollider2D cc2D;
@@ -114,19 +115,20 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-            bomb.GetComponent<PolygonCollider2D>().enabled = false;
             es.energyBar -= 4;
-            bomb.GetComponent<Animator>().SetTrigger("bombTime");
+            bomb.GetComponent<Animator>().SetTrigger("bombTime");  //spawnar en bomb, startar animationen och sedan tar bort bomben och väggen - max
             StartCoroutine(bombTimer());
         }
         
         IEnumerator bombTimer()
         {
             yield return new WaitForSeconds(1);
-            bomb.GetComponent<PolygonCollider2D>().enabled = true;
-            yield return new WaitForSeconds(1);
-            Destroy(bomb);
+            wallDestroy = FindObjectOfType<BreakWall>().gameObject;
+            Destroy(wallDestroy);
+
+
         }
+
 
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.LeftArrow))
         {

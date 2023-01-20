@@ -12,12 +12,7 @@ public class rotatingVision : MonoBehaviour
     public Quaternion minAngles;
     public Quaternion maxAngles;
     public bool whipIt;
-    public int headPosition;
-    public Transform head;
-    public float rotationTracker = 0;
-    public creepyLittleHead creepyLittle;
-
-
+    
     public particlesystemscript pss;
 
     private void Start()
@@ -35,17 +30,8 @@ public class rotatingVision : MonoBehaviour
         else if (peepin == false && setRotation == true && whipIt == false)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, minAngles, Time.deltaTime * rotation);
-            rotationTracker += Time.deltaTime * rotation;
-            if (rotationTracker >= 45)
-            {
-                creepyLittle.headNumber += 1;
-                rotationTracker -= 45;
-            }
-            else if (rotationTracker <= -45)
-            {
-                creepyLittle.headNumber -= 1;
-                rotationTracker += 45;
-            }
+            
+            
             if (transform.rotation == minAngles)
             {
                 whipIt = true;
@@ -55,17 +41,7 @@ public class rotatingVision : MonoBehaviour
         else if (peepin == false && setRotation == true && whipIt == true)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, maxAngles, Time.deltaTime * rotation);
-            rotationTracker += Time.deltaTime * rotation;
-            if (rotationTracker >= 45)
-            {
-                creepyLittle.headNumber += 1 ;
-                rotationTracker -= 45;
-            }
-            else if (rotationTracker <= -45)
-            {
-                creepyLittle.headNumber -= 1;
-                rotationTracker += 45;
-            }
+           
             if (transform.rotation == maxAngles)
             {
                 whipIt = false;

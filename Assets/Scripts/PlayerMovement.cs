@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         cc2D.enabled = false;
 
         animator = GetComponent<Animator>();
+
+        print(transform.rotation);
     }
 
     void FixedUpdate()

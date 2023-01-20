@@ -163,7 +163,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "breakableWall")
+        if (collision.gameObject.tag == "Door" && es.hasKey == false)
+        {
+            lockedDoor.SetActive(false);
+        }
+        if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = false;
         }

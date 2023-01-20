@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public SpriteRenderer sr;
     public BoxCollider2D box2d;
     public GameObject playerLight;
-
-    public Animator gameOverAnimator;
 
     public GameObject keycard;
     public Rigidbody2D rb; //för movement
@@ -238,16 +235,12 @@ public class PlayerMovement : MonoBehaviour
             box2d.enabled = false;
             rb.simulated = false;
             playerLight.SetActive(false);
-            gameOverAnimator.SetTrigger("GameOver");
-            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
-            StartCoroutine(RestartLevel(5.0f));
 
             // disable spriterenderer
             // disable box collider
             // trigger gameover animations
             // start coroutine
         }
-
 
         if (collision.gameObject.tag == "breakableWall")
         {
@@ -277,14 +270,6 @@ public class PlayerMovement : MonoBehaviour
         {
             lockedDoor.SetActive(false);
         }
-    }
-
-    public IEnumerator RestartLevel(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        es.energyBar = 0;
-        print("loaded next scene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

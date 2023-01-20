@@ -212,10 +212,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Juggernaut")
-        {
-            Destroy(gameObject);
-        }
+       
         if (collision.gameObject.tag == "enemy")
         {
             es.energyBar -= 1; //om man rör hunden förlorar man energi - max

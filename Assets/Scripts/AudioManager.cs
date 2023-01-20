@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class AudioManager : MonoBehaviour
 
 	void Awake()
 	{
-
         foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
@@ -20,6 +20,14 @@ public class AudioManager : MonoBehaviour
 
 			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
+	}
+
+	void Start()
+	{
+		if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+		Play("MenuTheme");
+        }
 	}
 
 	public void Play(string sound)
@@ -78,6 +86,31 @@ public class AudioManager : MonoBehaviour
         startVolume = s.source.volume;
 	}
 
+	public IEnumerator StopMusicCoroutine()
+	{
+		if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+			StartCoroutine(FadeOut("MenuTheme", 1f));
+            yield return new WaitForSeconds(1.1f);
+			Stop("MenuTheme");
+
+        }
+        if(SceneManager.GetActiveScene().buildIndex >= 1)
+        {
+			StartCoroutine(FadeOut("Ambience", 1f));
+			StartCoroutine(FadeOut("AmbienceDetected", 1f));
+			Stop("PlayerFootsteps");
+			Stop("JuggernautFootsteps");
+            yield return new WaitForSeconds(1.1f);
+			Stop("Ambience");
+			Stop("AmbienceDetected");
+        }
+	}
+
+	public void StopMusic()
+	{
+		StartCoroutine(StopMusicCoroutine());
+	}
 
     public void ChangeAmbienceDetected()
 	{

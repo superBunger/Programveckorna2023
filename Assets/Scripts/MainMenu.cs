@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        if(levelLoaderScript.furthestSceneReached > 1)
+        if(PlayerPrefs.GetInt("FurthestSceneReached") > 1)
         {
             continueButton.SetActive(true);
         }
@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
     //Loads the scene with the next build index (Seen in File -> Build Settings)
     public void PlayGame()
     {
+        PlayerPrefs.SetInt("FurthestSceneReached", 0);
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();
     }

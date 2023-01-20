@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
 
-    public static GameManager Instance 
+    public static GameManager Instance
     { 
         get
         { 
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         if(_instance != null && _instance != this)
         {
             Destroy(Instance.gameObject);
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         levelManager.LoadSceneActions();
         if(PlayerPrefs.HasKey("gameHasSaved"))
         {

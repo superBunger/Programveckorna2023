@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject keycard;
-    public LevelLoader levelLoader;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
     float boostspeed = 350f;
@@ -241,15 +240,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Keycard")
         {
+            FindObjectOfType<AudioManager>().Play("KeycardPickup");
             es.hasKey = true;
             Destroy(keycard);
+            
         }
 
         if (collision.gameObject.tag == "Door" && es.hasKey == true)
         {
             print("go to next level");
             es.hasKey = false;
-            //levelLoader.LoadNextLevel();
+            FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
     }
 

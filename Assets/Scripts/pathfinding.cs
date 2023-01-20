@@ -18,8 +18,6 @@ public class pathfinding : MonoBehaviour
 
     private void Start () 
     {
-        FindObjectOfType<AudioManager>().Play("JuggernautFootsteps");
-        FindObjectOfType<AudioManager>().ChangeVolume("JuggernautFootsteps", 0.0f);
         othersSee = 0;
         agent = GetComponent<NavMeshAgent>();
         
@@ -28,14 +26,6 @@ public class pathfinding : MonoBehaviour
     }
     void Update()
     {
-        if(agent.velocity.magnitude > 0)
-        {
-            FindObjectOfType<AudioManager>().ChangeVolume("JuggernautFootsteps", 1.0f);
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().ChangeVolume("JuggernautFootsteps", 0.0f);
-        }
         
         if (othersSee >= 1)
         {

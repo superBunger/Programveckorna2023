@@ -23,9 +23,9 @@ public class SaveData : MonoBehaviour
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolumeSliderValue");
         effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolumeSliderValue");
         //Volume Values
-        settingsScript.mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
-        settingsScript.mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
-        settingsScript.mixer.SetFloat("EffectsVolume", PlayerPrefs.GetFloat("EffectsVolume"));
+        settingsScript.mixer.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("MasterVolume")) * 20);
+        settingsScript.mixer.SetFloat("MusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume")) * 20);
+        settingsScript.mixer.SetFloat("EffectsVolume", Mathf.Log10(PlayerPrefs.GetFloat("EffectsVolume")) * 20);
         //Menu Mute
         if(PlayerPrefs.GetInt("MenuThemeMuted") == 1)
         {

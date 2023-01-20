@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitMenu()
     {
+        saveManager.SaveSettings();
         pauseAnimator.SetTrigger("PauseClose");
         pauseAnimator.SetBool("PauseLoaded", false);
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
@@ -53,8 +54,8 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        print("Exited out of the game");
-        Application.Quit();
         saveManager.SaveSettings();
+        Application.Quit();
+        print("Exited out of the game");
     }
 }

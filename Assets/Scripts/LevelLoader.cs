@@ -5,14 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    public static LevelLoader instance;
+
     public Animator transition;
     public SaveData saveManager;
     public int furthestSceneReached;
-
+    
     void Start()
 	{
         LoadSceneActions();
 	}
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
+            //FindObjectOfType<AudioManager>().StopMusic();
+        }
+    }
 
     public void OnEnable()
     {
@@ -32,10 +43,6 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadSceneActions()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            FindObjectOfType<AudioManager>().Play("MenuTheme");
-        }
         if(SceneManager.GetActiveScene().buildIndex >= 1)
         {
             FindObjectOfType<AudioManager>().Play("Ambience");
@@ -56,13 +63,15 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadFurthestLevel()
     {
-        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + furthestSceneReached));
+        StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + PlayerPrefs.GetInt("FurthestSceneReached")));
     }
 
     public IEnumerator LoadNextScene(int levelIndex)
     {
-        transition.SetTrigger("TransitionStart");
+        transition.SetTrigger("ClickNewGame");
+        FindObjectOfType<AudioManager>().StopMusic();
         yield return new WaitForSeconds(1.0f);
+        transition.SetTrigger("TransitionStart");
         SceneManager.LoadScene(levelIndex);
         yield return new WaitForSeconds(0.5f);
         LoadSceneActions();

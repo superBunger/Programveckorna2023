@@ -57,7 +57,7 @@ public class SettingsMenu : MonoBehaviour
     public void setEffectsVolume(float effectsVolume)
     {
         mixer.SetFloat("EffectsVolume", Mathf.Log10(effectsVolume) * 20);
-        PlayerPrefs.SetFloat("setEffectsVolume", effectsVolume);
+        PlayerPrefs.SetFloat("EffectsVolume", effectsVolume);
     }
 
     //Toggle Fullscreen Checkbox

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5415615454451351215}
   - component: {fileID: 5415615454451351186}
   - component: {fileID: 154975673}
+  - component: {fileID: 699438678234407276}
   m_Layer: 0
   m_Name: Uggla
   m_TagString: Untagged
@@ -125,16 +126,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a1fd255367a3541b5503a6f4545564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headNumber: 0
   body: {fileID: 341469222}
   spriteRenderer: {fileID: 5415615454451351215}
-  headPosition0: {fileID: 2127953580, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition1: {fileID: 462389301, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition2: {fileID: -1025733271, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition3: {fileID: 1728900862, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition4: {fileID: 231296655, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition5: {fileID: -439143522, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition6: {fileID: 827743131, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
-  headPosition7: {fileID: 2024902710, guid: b7b172e3f9243664493124f39bb5e872, type: 3}
+  headPosition: []
+--- !u!95 &699438678234407276
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415615454451351214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4defaeb7ce60f3e4dbd2b4ca2c763919, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6384432356518920394
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +378,9 @@ MonoBehaviour:
   maxAngles: {x: 0, y: 0, z: 0.80385685, w: 0.59482276}
   whipIt: 0
   headPosition: 0
+  head: {fileID: 0}
+  rotationTracker: 0
+  creepyLittle: {fileID: 0}
   pss: {fileID: 0}
 --- !u!114 &341469223
 MonoBehaviour:

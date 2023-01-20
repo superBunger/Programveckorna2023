@@ -19,7 +19,6 @@ public class enemyeyesight : MonoBehaviour
 
 
 
-
     Coroutine changeToNormal;
     void Update()
     {
@@ -45,15 +44,14 @@ public class enemyeyesight : MonoBehaviour
         }
         else
         {
-            lightCone.enabled = true;  //ändrar visionen av och på beroende på om fienden är stunned - max
+            lightCone.enabled = true; //ändrar visionen av och på beroende på om fienden är stunned - max
         }
     }
 
     private void Start()
     {
         lightCone = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
-        lightCone.enabled = true;
-    }
+}
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
     {
@@ -72,7 +70,7 @@ public class enemyeyesight : MonoBehaviour
 
     IEnumerator disabledTimer()
     {
-        yield return new WaitForSeconds(5); //sätter på vision efter 5 sekunder - max
+        yield return new WaitForSeconds(3); //sätter på vision efter 3 sekunder - max
         disabled = false;
     }
     
@@ -89,7 +87,7 @@ public class enemyeyesight : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && pss.insideSmoke == false && disabled == false)
         {
@@ -99,7 +97,7 @@ public class enemyeyesight : MonoBehaviour
 
                 if (isChangingToDetected == false)
                 {
-                    StartCoroutine(ChangeAmbienceDetectedCooldown(5.0f));
+                    StartCoroutine(ChangeAmbienceDetectedCooldown(1.75f));
                     isChangingToDetected = true;
                 }
 

@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public SpriteRenderer sr;
+    public BoxCollider2D box2d;
+    public GameObject playerLight;
+
+    public Animator gameOverAnimator;
+
+    public GameObject keycard;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
     Vector2 movement;
+    Animator animator;
+    bool routineStartedRight;
+    bool routineStartedLeft;
+    bool routineStartedUp;
+    bool routineStartedDown;
+    public GameObject lockedDoor;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -34,8 +48,12 @@ public class PlayerMovement : MonoBehaviour
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
         cc2D.enabled = false;
-        
-       
+
+        animator = GetComponent<Animator>();
+
+        print(transform.rotation);
+
+        lockedDoor.SetActive(false);
     }
 
     void FixedUpdate()
@@ -46,15 +64,74 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (rb.velocity.magnitude > 0)
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
+        }
+
         //Spelarens input uppdelat i en horisontell och vertikal axel
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+
+        if (movement.x > 0 && routineStartedRight == false) //Höger
+        {
+            animator.SetBool("playerRight", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerRight", false);
+            
+        }
 
        
+
+        if (movement.x < 0 && routineStartedLeft == false) //Vänster
+        {
+            animator.SetBool("playerLeft", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerLeft", false);
+            
+        }
+
+
+        if (movement.y > 0 && routineStartedUp == false) //Upp
+        {
+            animator.SetBool("playerButt", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerButt", false);
+         
+        }
+
+      
+
+        if (movement.y < 0 && routineStartedDown == false) //Ner
+        {
+            animator.SetBool("playerForward", true);
+
+        }
+        else
+        {
+            animator.SetBool("playerForward", false);
+          
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
         {
-            playerSpeed += boostspeed;
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
+            playerSpeed += boostspeed;
             StartCoroutine(speedBoostPower());
             speedBoostActive = true;
             es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max
@@ -71,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 2;
             pss.gameObject.transform.position = transform.position;
             ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
@@ -91,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 3;
             empSystem.Play();
             cc2D.enabled = true;
@@ -108,18 +187,17 @@ public class PlayerMovement : MonoBehaviour
             }
             cc2D.radius += 0.3f;
             yield return new WaitForSeconds(0.5f);
-            cc2D.radius = 0.5f;
+            cc2D.radius = 0.125f;
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
         {
+            FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-            
             es.energyBar -= 4;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
-            
         }
         
         IEnumerator bombTimer()
@@ -128,8 +206,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(bomb);
             wallDestroy = FindObjectOfType<BreakWall>().gameObject;
             Destroy(wallDestroy);
-        }
-
+        }        
     }
     
 
@@ -139,6 +216,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "enemy")
+        {
+            es.energyBar -= 1; //om man rör hunden förlorar man energi - max
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -152,24 +234,69 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Juggernaut")
         {
-            Destroy(gameObject);
+            sr.enabled = false;
+            box2d.enabled = false;
+            rb.simulated = false;
+            playerLight.SetActive(false);
+            gameOverAnimator.SetTrigger("GameOver");
+            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
+            StartCoroutine(RestartLevel(5.0f));
+
+            // disable spriterenderer
+            // disable box collider
+            // trigger gameover animations
+            // start coroutine
         }
+
 
         if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = true;
         }
+
+        if (collision.gameObject.tag == "Keycard")
+        {
+            FindObjectOfType<AudioManager>().Play("KeycardPickup");
+            es.hasKey = true;
+            Destroy(keycard);
+            
+        }
+
+        if (collision.gameObject.tag == "Door" && es.hasKey == true)
+        {
+            print("go to next level");
+            es.hasKey = false;
+            FindObjectOfType<LevelLoader>().LoadNextLevel();
+        }
+        else if (collision.gameObject.tag == "Door" && es.hasKey == false)
+        {
+            print("This door is locked");
+            lockedDoor.SetActive(true);
+        }
+        else
+        {
+            lockedDoor.SetActive(false);
+        }
+    }
+
+    public IEnumerator RestartLevel(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        es.energyBar = 0;
+        print("loaded next scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door" && es.hasKey == false)
-        {
-            lockedDoor.SetActive(false);
-        }
-        if (collision.gameObject.tag == "breakableWall")
+        if(collision.gameObject.tag == "breakableWall")
         {
             insideWall = false;
+        }
+
+        if (collision.gameObject.tag == "Door")
+        {
+            lockedDoor.SetActive(false);
         }
     }
 }

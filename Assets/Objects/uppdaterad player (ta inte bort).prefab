@@ -5381,6 +5381,7 @@ MonoBehaviour:
   sr: {fileID: 7253793995429355012}
   box2d: {fileID: 7253793995429355014}
   playerLight: {fileID: 1385303554}
+  gameOverAnimator: {fileID: 0}
   keycard: {fileID: 0}
   rb: {fileID: 7253793995429355015}
   speedBoostActive: 0

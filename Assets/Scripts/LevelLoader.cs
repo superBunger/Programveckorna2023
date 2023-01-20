@@ -13,17 +13,8 @@ public class LevelLoader : MonoBehaviour
     
     void Start()
 	{
-        LoadSceneActions();
+        //LoadSceneActions();
 	}
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
-            //FindObjectOfType<AudioManager>().StopMusic();
-        }
-    }
 
     public void OnEnable()
     {
@@ -32,6 +23,7 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        LoadSceneActions();
         print("Print: on scene loaded " + SceneManager.GetActiveScene().buildIndex);
         if(SceneManager.GetActiveScene().buildIndex > furthestSceneReached)
         {

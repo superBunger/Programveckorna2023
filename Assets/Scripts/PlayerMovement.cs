@@ -282,6 +282,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator RestartLevel(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        es.energyBar = 0;
         print("loaded next scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

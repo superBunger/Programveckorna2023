@@ -7390,17 +7390,9 @@ PrefabInstance:
       value: Juggernaut
       objectReference: {fileID: 0}
     - target: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
-      propertyPath: othersSee
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 655479942}
-    - target: {fileID: 3378714463373130980, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 3378714463373130981, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
       propertyPath: m_RootOrder
       value: 1

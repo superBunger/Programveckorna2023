@@ -13,6 +13,7 @@ public class pathfinding : MonoBehaviour
     Transform playerTransform;
     NavMeshAgent agent;
     GameObject Player;
+    Animator animator;
 
     bool isScreaming = false;
 
@@ -23,6 +24,7 @@ public class pathfinding : MonoBehaviour
         
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -42,5 +44,43 @@ public class pathfinding : MonoBehaviour
         {
             isScreaming = false;
         }
+
+        if (agent.velocity.x > 0)
+        {
+            animator.SetBool("juggerRight", true);
+        }
+        else
+        {
+            animator.SetBool("juggerRight", false);
+        }
+
+        if (agent.velocity.x < 0)
+        {
+            animator.SetBool("juggerLeft", true);
+        }
+        else
+        {
+            animator.SetBool("juggerLeft", false);
+        }
+
+        if (agent.velocity.y > 0)
+        {
+            animator.SetBool("juggerButt", true);
+        }
+        else
+        {
+            animator.SetBool("juggerButt", false);
+        }
+
+        if (agent.velocity.y < 0)
+        {
+            animator.SetBool("juggerForward", true);
+        }
+        else
+        {
+            animator.SetBool("juggerForward", false); //spelar animationer baserat på vilket håll juggernauten rör sig - max
+        }
+
+
     }
 }

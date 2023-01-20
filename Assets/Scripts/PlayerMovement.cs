@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     bool routineStartedLeft;
     bool routineStartedUp;
     bool routineStartedDown;
+    public GameObject lockedDoor;
 
     public energiSystem es;
     public particlesystemscript pss;
@@ -44,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         print(transform.rotation);
+
+        lockedDoor.SetActive(false);
     }
 
     void FixedUpdate()
@@ -62,10 +65,6 @@ public class PlayerMovement : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
         }
-
-        //Spelarens input uppdelat i en horisontell och vertikal axel
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
 
         //Spelarens input uppdelat i en horisontell och vertikal axel
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -254,6 +253,12 @@ public class PlayerMovement : MonoBehaviour
             es.hasKey = false;
             FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
+
+        if (collision.gameObject.tag == "Door" && es.hasKey == false)
+        {
+            print("This door is locked");
+            lockedDoor.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -261,6 +266,11 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "breakableWall")
         {
             insideWall = false;
+        }
+
+        if (collision.gameObject.tag == "Door")
+        {
+            lockedDoor.SetActive(false);
         }
     }
 }

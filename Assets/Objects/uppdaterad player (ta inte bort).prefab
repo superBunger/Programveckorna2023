@@ -5378,10 +5378,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6519393b4cab2469c6b072b1fe5c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 7253793995429355012}
+  box2d: {fileID: 7253793995429355014}
+  playerLight: {fileID: 1385303554}
   keycard: {fileID: 0}
-  levelLoader: {fileID: 0}
   rb: {fileID: 7253793995429355015}
   speedBoostActive: 0
+  lockedDoor: {fileID: 0}
   es: {fileID: 0}
   pss: {fileID: 0}
   insideWall: 0

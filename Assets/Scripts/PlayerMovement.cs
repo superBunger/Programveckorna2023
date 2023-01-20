@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public SpriteRenderer sr;
+    public BoxCollider2D box2d;
+    public GameObject playerLight;
+
     public GameObject keycard;
     public Rigidbody2D rb; //för movement
     float playerSpeed = 350f;
@@ -199,11 +203,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(bomb);
             wallDestroy = FindObjectOfType<BreakWall>().gameObject;
             Destroy(wallDestroy);
-        }
-
-
-       
-           
+        }        
     }
     
 
@@ -231,7 +231,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Juggernaut")
         {
-            Destroy(gameObject);
+            sr.enabled = false;
+            box2d.enabled = false;
+            rb.simulated = false;
+            playerLight.SetActive(false);
+
+            // disable spriterenderer
+            // disable box collider
+            // trigger gameover animations
+            // start coroutine
         }
 
         if (collision.gameObject.tag == "breakableWall")
@@ -253,11 +261,14 @@ public class PlayerMovement : MonoBehaviour
             es.hasKey = false;
             FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
-
-        if (collision.gameObject.tag == "Door" && es.hasKey == false)
+        else if (collision.gameObject.tag == "Door" && es.hasKey == false)
         {
             print("This door is locked");
             lockedDoor.SetActive(true);
+        }
+        else
+        {
+            lockedDoor.SetActive(false);
         }
     }
 

@@ -8,6 +8,8 @@ using System.IO;
 
 public class dogPathfinding : MonoBehaviour
 {
+    //Henry jobbade på hundens patrul och syn.
+    //Max jobbade på hundens animation.
     public Transform Transform;
     NavMeshAgent agent;
     [SerializeField]
@@ -26,7 +28,7 @@ public class dogPathfinding : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        StartCoroutine("DogWalk1");
+        StartCoroutine("DogWalk");
         animator = GetComponent<Animator>();
     }
 
@@ -35,8 +37,9 @@ public class dogPathfinding : MonoBehaviour
     {
         if (dogWalked == true)
         {
+            //Startar om DogWalk om den har gjort klar en runda - Henry
             dogWalked = false;
-            StartCoroutine("DogWalk2");
+            StartCoroutine("DogWalk");
         }
 
         if(agent.velocity.x > 0)
@@ -76,40 +79,29 @@ public class dogPathfinding : MonoBehaviour
         }
     }
 
-    IEnumerator DogWalk1()
+    IEnumerator DogWalk()
     {
-        for (int i = 0; i < waypoint.Length; i++)
-        {
-            print("Start");
-            
-            agent.SetDestination(waypoint[i].position);
-            yield return new WaitForSecondsRealtime(waitTime);
-        }    
-        dogWalked=true;
-    }
-
-    IEnumerator DogWalk2()
-    {
-        for (int i = waypoint.Length - 2; i >= 0; i--)
-        {
-            print("Start");
-            ees.gameObject.transform.up = waypoint[i].position - transform.position;
-            agent.SetDestination(waypoint[i].position);
-            yield return new WaitForSecondsRealtime(waitTime);
-        }
-
+        //Dogwalk säger till hunden att kolla rakt mot sin nästa waypoint och sen gå mot den. Den väntar för en specifierad tid innan den går till den nästa waypointen - Henry
+        print("Dogwalk1 start");
         for (int i = 1; i < waypoint.Length; i++)
         {
-            print("Start");
             ees.gameObject.transform.up = waypoint[i].position - transform.position;
             agent.SetDestination(waypoint[i].position);
             yield return new WaitForSecondsRealtime(waitTime);
         }
-        dogWalked=true;
+        print("Second part of DogWalk1");
+        for (int i = waypoint.Length - 2; i >= 0; i--)
+        {
+            ees.gameObject.transform.up = waypoint[i].position - transform.position;
+            agent.SetDestination(waypoint[i].position);
+            yield return new WaitForSecondsRealtime(waitTime);
+        }
+        dogWalked =true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Stannar hunden om den blir träffad av en EMP - Max
         if(collision.gameObject.tag == "emp")
         {
             StopAllCoroutines();

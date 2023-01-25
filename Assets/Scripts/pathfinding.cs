@@ -7,6 +7,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class pathfinding : MonoBehaviour
 {
+    //Henry jobbade på Juggernautens pathfinding, att den förstör vägen, fångar spelaren etc.
+    //Erik la in audio.
+    //Max jobbade på animation för juggernauten.
     public bool activated = false;
     public int othersSee = 0;
     [SerializeField]
@@ -19,6 +22,7 @@ public class pathfinding : MonoBehaviour
 
     private void Start () 
     {
+        //Henry
         othersSee = 0;
         agent = GetComponent<NavMeshAgent>();
         
@@ -31,9 +35,10 @@ public class pathfinding : MonoBehaviour
         
         if (othersSee >= 1)
         {
-            
+           //Henry 
             if(isScreaming == false)
             {
+                //Erik
                 FindObjectOfType<AudioManager>().Play("JuggernautSummon");
                 isScreaming = true;
             }
@@ -45,6 +50,7 @@ public class pathfinding : MonoBehaviour
             isScreaming = false;
         }
 
+        //Allt detta nedanför är Max
         if (agent.velocity.x > 0)
         {
             animator.SetBool("juggerRight", true);

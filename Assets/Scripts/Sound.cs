@@ -1,6 +1,9 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
+//All kod tagen från Brackeys - erik
+//Används som en array för att ha individuella ljud och kunna ändra dem individuellt senare utan att behöva ha flera audio sources
+
 [System.Serializable]
 public class Sound {
 

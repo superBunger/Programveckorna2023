@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 	public AudioMixerGroup mixerGroup;
 	public Sound[] sounds;
 
+	//Grunden var tagen från en Brackeys Tutorial men alla funktioner och coroutines är gjorda av Erik
+
 	void Awake()
 	{
         foreach (Sound s in sounds)

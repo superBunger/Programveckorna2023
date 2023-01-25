@@ -5,8 +5,8 @@ using UnityEngine;
 public class creepyLittleHead : MonoBehaviour
 {
     public int headNumber;
-    public rotatingVision body;
     Animator animator;
+    public Transform GameObject;
     
     
     private void Start()
@@ -16,39 +16,42 @@ public class creepyLittleHead : MonoBehaviour
 
     private void Update()
     {
-      if(body.gameObject.transform.rotation.z >= -20 && body.gameObject.transform.rotation.z < 25)
-      {
+        animator.SetFloat("owlRotation", gameObject.transform.localRotation.eulerAngles.z);
+        if (gameObject.transform.localRotation.eulerAngles.z >= -20 && gameObject.transform.localRotation.eulerAngles.z < 25)
+        {
             animator.SetInteger("owlStage", 0);
-      }
+        }
 
-        if (body.gameObject.transform.rotation.z >= 25 && body.gameObject.transform.rotation.z < 70)
+        if (gameObject.transform.localRotation.eulerAngles.z >= 25 && gameObject.transform.localRotation.eulerAngles.z < 70)
         {
             animator.SetInteger("owlStage", 1);
         }
 
-        if (body.gameObject.transform.rotation.z >= 70 && body.gameObject.transform.rotation.z < 115)
+        if (gameObject.transform.localRotation.eulerAngles.z >= 70 && gameObject.transform.localRotation.eulerAngles.z < 115)
         {
             animator.SetInteger("owlStage", 2);
         }
-        
-        if (body.gameObject.transform.rotation.z >= 115 && body.gameObject.transform.rotation.z < 160)
+
+        if (gameObject.transform.localRotation.eulerAngles.z >= 115 && gameObject.transform.localRotation.eulerAngles.z < 160)
         {
             animator.SetInteger("owlStage", 3);
         }
 
-        if (body.gameObject.transform.rotation.z >= 160 && body.gameObject.transform.rotation.z < 205)
+        if (gameObject.transform.localRotation.eulerAngles.z >= 160 && gameObject.transform.localRotation.eulerAngles.z < 205)
         {
             animator.SetInteger("owlStage", 4);
         }
 
-        if (body.gameObject.transform.rotation.z >= 205 && body.gameObject.transform.rotation.z < 250)
+        if (gameObject.transform.localRotation.eulerAngles.z >= 205 && gameObject.transform.localRotation.eulerAngles.z < 250)
         {
             animator.SetInteger("owlStage", 5);
         }
 
-        if (body.gameObject.transform.rotation.z >= 295 && body.gameObject.transform.rotation.z < 340)
+        if (gameObject.transform.localRotation.eulerAngles.z >= 295 && gameObject.transform.localRotation.eulerAngles.z < 340)
         {
             animator.SetInteger("owlStage", 6);
         }
+
+
     }
 }

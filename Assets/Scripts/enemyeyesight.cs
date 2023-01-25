@@ -24,13 +24,13 @@ public class enemyeyesight : MonoBehaviour
     {
         if (detected == false && isDetected == true && isChangingToNormal == false)
         {
-            changeToNormal = StartCoroutine(ChangeAmbienceNormalCooldown(10.0f));
-            isChangingToNormal = true;
+            changeToNormal = StartCoroutine(ChangeAmbienceNormalCooldown(10.0f)); //Byter till vanliga ambience om 10 sekunder - erik
+            isChangingToNormal = true; //Bool för att visa att den är mitt i ett byte - erik
         }
 
         if (detected == true && isDetected == true)
         {
-            StopCoroutine(changeToNormal);
+            StopCoroutine(changeToNormal);//Avslutar bytet när man blir upptäckt - erik
         }
 
         if (pss.insideSmoke == true || disabled == true)
@@ -57,6 +57,7 @@ public class enemyeyesight : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         FindObjectOfType<AudioManager>().ChangeAmbienceDetected();
+        //En Coroutine som byter till detected ambience - erik
 
     }
 
@@ -64,8 +65,9 @@ public class enemyeyesight : MonoBehaviour
     {
         yield return new WaitForSeconds(seconds);
         FindObjectOfType<AudioManager>().ChangeAmbienceNormal();
-        isDetected = false;
+        isDetected = false; 
         isChangingToDetected = false;
+        //En Coroutine som byter till normal ambience - erik
     }
 
     IEnumerator disabledTimer()
@@ -99,20 +101,22 @@ public class enemyeyesight : MonoBehaviour
                 {
                     StartCoroutine(ChangeAmbienceDetectedCooldown(1.75f));
                     isChangingToDetected = true;
-                }
+                //När man blir upptäckt så byter den till detected ambience om 1.75 sekunder - erik
+            }
 
-                if (isAlarming == false)
+            if (isAlarming == false)
                 {
                     isAlarming = true;
                     FindObjectOfType<AudioManager>().Play("DetectionAlarm");
-                }
-         
+                //Om det inte spelas ett aktivt alarm så spelas det ett när man blir upptäckt - erik
+            }
+
         }
 
         if(collision.gameObject.tag == "emp")
         {
             disabled = true;
-            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned
+            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned - erik
         }
 
     }

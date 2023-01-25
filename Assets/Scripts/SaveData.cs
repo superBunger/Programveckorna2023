@@ -16,6 +16,7 @@ public class SaveData : MonoBehaviour
     public Toggle fullscreenToggle;
     public Toggle muteThemeToggle;
 
+    //Laddar alla settings för musik och om meny musiken är mute-ad - erik
     public void ApplySettings()
     {
         //Slider Values
@@ -39,6 +40,7 @@ public class SaveData : MonoBehaviour
         }
     }
 
+    //Sparar alla inställningar - erik
     public void SaveSettings()
     {
         //Slider Values

@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D
+        rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D - William
         pss.gameObject.GetComponent<ParticleSystem>().Stop();
         empSystem = GetComponentInChildren<ParticleSystem>();
         cc2D = GetComponentInChildren<CircleCollider2D>();
@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized;
+        rb.velocity = playerSpeed * Time.deltaTime * movement.normalized; //Rigidbody2D rörelse - William
     }
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 0.0f);
         }
 
-        //Spelarens input uppdelat i en horisontell och vertikal axel
+        //Spelarens input uppdelat i en horisontell och vertikal axel - William
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -261,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
             es.hasKey = false;
             FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
-        else if (collision.gameObject.tag == "Door" && es.hasKey == false)
+        else if (collision.gameObject.tag == "Door" && es.hasKey == false) //Visar "This door is locked" när spelaren nuddar dörren och saknar nyckeln - William
         {
             print("This door is locked");
             lockedDoor.SetActive(true);
@@ -279,7 +279,7 @@ public class PlayerMovement : MonoBehaviour
             insideWall = false;
         }
 
-        if (collision.gameObject.tag == "Door")
+        if (collision.gameObject.tag == "Door") //Gömmer "This door is locked" texten när spelarens slutar nudda dörren - William
         {
             lockedDoor.SetActive(false);
         }

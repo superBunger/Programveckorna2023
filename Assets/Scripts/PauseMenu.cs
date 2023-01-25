@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public Animator settingsAnimator;
     public Animator pauseAnimator;
 
+    //Coroutinen för att öppna inställningar från paus menyn - erik
     public IEnumerator OpenSettings()
     {
         pauseAnimator.SetTrigger("PauseClose");
@@ -21,10 +22,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            OpenSettings();
-        }
+        //Öppnar paus menyn om man trycker på escape, är redan inte i paus menyn och är inte i settings menyn - erik
         if (SceneManager.GetActiveScene().buildIndex > 0 && Input.GetKeyDown(KeyCode.Escape) && !pauseAnimator.GetBool("PauseLoaded") && !settingsAnimator.GetBool("SettingsLoaded"))
         {
             pauseAnimator.SetTrigger("PauseOpen");
@@ -32,17 +30,22 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    //Resume knappen
+    //Stänger paus menyn - erik
     public void Resume()
     {
         pauseAnimator.SetTrigger("PauseClose");
         pauseAnimator.SetBool("PauseLoaded", false);
     }
 
+    //Settings knappen
+    //Startar coroutinen som öppnar inställningarna och stänger paus menyn - erik
     public void Settings()
     {
         StartCoroutine(OpenSettings());
     }
 
+    //Sparar progress och går tillbaka till huvudmenyn - erik
     public void QuitMenu()
     {
         saveManager.SaveSettings();
@@ -52,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         levelLoaderScript.LoadMenuLevel();
     }
 
+    //Sparar progress och stänger spelet - erik
     public void QuitGame()
     {
         saveManager.SaveSettings();

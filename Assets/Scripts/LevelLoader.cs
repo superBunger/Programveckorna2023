@@ -13,17 +13,9 @@ public class LevelLoader : MonoBehaviour
     
     void Start()
 	{
+        //Startar med funktionen som startar musik - erik
         LoadSceneActions();
 	}
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
-            //FindObjectOfType<AudioManager>().StopMusic();
-        }
-    }
 
     public void OnEnable()
     {
@@ -32,6 +24,8 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //En void funktion som händer varje gång man laddas in i en scen  - erik
+        //Här sparar koden den längsta scenen man har nått  - erik
         print("Print: on scene loaded " + SceneManager.GetActiveScene().buildIndex);
         if(SceneManager.GetActiveScene().buildIndex > furthestSceneReached)
         {
@@ -43,7 +37,8 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadSceneActions()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= 1)
+        //Funktion som laddar musiken för spelet scener  - erik
+        if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             FindObjectOfType<AudioManager>().Play("Ambience");
             FindObjectOfType<AudioManager>().Play("AmbienceDetected");
@@ -53,26 +48,37 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMenuLevel()
     {
+        //Funktion som laddar menyn  - erik
         StartCoroutine(LoadNextScene(0));
     }
 
     public void LoadNextLevel()
     {
+        //Funktion som laddar nästa leveln i build index ordningen  - erik
         StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void LoadFurthestLevel()
     {
+        //Laddar den längsta scenen man har nått (tar det värdet från save systemet - erik
         StartCoroutine(LoadNextScene(SceneManager.GetActiveScene().buildIndex + PlayerPrefs.GetInt("FurthestSceneReached")));
     }
 
     public IEnumerator LoadNextScene(int levelIndex)
     {
+        //Börjar animationen för scene transition
+        //Fade-ar ut musiken
+        //Väntar i en sekund
+        //Laddar nästa scen
+        //Startar animationen för att avsluta scene transition (visa spelet)
+        //Väntar i 0.5 sekunder så alla scripts och deras funktioner hinner ladda in
+        //Startar musiken för varje scen
+        //Gjort av Erik
         transition.SetTrigger("ClickNewGame");
         FindObjectOfType<AudioManager>().StopMusic();
         yield return new WaitForSeconds(1.0f);
-        transition.SetTrigger("TransitionStart");
         SceneManager.LoadScene(levelIndex);
+        transition.SetTrigger("TransitionStart");
         yield return new WaitForSeconds(0.5f);
         LoadSceneActions();
     }

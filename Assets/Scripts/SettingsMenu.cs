@@ -15,6 +15,7 @@ public class SettingsMenu : MonoBehaviour
 
     void Update()
     {
+        //If satser för att stänga av meny musiken  - erik
         if (isThemePlaying == true && savingScript.muteThemeToggle.isOn == true)
         {
             PlayerPrefs.SetInt("MenuThemeMuted", 0);
@@ -28,12 +29,14 @@ public class SettingsMenu : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape) && settingsAnimator.GetBool("SettingsLoaded") && SceneManager.GetActiveScene().buildIndex == 0)
         {
+            //If sats för att stänga inställningarna och spara spelet - erik
             settingsAnimator.SetTrigger("SettingsClose");
             settingsAnimator.SetBool("SettingsLoaded", false);
             savingScript.SaveSettings();
         }
     }
 
+    //Tillbaka pillen som stänger settings menyn - erik
     public void closeSettingsButton()
     {
         settingsAnimator.SetTrigger("SettingsClose");
@@ -41,12 +44,15 @@ public class SettingsMenu : MonoBehaviour
         savingScript.SaveSettings();
     }
     //Master Volume Slider
+    //Ändrar volymen för all musik - erik
     public void setMasterVolume (float masterVolume)
     {
         mixer.SetFloat("MasterVolume", Mathf.Log10(masterVolume) * 20);
         PlayerPrefs.SetFloat("MasterVolume", masterVolume);
     }
     //Music Volume Slider
+    //Ändrar volymen för musiken - erik
+
     public void setMusicVolume(float musicVolume)
     {
         mixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
@@ -54,6 +60,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     //Effects Volume Slider
+    //Ändrar volymen för effekterna - erik
     public void setEffectsVolume(float effectsVolume)
     {
         mixer.SetFloat("EffectsVolume", Mathf.Log10(effectsVolume) * 20);
@@ -61,6 +68,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     //Toggle Fullscreen Checkbox
+    //byter mellan fullscreen och windowed om man bockar av  - erik
     public void setFullscreen (bool isFullscreen)
     {
         if(isFullscreen == true)
@@ -72,8 +80,9 @@ public class SettingsMenu : MonoBehaviour
             Screen.fullScreen = isFullscreen;
         }
     }
-    
+
     //Mute Menu Music Checkbox
+    //Stänger av musiken i menyn om man bockar av - erik
     public void muteMenuMusic(bool isPlaying)
     {
         if(isPlaying == true)

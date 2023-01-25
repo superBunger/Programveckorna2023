@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class rotatingVision : MonoBehaviour
 {
+    //Henry jobbade på ugglans rotation och syn.
+    //Max såg till att den inte såg spelaren när den borde inte kunna se de.
     [SerializeField]
     public float rotation;
     public bool peepin = false;

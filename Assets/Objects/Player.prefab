@@ -389,7 +389,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 50
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -436,8 +436,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6519393b4cab2469c6b072b1fe5c3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 7253793995429355012, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}
+  box2d: {fileID: 7253793995429355014, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}
+  playerLight: {fileID: 9060147121530547999, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}
+  keycard: {fileID: 1810690119813783682, guid: 4bac6b9eca9f5db44a1628814ed9baa6, type: 3}
   rb: {fileID: 7274845357375514199}
   speedBoostActive: 0
+  lockedDoor: {fileID: 9212521550515802946, guid: 6cf86468b0db6834e99ec88923e6b35b, type: 3}
   es: {fileID: 1851982685958647677, guid: 33de65e2f5a4f7949a6f46e7feae75d2, type: 3}
-  pss: {fileID: 0}
+  pss: {fileID: -9128850581995519935, guid: 70263a79f5523c942b324cdd6ab4fbce, type: 3}
+  insideWall: 0
+  bombPrefab: {fileID: 7581680934670531489, guid: 1595a55fe8f90cc4a8fac4aee5ee79b7, type: 3}
   smoking: 0

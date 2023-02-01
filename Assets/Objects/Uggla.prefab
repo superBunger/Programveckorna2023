@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 341469222}
   - component: {fileID: 341469223}
   - component: {fileID: 8293288196741439265}
+  - component: {fileID: 527553544}
   m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
@@ -451,3 +452,15 @@ PolygonCollider2D:
       - {x: -0.012262138, y: -1.0911586}
       - {x: 0.13753462, y: -0.6597288}
       - {x: 1.9624528, y: 3.873798}
+--- !u!114 &527553544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384432356518920394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a1fd255367a3541b5503a6f4545564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

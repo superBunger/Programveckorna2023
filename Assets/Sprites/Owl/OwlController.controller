@@ -8,9 +8,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 4
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 335
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7223294614466100409}
   m_Solo: 0
@@ -33,9 +33,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 2
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5557321731249294476}
   m_Solo: 0
@@ -86,9 +89,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5036089313499357316}
   m_Solo: 0
@@ -111,9 +117,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 7
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1825725269421243229}
   m_Solo: 0
@@ -136,9 +145,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 5
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 335
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2258727140953146365}
   m_Solo: 0
@@ -161,9 +173,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5036089313499357316}
   m_Solo: 0
@@ -214,9 +229,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 4
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 335
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7223294614466100409}
   m_Solo: 0
@@ -267,9 +282,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 3
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 20
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6197025027209223231}
   m_Solo: 0
@@ -318,9 +336,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 4
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 20
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7223294614466100409}
   m_Solo: 0
@@ -341,11 +359,14 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
+  m_Name: QEWQ
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 5
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 335
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2258727140953146365}
   m_Solo: 0
@@ -424,9 +445,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 6
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7217504716463177501}
   m_Solo: 0
@@ -449,9 +473,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 624329545638951920}
   m_Solo: 0
@@ -480,7 +507,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -502,9 +529,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 5
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 335
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2258727140953146365}
   m_Solo: 0
@@ -609,9 +639,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 6
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7217504716463177501}
   m_Solo: 0
@@ -634,9 +667,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 7
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1825725269421243229}
   m_Solo: 0
@@ -659,9 +695,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 2
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5557321731249294476}
   m_Solo: 0
@@ -684,9 +723,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 6
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 290
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7217504716463177501}
   m_Solo: 0
@@ -709,9 +751,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 2
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5557321731249294476}
   m_Solo: 0
@@ -734,9 +779,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 624329545638951920}
   m_Solo: 0
@@ -759,9 +807,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 20
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6197025027209223231}
   m_Solo: 0
@@ -812,9 +863,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 3
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 20
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 65
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6197025027209223231}
   m_Solo: 0
@@ -837,9 +891,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 7
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 245
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1825725269421243229}
   m_Solo: 0
@@ -862,9 +919,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 110
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5036089313499357316}
   m_Solo: 0
@@ -887,9 +947,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: owlStage
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 155
+  - m_ConditionMode: 4
+    m_ConditionEvent: owlRotation
+    m_EventTreshold: 200
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 624329545638951920}
   m_Solo: 0

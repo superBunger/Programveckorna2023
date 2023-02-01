@@ -2192,7 +2192,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lana
+  m_text: 'Lee
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa8f71f20abf2dd46864f207813f4143, type: 2}
   m_sharedMaterial: {fileID: -7944395630962292254, guid: aa8f71f20abf2dd46864f207813f4143, type: 2}

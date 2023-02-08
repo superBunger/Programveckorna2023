@@ -284,7 +284,7 @@ MonoBehaviour:
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-  waitTime: 5
+  waitTime: 11
   ees: {fileID: 1579613939}
 --- !u!95 &1865511560
 Animator:
@@ -296,7 +296,7 @@ Animator:
   m_GameObject: {fileID: 1470130856005101210}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7521db4d1963cc44ebd8384819a7fb58, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -331,7 +331,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5478373985360951351}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -339,7 +339,7 @@ Transform:
   - {fileID: 2135872841}
   m_Father: {fileID: 786386606170707648}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &5320659458877592544
 PolygonCollider2D:
   m_ObjectHideFlags: 0

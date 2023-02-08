@@ -42,7 +42,7 @@ public class dogPathfinding : MonoBehaviour
             StartCoroutine("DogWalk");
         }
 
-        if(agent.velocity.x > 0)
+        if(agent.velocity.x > 0.1)
         {
             animator.SetBool("dogRight", true);
         }
@@ -51,7 +51,7 @@ public class dogPathfinding : MonoBehaviour
             animator.SetBool("dogRight", false);
         }
 
-        if (agent.velocity.x < 0)
+        if (agent.velocity.x < 0.1)
         {
             animator.SetBool("dogLeft", true);
         }
@@ -60,7 +60,7 @@ public class dogPathfinding : MonoBehaviour
             animator.SetBool("dogLeft", false);
         }
 
-        if (agent.velocity.y > 0)
+        if (agent.velocity.y > 0.1)
         {
             animator.SetBool("dogButt", true);
         }
@@ -69,7 +69,7 @@ public class dogPathfinding : MonoBehaviour
             animator.SetBool("dogButt", false);
         }
 
-        if (agent.velocity.y < 0)
+        if (agent.velocity.y < 0.1)
         {
             animator.SetBool("dogForward", true);
         }

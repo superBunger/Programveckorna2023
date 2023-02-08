@@ -296,7 +296,7 @@ Animator:
   m_GameObject: {fileID: 1470130856005101210}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7521db4d1963cc44ebd8384819a7fb58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  juggernaut: {fileID: 3378714463373130979, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
+  juggernaut: {fileID: 0}
   detected: 0
   disabled: 0
   isAlarming: 0

@@ -394,6 +394,7 @@ MonoBehaviour:
   maxAngles: {x: 0, y: 0, z: -0.70710677, w: -0.70710677}
   whipIt: 0
   pss: {fileID: 0}
+  es: {fileID: 0}
 --- !u!114 &341469223
 MonoBehaviour:
   m_ObjectHideFlags: 0

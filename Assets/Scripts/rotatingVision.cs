@@ -14,8 +14,10 @@ public class rotatingVision : MonoBehaviour
     public Quaternion minAngles;
     public Quaternion maxAngles;
     public bool whipIt;
+    bool energyTimerStarted = false;
     
     public particlesystemscript pss;
+    public energiSystem es;
 
     private void Start()
         {
@@ -57,8 +59,25 @@ public class rotatingVision : MonoBehaviour
 
         if (pss.insideSmoke == true)
         {
-            peepin = false; //slutar följa dig om du gömmer dig - max
+            peepin = false; //slutar följa dig om du gömmer inuti rök - max
         }
+
+        if(peepin == true && energyTimerStarted == false)
+        {
+            StartCoroutine(energyTimer()); //om man står inuti visionen börjar en timer för att ta bort energi - max
+        }
+        if(peepin == false)
+        {
+            StopAllCoroutines(); //stänger av timern om man lämnar visionen
+        }
+    }
+
+    IEnumerator energyTimer()
+    {
+        energyTimerStarted = true;
+        yield return new WaitForSeconds(5);
+        es.energyBar -= 1;
+        energyTimerStarted = false; //energytimerstarted används så att bara en timer startas åt gången - max
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

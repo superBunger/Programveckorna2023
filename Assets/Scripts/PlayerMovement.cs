@@ -266,10 +266,7 @@ public class PlayerMovement : MonoBehaviour
             print("This door is locked");
             lockedDoor.SetActive(true);
         }
-        else
-        {
-            lockedDoor.SetActive(false);
-        }
+       
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -8,9 +8,20 @@ public class LevelLoader : MonoBehaviour
     public static LevelLoader instance;
 
     public Animator transition;
+    public Animator gameOverAnimator;
     public SaveData saveManager;
     public int furthestSceneReached;
-    
+
+    public IEnumerator GameOver(float seconds)
+    {
+        gameOverAnimator.SetTrigger("GameOver");
+        gameOverAnimator.SetBool("isGameOver", true);
+        yield return new WaitForSeconds(seconds);
+        gameOverAnimator.SetTrigger("doneGamingOver");
+        gameOverAnimator.SetBool("isGameOver", false);
+
+    }
+
     void Start()
 	{
         //Startar med funktionen som startar musik - erik

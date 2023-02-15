@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
+    
+
     Vector2 movement;
     Animator animator;
     bool routineStartedRight;
@@ -211,7 +214,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Juggernaut")
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         if (collision.gameObject.tag == "enemy")
         {
@@ -235,6 +238,9 @@ public class PlayerMovement : MonoBehaviour
             box2d.enabled = false;
             rb.simulated = false;
             playerLight.SetActive(false);
+            StartCoroutine(FindObjectOfType<LevelLoader>().GameOver(5.0f));
+            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
+            StartCoroutine(RestartLevel(5.0f));
 
             // disable spriterenderer
             // disable box collider
@@ -267,6 +273,14 @@ public class PlayerMovement : MonoBehaviour
             lockedDoor.SetActive(true);
         }
        
+    }
+
+    public IEnumerator RestartLevel(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        es.energyBar = 0;
+        print("loaded next scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

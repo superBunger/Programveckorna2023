@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         //Öppnar paus menyn om man trycker på escape, är redan inte i paus menyn och är inte i settings menyn - erik
-        if (SceneManager.GetActiveScene().buildIndex > 0 && Input.GetKeyDown(KeyCode.Escape) && !pauseAnimator.GetBool("PauseLoaded") && !settingsAnimator.GetBool("SettingsLoaded"))
+        if (SceneManager.GetActiveScene().buildIndex > 0 && Input.GetKeyDown(KeyCode.Escape) && !pauseAnimator.GetBool("PauseLoaded") && !settingsAnimator.GetBool("SettingsLoaded") && FindObjectOfType<LevelLoader>().gameOverAnimator.GetBool("isGameOver") == false)
         {
             pauseAnimator.SetTrigger("PauseOpen");
             pauseAnimator.SetBool("PauseLoaded", true);

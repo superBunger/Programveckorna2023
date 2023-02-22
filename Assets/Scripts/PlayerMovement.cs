@@ -260,19 +260,21 @@ public class PlayerMovement : MonoBehaviour
             Destroy(keycard);
             
         }
-
-        if (collision.gameObject.tag == "Door" && es.hasKey == true)
-        {
-            print("go to next level");
-            es.hasKey = false;
-            FindObjectOfType<LevelLoader>().LoadNextLevel();
-        }
-        else if (collision.gameObject.tag == "Door" && es.hasKey == false) //Visar "This door is locked" när spelaren nuddar dörren och saknar nyckeln - William
+        if (collision.gameObject.tag == "Door" && es.hasKey == false) //Visar "This door is locked" när spelaren nuddar dörren och saknar nyckeln - William
         {
             print("This door is locked");
             lockedDoor.SetActive(true);
         }
-       
+        if (collision.gameObject.tag == "Door" && es.hasKey == true)
+        {
+            lockedDoor.SetActive(false);
+            print("go to next level");
+            
+            FindObjectOfType<LevelLoader>().LoadNextLevel();
+        }
+
+      
+
     }
 
     public IEnumerator RestartLevel(float seconds)

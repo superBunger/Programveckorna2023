@@ -7655,6 +7655,10 @@ PrefabInstance:
       propertyPath: pss
       value: 
       objectReference: {fileID: 93928328}
+    - target: {fileID: 1579613939, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: juggernaut
+      value: 
+      objectReference: {fileID: 1688391405}
     - target: {fileID: 786386606170707648, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

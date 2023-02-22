@@ -5742,6 +5742,10 @@ PrefabInstance:
       value: enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: waypoint.Array.data[0]
       value: 
       objectReference: {fileID: 1492445316}
@@ -7740,6 +7744,10 @@ PrefabInstance:
       value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: waypoint.Array.data[0]
       value: 
       objectReference: {fileID: 1721903656}
@@ -8111,7 +8119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: waitTime
-      value: 9.91
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: waypoint.Array.data[0]

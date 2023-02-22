@@ -6463,6 +6463,7 @@ GameObject:
   - component: {fileID: 489271000}
   - component: {fileID: 489270999}
   - component: {fileID: 489270998}
+  - component: {fileID: 489271001}
   m_Layer: 0
   m_Name: SideWallLeft (2)
   m_TagString: Breakable wall
@@ -6549,6 +6550,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &489271001
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489270997}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.34, y: 0.34}
+    newSize: {x: 0.34, y: 0.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.03, y: -0.17}
+      - {x: -0.03, y: 0.17}
+      - {x: -0.17, y: 0.17}
+      - {x: -0.17, y: -0.17}
 --- !u!1001 &527156773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6785,6 +6815,7 @@ GameObject:
   - component: {fileID: 876664858}
   - component: {fileID: 876664857}
   - component: {fileID: 876664859}
+  - component: {fileID: 876664860}
   m_Layer: 0
   m_Name: SideWallLeft
   m_TagString: Breakable wall
@@ -6871,6 +6902,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22ddda6401ad1f44afda0cdf10bfaf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &876664860
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876664856}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.34, y: 0.34}
+    newSize: {x: 0.34, y: 0.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.03, y: -0.17}
+      - {x: -0.03, y: 0.17}
+      - {x: -0.17, y: 0.17}
+      - {x: -0.17, y: -0.17}
 --- !u!1001 &1080199864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8910,7 +8970,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9170,7 +9230,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9567,8 +9627,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: b081e24518b7d804d8f2cd421996f7c8, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: b4e87be4b582ea841aabe590fde152c0, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: c85db328321983444a1aca4bb08a7cc0, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e07713f55404fce499940c9277cdd213, type: 3}
   - m_RefCount: 1
@@ -9576,9 +9636,9 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 73e8129655636954cb6cf09cad1b19aa, type: 3}
   - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: c85db328321983444a1aca4bb08a7cc0, type: 3}
+  - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 2d8e77cea610a1f4fae1ca661d7a7640, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 217
     m_Data:
@@ -9668,6 +9728,7 @@ GameObject:
   - component: {fileID: 1469625570}
   - component: {fileID: 1469625569}
   - component: {fileID: 1469625568}
+  - component: {fileID: 1469625571}
   m_Layer: 0
   m_Name: SideWallLeft (1)
   m_TagString: Breakable wall
@@ -9754,6 +9815,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1469625571
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469625567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.34, y: 0.34}
+    newSize: {x: 0.34, y: 0.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.03, y: -0.17}
+      - {x: -0.03, y: 0.17}
+      - {x: -0.17, y: 0.17}
+      - {x: -0.17, y: -0.17}
 --- !u!1 &1635047948
 GameObject:
   m_ObjectHideFlags: 0

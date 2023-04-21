@@ -33,6 +33,7 @@ public class MainMenu : MonoBehaviour
     //Loads the scene with the next build index (Seen in File -> Build Settings)  - erik
     public void PlayGame()
     {
+        PlayerPrefs.SetInt("BatteryCharge", 0);
         PlayerPrefs.SetInt("FurthestSceneReached", 0);
         levelLoaderScript.transition.SetTrigger("ClickNewGame");
         levelLoaderScript.LoadNextLevel();

@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         print(transform.rotation);
 
         lockedDoor.SetActive(false);
+        es.energyBar = PlayerPrefs.GetInt("BatteryCharge");
     }
 
     void FixedUpdate()
@@ -269,7 +270,8 @@ public class PlayerMovement : MonoBehaviour
         {
             lockedDoor.SetActive(false);
             print("go to next level");
-            
+
+            PlayerPrefs.SetInt("BatteryCharge", es.energyBar);
             FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
 
@@ -280,7 +282,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator RestartLevel(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        es.energyBar = 0;
+        //es.energyBar = 0;
         print("loaded next scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -294,6 +296,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Door") //Gömmer "This door is locked" texten när spelarens slutar nudda dörren - William
         {
+            
             lockedDoor.SetActive(false);
         }
     }

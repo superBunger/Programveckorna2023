@@ -5,7 +5,7 @@ using UnityEngine;
 public class energiSystem : MonoBehaviour
 {
     public bool hasKey = false;
-    public int energyBar = 0;
+    public int energyBar;
 
     public GameObject barOne;
     public GameObject barTwo;
@@ -22,7 +22,7 @@ public class energiSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        barOne.SetActive(false);
+        
     }
 
     // Update is called once per frame

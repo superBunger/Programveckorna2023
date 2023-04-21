@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 26975950249518232}
   - component: {fileID: 26975950249518233}
   - component: {fileID: 26975950249518234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: emp
   m_TagString: emp
   m_Icon: {fileID: 0}
@@ -4952,7 +4952,7 @@ GameObject:
   - component: {fileID: 6308118838114482629}
   - component: {fileID: 6308118838114482630}
   - component: {fileID: 401970778690771888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5068,7 +5068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3696751993606211085}
   - component: {fileID: 4194898823509986774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5130,7 +5130,7 @@ GameObject:
   - component: {fileID: 7253793995429355014}
   - component: {fileID: 7253793995429355010}
   - component: {fileID: -176272189553542746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: uppdaterad player (ta inte bort)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5270,10 +5270,10 @@ MonoBehaviour:
   sr: {fileID: 7253793995429355012}
   box2d: {fileID: 7253793995429355014}
   playerLight: {fileID: 9060147121530547999, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}
-  keycard: {fileID: 1810690119813783682, guid: 4bac6b9eca9f5db44a1628814ed9baa6, type: 3}
+  keycard: {fileID: 0}
   rb: {fileID: 7253793995429355015}
   speedBoostActive: 0
-  lockedDoor: {fileID: 9212521550515802946, guid: 6cf86468b0db6834e99ec88923e6b35b, type: 3}
+  lockedDoor: {fileID: 0}
   es: {fileID: 0}
   pss: {fileID: 0}
   insideWall: 0
@@ -5353,6 +5353,14 @@ PrefabInstance:
     - target: {fileID: 9060147121530547999, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}
       propertyPath: m_Name
       value: Spot Light 2D (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060147121530547999, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060147121530547999, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156ea109ffb715e449db000c1f0411cb, type: 3}

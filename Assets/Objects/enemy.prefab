@@ -284,7 +284,10 @@ MonoBehaviour:
   waypoint:
   - {fileID: 0}
   - {fileID: 0}
-  waitTime: 11
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  waitTime: 5
   ees: {fileID: 1579613939}
 --- !u!95 &1865511560
 Animator:
@@ -315,8 +318,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093774426666388482}
-  - component: {fileID: 5320659458877592544}
   - component: {fileID: 1579613939}
+  - component: {fileID: 1550524542231423742}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -340,38 +343,6 @@ Transform:
   m_Father: {fileID: 786386606170707648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &5320659458877592544
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5478373985360951351}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.882353}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.1778328, y: 5.9874606}
-      - {x: -0.0037491322, y: 6.195322}
-      - {x: -1.2389677, y: 5.930433}
-      - {x: -2.0567656, y: 5.2108026}
-      - {x: -0.14828277, y: 0.5175593}
-      - {x: 0.18055248, y: 0.4927733}
-      - {x: 2.0624478, y: 5.225309}
 --- !u!114 &1579613939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastScript: {fileID: 1550524542231423742}
   juggernaut: {fileID: 0}
   detected: 0
   disabled: 0
@@ -391,3 +363,24 @@ MonoBehaviour:
   isDetected: 0
   pss: {fileID: 0}
   lightCone: {fileID: 2135872842}
+--- !u!114 &1550524542231423742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5478373985360951351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2101eea837ff2b44da452b34a8efa4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5.8
+  angle: 46.5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  player: {fileID: 0}

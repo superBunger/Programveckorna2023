@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyeyesight : MonoBehaviour
 {
+    public FieldOfView raycastScript;
     public pathfinding juggernaut;
 
     public bool detected = false;
@@ -22,6 +23,7 @@ public class enemyeyesight : MonoBehaviour
     Coroutine changeToNormal;
     void Update()
     {
+        
         if (detected == false && isDetected == true && isChangingToNormal == false)
         {
             changeToNormal = StartCoroutine(ChangeAmbienceNormalCooldown(10.0f)); //Byter till vanliga ambience om 10 sekunder - erik

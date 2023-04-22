@@ -18,6 +18,8 @@ public class rotatingVision : MonoBehaviour
     
     public particlesystemscript pss;
     public energiSystem es;
+    public FieldOfView raycastScript;
+    public pathfinding juggernaut;
 
     private void Start()
         {
@@ -70,6 +72,19 @@ public class rotatingVision : MonoBehaviour
         {
             StopAllCoroutines(); //stänger av timern om man lämnar visionen
         }
+
+        if (raycastScript.CanSeePlayer == true)
+        {
+            peepin = true; //om man inte är gömd och fienden ser dig kommer den följa dig med blicken //max och henry
+           
+        }
+      
+        if (raycastScript.CanSeePlayer == false)
+        {
+            peepin = false; //stops following you if you leave vision
+            
+        }
+
     }
 
     IEnumerator energyTimer()
@@ -80,23 +95,5 @@ public class rotatingVision : MonoBehaviour
         energyTimerStarted = false; //energytimerstarted används så att bara en timer startas åt gången - max
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false)
-        {
-            peepin = true; //om man inte är gömd och fienden ser dig kommer den följa dig med blicken //max och henry
-        }
-
-    }
-
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            peepin = false; //stops following you if you leave vision
-            
-        }
-    }
+   
 }

@@ -18,7 +18,10 @@ public class enemyeyesight : MonoBehaviour
     public particlesystemscript pss;
     public UnityEngine.Rendering.Universal.Light2D lightCone;
 
-
+    private void Start()
+    {
+        lightCone = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+    }
 
     Coroutine changeToNormal;
     void Update()
@@ -38,22 +41,52 @@ public class enemyeyesight : MonoBehaviour
         if (pss.insideSmoke == true || disabled == true)
         {
             detected = false; //om man stänger av fienden eller gömmer sig i rök, slutar man vara detected - max
+            juggernaut.othersSee = 1;
         }
 
         if (disabled == true)
         {
             lightCone.enabled = false;
+            
         }
         else
         {
             lightCone.enabled = true; //ändrar visionen av och på beroende på om fienden är stunned - max
         }
+
+
+        if (raycastScript.CanSeePlayer == true && pss.insideSmoke == false && disabled == false)
+        {
+            juggernaut.othersSee = 1;
+            detected = true;  //om man blir sedd blir detected sann - max och erik
+            isChangingToNormal = false;
+            
+
+            if (isChangingToDetected == false)
+            {
+                StartCoroutine(ChangeAmbienceDetectedCooldown(1.75f));
+                isChangingToDetected = true;
+                //När man blir upptäckt så byter den till detected ambience om 1.75 sekunder - erik
+            }
+
+            if (isAlarming == false)
+            {
+                isAlarming = true;
+                FindObjectOfType<AudioManager>().Play("DetectionAlarm");
+                //Om det inte spelas ett aktivt alarm så spelas det ett när man blir upptäckt - erik
+            }
+
+        }
+
+        if(raycastScript.CanSeePlayer == false)
+        {
+            juggernaut.othersSee = 0;
+            detected = false;
+            
+        }
     }
 
-    private void Start()
-    {
-        lightCone = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
-}
+  
 
     public IEnumerator ChangeAmbienceDetectedCooldown(float seconds)
     {
@@ -74,51 +107,17 @@ public class enemyeyesight : MonoBehaviour
 
     IEnumerator disabledTimer()
     {
-        yield return new WaitForSeconds(3); //sätter på vision efter 3 sekunder - max
+        yield return new WaitForSeconds(5); //sätter på vision efter 3 sekunder - max
         disabled = false;
-    }
-    
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
-        if (collision.gameObject.tag == "Player" && detected == true)
-        {
-            detected = false; // om man slutar bli sedd blir den falsk, och en kod f�r att �ndra tillbaka f�rgen b�rjar - max och erik
-            isDetected = true;
-            juggernaut.othersSee -= 1;
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && pss.insideSmoke == false && disabled == false)
-        {
-                detected = true;  //om man blir sedd blir detected sann - max och erik
-                isChangingToNormal = false;
-                juggernaut.othersSee += 1;
-
-                if (isChangingToDetected == false)
-                {
-                    StartCoroutine(ChangeAmbienceDetectedCooldown(1.75f));
-                    isChangingToDetected = true;
-                //När man blir upptäckt så byter den till detected ambience om 1.75 sekunder - erik
-            }
-
-            if (isAlarming == false)
-                {
-                    isAlarming = true;
-                    FindObjectOfType<AudioManager>().Play("DetectionAlarm");
-                //Om det inte spelas ett aktivt alarm så spelas det ett när man blir upptäckt - erik
-            }
-
-        }
 
         if(collision.gameObject.tag == "emp")
         {
             disabled = true;
-            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned - erik
+            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned - max
         }
 
     }

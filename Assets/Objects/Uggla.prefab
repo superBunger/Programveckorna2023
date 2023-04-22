@@ -258,8 +258,8 @@ GameObject:
   - component: {fileID: 1462947142}
   - component: {fileID: 341469222}
   - component: {fileID: 341469223}
-  - component: {fileID: 8293288196741439265}
   - component: {fileID: 527553544}
+  - component: {fileID: 423755548}
   m_Layer: 0
   m_Name: Eyes
   m_TagString: Untagged
@@ -395,6 +395,8 @@ MonoBehaviour:
   whipIt: 0
   pss: {fileID: 0}
   es: {fileID: 0}
+  raycastScript: {fileID: 423755548}
+  juggernaut: {fileID: 0}
 --- !u!114 &341469223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e721f5ee51f6a84983e70af2663be2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  raycastScript: {fileID: 423755548}
   juggernaut: {fileID: 0}
   detected: 0
   disabled: 0
@@ -414,45 +417,6 @@ MonoBehaviour:
   isDetected: 0
   pss: {fileID: 0}
   lightCone: {fileID: 3049252466043100966}
---- !u!60 &8293288196741439265
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6384432356518920394}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.11}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.5845273, y: 4.164594}
-      - {x: 0.94662213, y: 4.3969207}
-      - {x: 0.5681247, y: 4.445218}
-      - {x: 0.027912073, y: 4.501332}
-      - {x: -0.2931539, y: 4.4715757}
-      - {x: -0.85435426, y: 4.3718176}
-      - {x: -1.2030234, y: 4.284642}
-      - {x: -1.4889473, y: 4.2007}
-      - {x: -1.7214621, y: 4.1371217}
-      - {x: -1.9804103, y: 4.0319557}
-      - {x: -0.14355542, y: -0.6269051}
-      - {x: -0.012262138, y: -1.0911586}
-      - {x: 0.13753462, y: -0.6597288}
-      - {x: 1.9624528, y: 3.873798}
 --- !u!114 &527553544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,3 +429,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a1fd255367a3541b5503a6f4545564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &423755548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384432356518920394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2101eea837ff2b44da452b34a8efa4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5.8
+  angle: 46.5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  player: {fileID: 0}

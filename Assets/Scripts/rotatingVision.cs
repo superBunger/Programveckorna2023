@@ -19,7 +19,7 @@ public class rotatingVision : MonoBehaviour
     public particlesystemscript pss;
     public energiSystem es;
     public FieldOfView raycastScript;
-    public pathfinding juggernaut;
+
 
     private void Start()
         {

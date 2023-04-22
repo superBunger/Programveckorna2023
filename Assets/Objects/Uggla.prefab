@@ -396,7 +396,6 @@ MonoBehaviour:
   pss: {fileID: 0}
   es: {fileID: 0}
   raycastScript: {fileID: 423755548}
-  juggernaut: {fileID: 0}
 --- !u!114 &341469223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,3 +449,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   player: {fileID: 0}
+  juggernaut: {fileID: 0}

@@ -10,6 +10,8 @@ public class FieldOfView : MonoBehaviour
     public LayerMask obstructionLayer;
 
     public GameObject player;
+    public GameObject juggernautObject;
+    pathfinding juggernaut;
 
     public bool CanSeePlayer { get; private set; }
 
@@ -17,6 +19,8 @@ public class FieldOfView : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVCheck());
+        juggernautObject = GameObject.FindGameObjectWithTag("Juggernaut");
+        juggernaut = juggernautObject.GetComponent<pathfinding>();
     }
 
     void Update()
@@ -42,21 +46,25 @@ public class FieldOfView : MonoBehaviour
 
                 if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
                 {
-                    CanSeePlayer = true; 
+                    CanSeePlayer = true;
+                    juggernaut.othersSee = 1;
                 }
                 else
                 {
                     CanSeePlayer = false;
+                    juggernaut.othersSee = 0;
                 }
             }
             else
             {   
                 CanSeePlayer = false;
+                juggernaut.othersSee = 0;
             }
         } 
         else if(CanSeePlayer)
         {
             CanSeePlayer = false;
+            juggernaut.othersSee = 0;
         }
     }
 

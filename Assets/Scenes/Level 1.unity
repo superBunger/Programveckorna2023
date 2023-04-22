@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38739602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7253793995429355017, guid: 4c11b9ca06ce1d8449d357f21355461f, type: 3}
-  m_PrefabInstance: {fileID: 2904670192591006648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52115815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2435,14 +2430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
-      propertyPath: waitTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
-      propertyPath: waypoint.Array.size
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1550524542231423742, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
+      propertyPath: juggernaut
+      value: 
+      objectReference: {fileID: 2049048994}
     - target: {fileID: 3325868602170103163, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
       propertyPath: waypoint.Array.data[0]
       value: 
@@ -2465,32 +2456,6 @@ PrefabInstance:
       objectReference: {fileID: 2068895360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a780d4e32d1c264992e7035cc6f1f95, type: 3}
---- !u!1 &423755540 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6384432356518920394, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-  m_PrefabInstance: {fileID: 1340659365}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &423755548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423755540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2101eea837ff2b44da452b34a8efa4ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5.8
-  angle: 46.5
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  obstructionLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  player: {fileID: 38739602}
 --- !u!1001 &485580924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6409,10 +6374,6 @@ PrefabInstance:
       propertyPath: pss
       value: 
       objectReference: {fileID: 1961377451}
-    - target: {fileID: 341469222, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-      propertyPath: raycastScript
-      value: 
-      objectReference: {fileID: 423755548}
     - target: {fileID: 341469223, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: pss
       value: 
@@ -6421,10 +6382,10 @@ PrefabInstance:
       propertyPath: juggernaut
       value: 
       objectReference: {fileID: 2049048994}
-    - target: {fileID: 341469223, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-      propertyPath: raycastScript
+    - target: {fileID: 423755548, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+      propertyPath: juggernaut
       value: 
-      objectReference: {fileID: 423755548}
+      objectReference: {fileID: 2049048994}
     - target: {fileID: 5415615454451351184, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6473,8 +6434,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uggla
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8293288196741439265, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
 --- !u!1001 &1445042925
 PrefabInstance:
@@ -6534,14 +6494,6 @@ PrefabInstance:
     - target: {fileID: 3378714463373130981, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378714463373130983, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3378714463373130983, guid: cd0761cfa069ae944aa9497b90508279, type: 3}
-      propertyPath: m_Size.y
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd0761cfa069ae944aa9497b90508279, type: 3}

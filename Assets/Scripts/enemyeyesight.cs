@@ -41,7 +41,7 @@ public class enemyeyesight : MonoBehaviour
         if (pss.insideSmoke == true || disabled == true)
         {
             detected = false; //om man stänger av fienden eller gömmer sig i rök, slutar man vara detected - max
-            juggernaut.othersSee = 1;
+            juggernaut.othersSee = 0;
         }
 
         if (disabled == true)
@@ -57,7 +57,7 @@ public class enemyeyesight : MonoBehaviour
 
         if (raycastScript.CanSeePlayer == true && pss.insideSmoke == false && disabled == false)
         {
-            juggernaut.othersSee = 1;
+           
             detected = true;  //om man blir sedd blir detected sann - max och erik
             isChangingToNormal = false;
             
@@ -80,7 +80,7 @@ public class enemyeyesight : MonoBehaviour
 
         if(raycastScript.CanSeePlayer == false)
         {
-            juggernaut.othersSee = 0;
+            
             detected = false;
             
         }

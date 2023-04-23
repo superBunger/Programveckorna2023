@@ -687,10 +687,6 @@ PrefabInstance:
       propertyPath: pss
       value: 
       objectReference: {fileID: 633233465}
-    - target: {fileID: 341469222, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-      propertyPath: setRotation
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 341469223, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: pss
       value: 

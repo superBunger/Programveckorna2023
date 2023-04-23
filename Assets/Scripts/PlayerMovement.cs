@@ -245,8 +245,7 @@ public class PlayerMovement : MonoBehaviour
             rb.simulated = false;
             playerLight.SetActive(false);
             StartCoroutine(FindObjectOfType<LevelLoader>().GameOver(5.0f));
-            StartCoroutine(FindObjectOfType<AudioManager>().StopMusicCoroutine());
-            StartCoroutine(RestartLevel(5.0f));
+            FindObjectOfType<AudioManager>().StopMusic();
 
             // disable spriterenderer
             // disable box collider
@@ -254,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             // start coroutine
         }
 
-        if (collision.gameObject.tag == "breakableWall")
+        if (collision.gameObject.tag == "Breakable wall")
         {
             insideWall = true;
         }
@@ -299,17 +298,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public IEnumerator RestartLevel(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        //es.energyBar = 0;
-        print("loaded next scene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "breakableWall")
+        if (collision.gameObject.tag == "Breakable wall")
         {
             insideWall = false;
         }

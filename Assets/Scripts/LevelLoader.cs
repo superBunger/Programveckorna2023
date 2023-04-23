@@ -19,14 +19,10 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         gameOverAnimator.SetTrigger("doneGamingOver");
         gameOverAnimator.SetBool("isGameOver", false);
+        print("Reloading Scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
-
-    void Start()
-	{
-        //Startar med funktionen som startar musik - erik
-        LoadSceneActions();
-	}
 
     public void OnEnable()
     {
@@ -43,21 +39,6 @@ public class LevelLoader : MonoBehaviour
             furthestSceneReached = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("FurthestSceneReached", furthestSceneReached);
             PlayerPrefs.Save();
-        }
-    }
-
-    public void LoadSceneActions()
-    {
-        //Funktion som laddar musiken f�r spelet scener  - erik
-        if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex < 9)
-        {
-            FindObjectOfType<AudioManager>().Play("Ambience");
-            FindObjectOfType<AudioManager>().Play("AmbienceDetected");
-            FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 9)
-        {
-            FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         }
     }
 
@@ -95,7 +76,6 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
         transition.SetTrigger("TransitionStart");
         yield return new WaitForSeconds(0.5f);
-        LoadSceneActions();
     }
 
 }

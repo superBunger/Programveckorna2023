@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 	public AudioMixerGroup mixerGroup;
 	public Sound[] sounds;
 
-	//Grunden var tagen från en Brackeys Tutorial men alla funktioner och coroutines är gjorda av Erik
+	//Grunden var tagen frï¿½n en Brackeys Tutorial men alla funktioner och coroutines ï¿½r gjorda av Erik
 
 	void Awake()
 	{
@@ -29,6 +29,16 @@ public class AudioManager : MonoBehaviour
 		if(SceneManager.GetActiveScene().buildIndex == 0)
         {
 		Play("MenuTheme");
+        }
+		else if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex < 9)
+        {
+            FindObjectOfType<AudioManager>().Play("Ambience");
+            FindObjectOfType<AudioManager>().Play("AmbienceDetected");
+            FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 9)
+        {
+            FindObjectOfType<AudioManager>().Play("PlayerFootsteps");
         }
 	}
 
@@ -103,7 +113,7 @@ public class AudioManager : MonoBehaviour
 			StartCoroutine(FadeOut("AmbienceDetected", 1f));
 			Stop("PlayerFootsteps");
 			Stop("JuggernautFootsteps");
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(0.9f);
 			Stop("Ambience");
 			Stop("AmbienceDetected");
         }

@@ -7725,10 +7725,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uggla
       objectReference: {fileID: 0}
-    - target: {fileID: 6594116733717282504, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
-      propertyPath: m_ShadowIntensityEnabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
 --- !u!1001 &658818860
@@ -8116,6 +8112,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 341469222, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+      propertyPath: es
+      value: 
+      objectReference: {fileID: 1310795954}
     - target: {fileID: 341469222, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: pss
       value: 

@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        levelManager.LoadSceneActions();
         if(PlayerPrefs.HasKey("gameHasSaved"))
         {
             saveManager.ApplySettings();

@@ -87,6 +87,11 @@ public class energiSystem : MonoBehaviour
             {
                 energyBar = 4;  //ser till att energi inte kan �ka �ver 4 - max
             }
+
+            if(energyBar < 0)
+            {
+                energyBar = 0;
+            }
         }
 
        

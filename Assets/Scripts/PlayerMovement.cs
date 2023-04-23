@@ -279,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerPrefs.SetInt("BatteryCharge", es.energyBar);
             if (SceneManager.GetActiveScene().buildIndex == 9)
             {
+                PlayerPrefs.SetInt("beatenGame", 1);
                 FindObjectOfType<LevelLoader>().LoadMenuLevel();
             }
             else

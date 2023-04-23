@@ -11,8 +11,18 @@ public class MainMenu : MonoBehaviour
     public SaveData saveManager;
     public GameObject continueButton;
 
+    public GameObject coloredTree;
+
     void Start()
     {
+        if(PlayerPrefs.GetInt("beatenGame") == 1)
+        {
+            coloredTree.SetActive(true);
+        }
+        else
+        {
+            coloredTree.SetActive(false);
+        }
         //visar continue knappen om man kommit till level 2  - erik
         if (PlayerPrefs.GetInt("FurthestSceneReached") > 1)
         {

@@ -274,7 +274,14 @@ public class PlayerMovement : MonoBehaviour
             print("go to next level");
 
             PlayerPrefs.SetInt("BatteryCharge", es.energyBar);
-            FindObjectOfType<LevelLoader>().LoadNextLevel();
+            if(SceneManager.GetActiveScene().buildIndex == 9)
+            {
+                FindObjectOfType<LevelLoader>().LoadMenuLevel();
+            }
+            else
+            {
+                FindObjectOfType<LevelLoader>().LoadNextLevel();
+            }
         }
 
         if(collision.gameObject.tag == "Tutorial" && tutorialComplete == false)

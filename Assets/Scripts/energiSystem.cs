@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class energiSystem : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class energiSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<LevelLoader>().gameOverAnimator.GetBool("isGameOver") == false)
+        if (FindObjectOfType<LevelLoader>().gameOverAnimator.GetBool("isGameOver") == false && SceneManager.GetActiveScene().buildIndex < 9)
         {
             if (energyBar >= 1)
             {

@@ -129,13 +129,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && speedBoostActive == false && es.energyBar >= 1)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && speedBoostActive == false && es.energyBar >= 2)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             playerSpeed += boostspeed;
             StartCoroutine(speedBoostPower());
             speedBoostActive = true;
-            es.energyBar -= 1; //om man har nog med energi och trycker på knappen blir man snabbare - max
+            es.energyBar -= 2; //om man har nog med energi och trycker på knappen blir man snabbare - max
 
         }
 
@@ -147,10 +147,10 @@ public class PlayerMovement : MonoBehaviour
             speedBoostActive = false; //den här timern väntar 2.5s för att ta bort farten och sen en till sekund innan man kan använda speed boost igen. - max
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha2) && es.energyBar >= 2 && smoking == false)
+        if(Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3 && smoking == false)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
-            es.energyBar -= 2;
+            es.energyBar -= 3;
             pss.gameObject.transform.position = transform.position;
             ParticleSystem smokerSystem = pss.gameObject.GetComponent<ParticleSystem>();
             smokerSystem.Play();
@@ -168,10 +168,10 @@ public class PlayerMovement : MonoBehaviour
             smoking = false; //gör så att man kan lägga en ny smokebomb
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3)
+        if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar >= 4)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
-            es.energyBar -= 3;
+            es.energyBar -= 4;
             empSystem.Play();
             cc2D.enabled = true;
             loopTimer = 10;
@@ -192,11 +192,11 @@ public class PlayerMovement : MonoBehaviour
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4) && es.energyBar == 4 && insideWall == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && es.energyBar == 1 && insideWall == true)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-            es.energyBar -= 4;
+            es.energyBar -= 1;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
         }

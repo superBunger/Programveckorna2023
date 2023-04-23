@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
             cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && es.energyBar == 1 && insideWall == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && es.energyBar >= 1 && insideWall == true)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);

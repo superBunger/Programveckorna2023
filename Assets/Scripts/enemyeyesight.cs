@@ -8,7 +8,7 @@ public class enemyeyesight : MonoBehaviour
     public pathfinding juggernaut;
 
     public bool detected = false;
-    public bool disabled = false;
+    public bool disabled;
 
     public bool isAlarming = false; //Is it playing the alarm?
     public bool isDetected = false; //Is it playing the "Ambience" ambience?
@@ -21,9 +21,22 @@ public class enemyeyesight : MonoBehaviour
     private void Start()
     {
         lightCone = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+        disabled = false;
     }
 
     Coroutine changeToNormal;
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("emp"))
+        {
+            disabled = true;
+            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned - max
+        }
+    }
+ 
+
+    
     void Update()
     {
         
@@ -109,16 +122,5 @@ public class enemyeyesight : MonoBehaviour
     {
         yield return new WaitForSeconds(5); //sätter på vision efter 3 sekunder - max
         disabled = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if(collision.gameObject.tag == "emp")
-        {
-            disabled = true;
-            StartCoroutine(disabledTimer()); //stänger av vision om man blir stunned - max
-        }
-
     }
 }

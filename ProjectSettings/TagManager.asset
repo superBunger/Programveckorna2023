@@ -11,10 +11,10 @@ TagManager:
   - barOne
   - emp
   - bomb
+  - breakableWall
   - Keycard
   - Door
-  - Undefined
-  - Tutorial
+  - ugly
   layers:
   - Default
   - TransparentFX

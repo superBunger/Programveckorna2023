@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sr;
     public BoxCollider2D box2d;
     public GameObject playerLight;
-    public bool tutorialComplete = false; 
+    public bool tutorialComplete = false;
 
     public GameObject keycard;
     public Rigidbody2D rb; //för movement
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     float boostspeed = 350f;
     float speedDuration = 2.5f;
     public bool speedBoostActive = false;
-    
+
 
     Vector2 movement;
     Animator animator;
@@ -34,10 +34,12 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bombPrefab; //prefab för att spawna bomb
     GameObject wallDestroy;
 
-    ParticleSystem empSystem; //för EMP
+    public GameObject emp; //för EMP
     CircleCollider2D cc2D;
     int loopTimer;
-   
+    ParticleSystem empSystem;
+    Vector2 empHomePos = new Vector2(4000, 4000);
+
     public bool smoking; //för rökbomb
     Vector2 homePos = new Vector2(5000, 5000);
 
@@ -46,9 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D - William
         pss.gameObject.GetComponent<ParticleSystem>().Stop();
-        empSystem = GetComponentInChildren<ParticleSystem>();
-        cc2D = GetComponentInChildren<CircleCollider2D>();
-        cc2D.enabled = false;
+        cc2D = emp.GetComponent<CircleCollider2D>();
+        empSystem = emp.GetComponent<ParticleSystem>();
 
         animator = GetComponent<Animator>();
 
@@ -88,10 +89,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("playerRight", false);
-            
+
         }
 
-       
+
 
         if (movement.x < 0 && routineStartedLeft == false) //Vänster
         {
@@ -101,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("playerLeft", false);
-            
+
         }
 
 
@@ -113,10 +114,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("playerButt", false);
-         
+
         }
 
-      
+
 
         if (movement.y < 0 && routineStartedDown == false) //Ner
         {
@@ -126,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("playerForward", false);
-          
+
         }
 
 
@@ -148,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
             speedBoostActive = false; //den här timern väntar 2.5s för att ta bort farten och sen en till sekund innan man kan använda speed boost igen. - max
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3 && smoking == false)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && es.energyBar >= 3 && smoking == false)
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 3;
@@ -157,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             smokerSystem.Play();
             StartCoroutine(smokeBombTimer());
             smoking = true; //gör en rök bomb om man trycker 2 (flyttar den till dig och sen tillbaka bort) - max
-            
+
         }
 
         IEnumerator smokeBombTimer()
@@ -173,15 +174,16 @@ public class PlayerMovement : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             es.energyBar -= 4;
+            cc2D.radius = 0.125f;
+            emp.transform.position = transform.position;
             empSystem.Play();
-            cc2D.enabled = true;
             loopTimer = 10;
             StartCoroutine(empHitBox()); //skickar en emp om man trycker på 3
         }
 
         IEnumerator empHitBox()
         {
-            while(loopTimer >= 0)
+            while (loopTimer >= 0)
             {
                 cc2D.radius += 0.2f;
                 yield return new WaitForSeconds(0.1f);
@@ -190,7 +192,8 @@ public class PlayerMovement : MonoBehaviour
             cc2D.radius += 0.3f;
             yield return new WaitForSeconds(0.5f);
             cc2D.radius = 0.125f;
-            cc2D.enabled = false; //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
+            //hitboxen blir lite större istället för att på direkten blir full storlek, som pulsen - max
+            emp.transform.position = empHomePos;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && es.energyBar >= 1 && insideWall == true)
@@ -202,16 +205,16 @@ public class PlayerMovement : MonoBehaviour
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
         }
-        
+
         IEnumerator bombTimer()
         {
             yield return new WaitForSeconds(0.85f);
             Destroy(bomb);
             wallDestroy = FindObjectOfType<BreakWall>().gameObject;
             Destroy(wallDestroy);
-        }        
+        }
     }
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -261,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("KeycardPickup");
             es.hasKey = true;
             Destroy(keycard);
-            
+
         }
         if (collision.gameObject.tag == "Door" && es.hasKey == false) //Visar "This door is locked" när spelaren nuddar dörren och saknar nyckeln - William
         {
@@ -274,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
             print("go to next level");
 
             PlayerPrefs.SetInt("BatteryCharge", es.energyBar);
-            if(SceneManager.GetActiveScene().buildIndex == 9)
+            if (SceneManager.GetActiveScene().buildIndex == 9)
             {
                 FindObjectOfType<LevelLoader>().LoadMenuLevel();
             }
@@ -282,15 +285,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 FindObjectOfType<LevelLoader>().LoadNextLevel();
             }
+
         }
 
-        if(collision.gameObject.tag == "Tutorial" && tutorialComplete == false)
+        if (collision.gameObject.tag == "Tutorial" && tutorialComplete == false)
         {
             es.tutorial.SetActive(true);
         }
-        
 
-      
+
+
 
     }
 
@@ -304,17 +308,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "breakableWall")
+        if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = false;
         }
 
         if (collision.gameObject.tag == "Door") //Gömmer "This door is locked" texten när spelarens slutar nudda dörren - William
         {
-            
+
             lockedDoor.SetActive(false);
         }
-        if(collision.gameObject.tag == "Tutorial")
+        if (collision.gameObject.tag == "Tutorial")
         {
             es.tutorial.SetActive(false);
         }

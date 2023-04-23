@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sr;
     public BoxCollider2D box2d;
     public GameObject playerLight;
+    public bool tutorialComplete = false; 
 
     public GameObject keycard;
     public Rigidbody2D rb; //för movement
@@ -197,6 +198,7 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("BatteryDischarge");
             bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
             es.energyBar -= 1;
+            tutorialComplete = true;
             bomb.GetComponent<Animator>().SetTrigger("bombTime");
             StartCoroutine(bombTimer());
         }
@@ -249,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
             // start coroutine
         }
 
-        if (collision.gameObject.tag == "Breakable wall")
+        if (collision.gameObject.tag == "breakableWall")
         {
             insideWall = true;
         }
@@ -275,6 +277,12 @@ public class PlayerMovement : MonoBehaviour
             FindObjectOfType<LevelLoader>().LoadNextLevel();
         }
 
+        if(collision.gameObject.tag == "Tutorial" && tutorialComplete == false)
+        {
+            es.tutorial.SetActive(true);
+        }
+        
+
       
 
     }
@@ -298,6 +306,10 @@ public class PlayerMovement : MonoBehaviour
         {
             
             lockedDoor.SetActive(false);
+        }
+        if(collision.gameObject.tag == "Tutorial")
+        {
+            es.tutorial.SetActive(false);
         }
     }
 }

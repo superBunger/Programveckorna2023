@@ -13,6 +13,8 @@ TagManager:
   - bomb
   - Keycard
   - Door
+  - Undefined
+  - Tutorial
   layers:
   - Default
   - TransparentFX

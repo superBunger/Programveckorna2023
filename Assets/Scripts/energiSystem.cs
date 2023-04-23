@@ -18,6 +18,7 @@ public class energiSystem : MonoBehaviour
     public GameObject bombIcon;
 
     public GameObject keycardIcon;
+    public GameObject tutorial;
 
     // Start is called before the first frame update
     void Start()

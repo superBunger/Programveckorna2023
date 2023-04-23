@@ -5954,6 +5954,10 @@ PrefabInstance:
       propertyPath: minAngles.z
       value: -0.70710677
       objectReference: {fileID: 0}
+    - target: {fileID: 341469222, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
+      propertyPath: setRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 341469223, guid: 0c82733a771b85d4cb197fee8c31adea, type: 3}
       propertyPath: pss
       value: 
@@ -6790,7 +6794,7 @@ Transform:
   m_Father: {fileID: 1796276931}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &643888120
+--- !u!43 &1034079384
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10148,8 +10152,8 @@ MonoBehaviour:
   - {x: -21, y: 4, z: 0}
   - {x: -21, y: 2, z: 0}
   m_ShapePathHash: -24567786
-  m_Mesh: {fileID: 643888120}
-  m_InstanceId: 62164
+  m_Mesh: {fileID: 1034079384}
+  m_InstanceId: 42802
 --- !u!1001 &1494468508
 PrefabInstance:
   m_ObjectHideFlags: 0

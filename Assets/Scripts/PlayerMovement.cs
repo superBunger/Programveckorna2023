@@ -43,9 +43,16 @@ public class PlayerMovement : MonoBehaviour
     public bool smoking; //för rökbomb
     Vector2 homePos = new Vector2(5000, 5000);
 
+    public GameObject[] AllBreakableWalls;
+    public GameObject NearestBreakableWall;
+    float distanceToWall;
+    float nearestDistance = 100000;
+
     // Start is called before the first frame update
     void Start()
     {
+        AllBreakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
+
         rb = GetComponent<Rigidbody2D>(); //Referens till rigidbody2D - William
         pss.gameObject.GetComponent<ParticleSystem>().Stop();
         cc2D = emp.GetComponent<CircleCollider2D>();
@@ -67,6 +74,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AllBreakableWalls = GameObject.FindGameObjectsWithTag("Breakable wall");
+
+        for (int i = 0; i < AllBreakableWalls.Length; i++)
+        {
+            distanceToWall = Vector2.Distance(this.transform.position, AllBreakableWalls[i].transform.position);
+
+            if(distanceToWall < nearestDistance)
+            {
+                NearestBreakableWall = AllBreakableWalls[i];
+                nearestDistance = distanceToWall;
+            }
+        }
+
         if (rb.velocity.magnitude > 0)
         {
             FindObjectOfType<AudioManager>().ChangeVolume("PlayerFootsteps", 1.0f);
@@ -210,8 +230,7 @@ public class PlayerMovement : MonoBehaviour
         {
             yield return new WaitForSeconds(0.85f);
             Destroy(bomb);
-            wallDestroy = FindObjectOfType<BreakWall>().gameObject;
-            Destroy(wallDestroy);
+            Destroy(NearestBreakableWall);
         }
     }
 

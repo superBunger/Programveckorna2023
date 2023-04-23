@@ -11,7 +11,6 @@ TagManager:
   - barOne
   - emp
   - bomb
-  - breakableWall
   - Keycard
   - Door
   layers:

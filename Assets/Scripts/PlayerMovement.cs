@@ -249,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
             // start coroutine
         }
 
-        if (collision.gameObject.tag == "breakableWall")
+        if (collision.gameObject.tag == "Breakable wall")
         {
             insideWall = true;
         }

@@ -67,33 +67,33 @@ public class FieldOfView : MonoBehaviour
             juggernaut.othersSee = 0;
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
-
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle * 0.5f);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle * 0.5f);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
-
-        if(CanSeePlayer)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, player.transform.position);
-        }
-    }
-
-    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
-
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
-
+//
+//    private void OnDrawGizmos()
+//    {
+//        Gizmos.color = Color.white;
+//        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
+//
+//        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle * 0.5f);
+//        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle * 0.5f);
+//
+//        Gizmos.color = Color.yellow;
+//        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
+//        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
+//
+//        if(CanSeePlayer)
+//        {
+//            Gizmos.color = Color.green;
+//            Gizmos.DrawLine(transform.position, player.transform.position);
+//        }
+//    }
+//
+//    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
+//    {
+//        angleInDegrees += eulerY;
+//
+//        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+//    }
+//
     private IEnumerator FOVCheck()
     {
         WaitForSeconds wait = new WaitForSeconds(0.1f);

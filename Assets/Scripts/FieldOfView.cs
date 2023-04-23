@@ -25,10 +25,7 @@ public class FieldOfView : MonoBehaviour
 
     void Update()
     {
-        if(CanSeePlayer == true)
-        {
-            print("cock");
-        }
+        
     }
 
     void FOV()

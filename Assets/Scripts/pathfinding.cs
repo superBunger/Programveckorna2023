@@ -17,6 +17,7 @@ public class pathfinding : MonoBehaviour
     NavMeshAgent agent;
     GameObject Player;
     Animator animator;
+    GameObject wallDestroy;
 
     bool isScreaming = false;
 
@@ -30,6 +31,17 @@ public class pathfinding : MonoBehaviour
         agent.updateUpAxis = false;
         animator = GetComponent<Animator>();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "breakableWall")
+        {
+            print("i ran face first into a wall");
+            wallDestroy = FindObjectOfType<BreakWall>().gameObject;
+            Destroy(wallDestroy);
+        }
+    }
+
     void Update()
     {
         

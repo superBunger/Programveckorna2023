@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public Sprite invertedLogo;
     public Sprite outvertedLogo;
     public Camera cam;
+    public float FadeSpeed = 0.5f;
     //I've given up. - Henry
     public Button coninueText;
     public Button settingsText;
@@ -165,7 +166,7 @@ public class MainMenu : MonoBehaviour
     {
         if (fadeIn = true)
         {
-            myUIGroup.alpha += Time.deltaTime;
+            myUIGroup.alpha += Time.deltaTime * FadeSpeed;
             if (myUIGroup.alpha >= 1)
             {
                 fadeIn = false;

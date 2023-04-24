@@ -1871,6 +1871,7 @@ MonoBehaviour:
   invertedLogo: {fileID: 21300000, guid: 2a7c647632cf9c24f8ffedc2fa06376b, type: 3}
   outvertedLogo: {fileID: 21300000, guid: 2bde93b14ec155946b731694ff74aab8, type: 3}
   cam: {fileID: 699545441}
+  FadeSpeed: 0.3
   coninueText: {fileID: 2020433762}
   settingsText: {fileID: 1884847848}
   CreditsText: {fileID: 531385913}
@@ -3240,7 +3241,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795872140}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

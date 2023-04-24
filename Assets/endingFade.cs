@@ -17,7 +17,7 @@ public class endingFade : MonoBehaviour
 
         if (myUIGroup.alpha >= 1) 
         {
-            levelLoaderScript.LoadNextScene(0);
+            levelLoaderScript.LoadMenuLevel();
         }
     }
 }

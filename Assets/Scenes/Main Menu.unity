@@ -1528,7 +1528,7 @@ Camera:
   m_GameObject: {fileID: 699545439}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0.021714343, b: 0.078431375, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1859,12 +1859,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e8e79683d34ad41a9466c5ccee085b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myUIGroup: {fileID: 1795872145}
+  fadeIn: 1
   creditsAnimator: {fileID: 718999405}
   settingsAnimator: {fileID: 2038426181325551149}
   levelLoaderScript: {fileID: 2390447990051382034}
   saveManager: {fileID: 3372234556782098659}
   continueButton: {fileID: 2020433760}
   coloredTree: {fileID: 1528949330}
+  logo: {fileID: 564095267}
+  invertedLogo: {fileID: 21300000, guid: 2a7c647632cf9c24f8ffedc2fa06376b, type: 3}
+  outvertedLogo: {fileID: 21300000, guid: 2bde93b14ec155946b731694ff74aab8, type: 3}
+  cam: {fileID: 699545441}
+  coninueText: {fileID: 2020433762}
+  settingsText: {fileID: 1884847848}
+  CreditsText: {fileID: 531385913}
+  NewGameText: {fileID: 2084417532}
+  QuitText: {fileID: 523231381}
+  HenryText: {fileID: 1430870643}
+  HenryRoleText: {fileID: 2135052896}
+  WilliamText: {fileID: 1054700833}
+  WilliamRoleText: {fileID: 1515070714}
+  LeeText: {fileID: 1296956488}
+  LeeRoleText: {fileID: 1866412634}
+  ErikText: {fileID: 1644127368}
+  ErikRoleText: {fileID: 1139941236}
+  SamText: {fileID: 103363470}
+  SamRoleText: {fileID: 336038171}
+  MaxText: {fileID: 534167283}
+  MaxRoleText: {fileID: 1353470525}
+  RonnieText: {fileID: 2026591100}
+  RonnieRoleText: {fileID: 770420311}
 --- !u!1 &1054700831
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3142,7 @@ GameObject:
   - component: {fileID: 1795872143}
   - component: {fileID: 1795872142}
   - component: {fileID: 1795872141}
+  - component: {fileID: 1795872145}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -3206,6 +3232,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1795872145
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795872140}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1860144941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,6 +4351,10 @@ PrefabInstance:
     - target: {fileID: 3372567631887126267, guid: 36847c8ccff1b3644b2ca45e6dcd2783, type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372567631887126267, guid: 36847c8ccff1b3644b2ca45e6dcd2783, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4462816499190011472, guid: 36847c8ccff1b3644b2ca45e6dcd2783, type: 3}
       propertyPath: m_AnchorMax.x
